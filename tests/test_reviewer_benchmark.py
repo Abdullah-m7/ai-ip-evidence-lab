@@ -95,8 +95,31 @@ class ReviewerBenchmarkTests(unittest.TestCase):
         scored = score_responses(fixture["responses"], self.answer_key)
         self.assertEqual(scored["overall"]["readiness_accuracy"], 1.0)
         self.assertEqual(scored["overall"]["false_ready_rate"], 0.0)
+        self.assertEqual(scored["overall"]["missing_information_recall_micro"], 1.0)
+        self.assertEqual(scored["overall"]["missing_information_precision_micro"], 1.0)
         self.assertEqual(scored["overall"]["mean_missing_fact_recall_not_ready"], 1.0)
-        self.assertEqual(scored["overall"]["mean_missing_fact_precision"], 1.0)
+
+    def test_duplicate_packet_response_is_rejected(self):
+        entry = self.manifest_a[0]
+        response = {
+            "packet_id": entry.packet_id,
+            "decision": "READY",
+            "missing_information_codes": [],
+            "confidence_0_to_100": 80,
+            "assessment_seconds": 20,
+        }
+        from src.ipel.reviewer_benchmark import BenchmarkError
+        with self.assertRaises(BenchmarkError):
+            score_responses([response, dict(response)], self.answer_key)
+
+    def test_invalid_timing_and_confidence_are_rejected(self):
+        entry = self.manifest_a[0]
+        from src.ipel.reviewer_benchmark import BenchmarkError
+        base = {"packet_id": entry.packet_id, "decision": "READY", "missing_information_codes": []}
+        with self.assertRaises(BenchmarkError):
+            score_responses([{**base, "confidence_0_to_100": 101}], self.answer_key)
+        with self.assertRaises(BenchmarkError):
+            score_responses([{**base, "assessment_seconds": -1}], self.answer_key)
 
     def test_decision_matrix_supports_agreement_analysis(self):
         perfect = json.loads(

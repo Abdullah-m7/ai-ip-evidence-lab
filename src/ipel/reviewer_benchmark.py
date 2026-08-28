@@ -419,16 +419,28 @@ def score_responses(
     responses: list[dict[str, Any]], answer_key: dict[str, dict[str, Any]]
 ) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
+    seen_packets: set[str] = set()
     for response in responses:
         packet_id = response.get("packet_id")
         if packet_id not in answer_key:
             raise BenchmarkError(f"unknown packet_id: {packet_id}")
+        if packet_id in seen_packets:
+            raise BenchmarkError(f"duplicate packet response: {packet_id}")
+        seen_packets.add(packet_id)
         decision = response.get("decision")
         if decision not in DECISIONS:
             raise BenchmarkError(f"invalid decision for {packet_id}: {decision}")
         predicted_missing = response.get("missing_information_codes", [])
         if not isinstance(predicted_missing, list) or any(code not in MISSING_FACT_CODEBOOK for code in predicted_missing):
             raise BenchmarkError(f"invalid missing_information_codes for {packet_id}")
+        if len(predicted_missing) != len(set(predicted_missing)):
+            raise BenchmarkError(f"duplicate missing-information code for {packet_id}")
+        confidence = response.get("confidence_0_to_100")
+        if confidence is not None and (not isinstance(confidence, (int, float)) or isinstance(confidence, bool) or not 0 <= confidence <= 100):
+            raise BenchmarkError(f"invalid confidence for {packet_id}")
+        seconds = response.get("assessment_seconds")
+        if seconds is not None and (not isinstance(seconds, (int, float)) or isinstance(seconds, bool) or seconds < 0):
+            raise BenchmarkError(f"invalid assessment_seconds for {packet_id}")
         predicted = set(predicted_missing)
         truth = answer_key[packet_id]
         expected = set(truth["missing_fact_codes"])
@@ -453,7 +465,8 @@ def score_responses(
             "missing_fn": fn,
             "missing_recall": recall,
             "missing_precision": precision,
-            "assessment_seconds": response.get("assessment_seconds"),
+            "confidence_0_to_100": confidence,
+            "assessment_seconds": seconds,
         })
 
     def summarize(group: list[dict[str, Any]]) -> dict[str, Any]:
@@ -462,11 +475,17 @@ def score_responses(
         recall_rows = [row["missing_recall"] for row in group if row["missing_recall"] is not None]
         precision_rows = [row["missing_precision"] for row in group if row["missing_precision"] is not None]
         times = [row["assessment_seconds"] for row in group if isinstance(row["assessment_seconds"], (int, float))]
+        total_tp = sum(row["missing_tp"] for row in group)
+        total_fp = sum(row["missing_fp"] for row in group)
+        total_fn = sum(row["missing_fn"] for row in group)
+        not_ready_n = sum(row["truth_readiness"] == NOT_READY for row in group)
         return {
             "n": len(group),
             "readiness_accuracy": sum(row["readiness_correct"] for row in group) / len(group),
-            "false_ready_rate": sum(row["false_ready"] for row in group) / max(1, sum(row["truth_readiness"] == NOT_READY for row in group)),
+            "false_ready_rate": (sum(row["false_ready"] for row in group) / not_ready_n) if not_ready_n else None,
             "uncertainty_rate": sum(row["uncertain"] for row in group) / len(group),
+            "missing_information_recall_micro": total_tp / (total_tp + total_fn) if (total_tp + total_fn) else None,
+            "missing_information_precision_micro": total_tp / (total_tp + total_fp) if (total_tp + total_fp) else None,
             "mean_missing_fact_recall_not_ready": sum(recall_rows) / len(recall_rows) if recall_rows else None,
             "mean_missing_fact_precision": sum(precision_rows) / len(precision_rows) if precision_rows else None,
             "mean_assessment_seconds": sum(times) / len(times) if times else None,
@@ -495,10 +514,14 @@ def decision_matrix(
     """Prepare per-packet decision counts and pairwise agreement for later H2 analysis."""
     per_packet: dict[str, dict[str, str]] = defaultdict(dict)
     for reviewer_id, responses in reviewer_responses.items():
+        seen_for_reviewer: set[str] = set()
         for response in responses:
             packet_id = response.get("packet_id")
             if packet_id not in answer_key:
                 raise BenchmarkError(f"unknown packet_id: {packet_id}")
+            if packet_id in seen_for_reviewer:
+                raise BenchmarkError(f"duplicate packet for reviewer {reviewer_id}: {packet_id}")
+            seen_for_reviewer.add(packet_id)
             decision = response.get("decision")
             if decision not in DECISIONS:
                 raise BenchmarkError(f"invalid decision: {decision}")

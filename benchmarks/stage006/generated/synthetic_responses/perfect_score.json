@@ -7,6 +7,8 @@
         "mean_assessment_seconds": 36.333333333333336,
         "mean_missing_fact_precision": 1.0,
         "mean_missing_fact_recall_not_ready": 1.0,
+        "missing_information_precision_micro": 1.0,
+        "missing_information_recall_micro": 1.0,
         "n": 12,
         "readiness_accuracy": 1.0,
         "uncertainty_rate": 0.0
@@ -16,6 +18,8 @@
         "mean_assessment_seconds": 41.666666666666664,
         "mean_missing_fact_precision": 1.0,
         "mean_missing_fact_recall_not_ready": 1.0,
+        "missing_information_precision_micro": 1.0,
+        "missing_information_recall_micro": 1.0,
         "n": 12,
         "readiness_accuracy": 1.0,
         "uncertainty_rate": 0.0
@@ -27,6 +31,8 @@
         "mean_assessment_seconds": 40.666666666666664,
         "mean_missing_fact_precision": 1.0,
         "mean_missing_fact_recall_not_ready": 1.0,
+        "missing_information_precision_micro": 1.0,
+        "missing_information_recall_micro": 1.0,
         "n": 12,
         "readiness_accuracy": 1.0,
         "uncertainty_rate": 0.0
@@ -36,6 +42,8 @@
         "mean_assessment_seconds": 37.333333333333336,
         "mean_missing_fact_precision": 1.0,
         "mean_missing_fact_recall_not_ready": 1.0,
+        "missing_information_precision_micro": 1.0,
+        "missing_information_recall_micro": 1.0,
         "n": 12,
         "readiness_accuracy": 1.0,
         "uncertainty_rate": 0.0
@@ -47,6 +55,8 @@
       "mean_assessment_seconds": 39.0,
       "mean_missing_fact_precision": 1.0,
       "mean_missing_fact_recall_not_ready": 1.0,
+      "missing_information_precision_micro": 1.0,
+      "missing_information_recall_micro": 1.0,
       "n": 24,
       "readiness_accuracy": 1.0,
       "uncertainty_rate": 0.0
@@ -54,6 +64,7 @@
     "rows": [
       {
         "assessment_seconds": 28,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -71,6 +82,7 @@
       },
       {
         "assessment_seconds": 32,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -88,6 +100,7 @@
       },
       {
         "assessment_seconds": 36,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -105,6 +118,7 @@
       },
       {
         "assessment_seconds": 40,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -122,6 +136,7 @@
       },
       {
         "assessment_seconds": 44,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -139,6 +154,7 @@
       },
       {
         "assessment_seconds": 48,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -156,6 +172,7 @@
       },
       {
         "assessment_seconds": 52,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -173,6 +190,7 @@
       },
       {
         "assessment_seconds": 28,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -190,6 +208,7 @@
       },
       {
         "assessment_seconds": 32,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -207,6 +226,7 @@
       },
       {
         "assessment_seconds": 36,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -224,6 +244,7 @@
       },
       {
         "assessment_seconds": 40,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -241,6 +262,7 @@
       },
       {
         "assessment_seconds": 44,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -258,6 +280,7 @@
       },
       {
         "assessment_seconds": 48,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -275,6 +298,7 @@
       },
       {
         "assessment_seconds": 52,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -292,6 +316,7 @@
       },
       {
         "assessment_seconds": 28,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -309,6 +334,7 @@
       },
       {
         "assessment_seconds": 32,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -326,6 +352,7 @@
       },
       {
         "assessment_seconds": 36,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -343,6 +370,7 @@
       },
       {
         "assessment_seconds": 40,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -360,6 +388,7 @@
       },
       {
         "assessment_seconds": 44,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -377,6 +406,7 @@
       },
       {
         "assessment_seconds": 48,
+        "confidence_0_to_100": 94,
         "decision": "READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -394,6 +424,7 @@
       },
       {
         "assessment_seconds": 52,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -411,6 +442,7 @@
       },
       {
         "assessment_seconds": 28,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -428,6 +460,7 @@
       },
       {
         "assessment_seconds": 32,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
@@ -445,6 +478,7 @@
       },
       {
         "assessment_seconds": 36,
+        "confidence_0_to_100": 94,
         "decision": "NOT_READY",
         "false_not_ready": false,
         "false_ready": false,
