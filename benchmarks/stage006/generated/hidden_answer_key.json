@@ -1,0 +1,536 @@
+{
+  "answers": {
+    "PKT-02CBF40B97BB": {
+      "case_id": "JDG-N06",
+      "fact_digest": "d9eca8a27e64d2c363999a74d6c53215cb229eb9786b14e1d29b1b550eb0f877",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-03457729D9A7": {
+      "case_id": "OBJ-N02",
+      "fact_digest": "eee67bef9af9e4245d2b57ed53f5aba461dd22797424341866594fa6c1238857",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "WORK_SOURCE"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-0CB3F9C79CF4": {
+      "case_id": "OBJ-N06",
+      "fact_digest": "0efc5586e6ed69ba68c2947b6ad79e6a923fdce6b27ac5b879c492bac22c92a3",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "USE_PURPOSE",
+        "USE_EVENT_EVIDENCE"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-1BEA23B96C27": {
+      "case_id": "JDG-N06",
+      "fact_digest": "d9eca8a27e64d2c363999a74d6c53215cb229eb9786b14e1d29b1b550eb0f877",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-1C75744F6654": {
+      "case_id": "OBJ-N01",
+      "fact_digest": "977a64ab0ef736e90734ec63d96bfcd9abddcf3bbe399d3e1881bb28c1bb7781",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "WORK_TYPE"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-1EBB802B76AA": {
+      "case_id": "OBJ-R05",
+      "fact_digest": "1fc28e9b884a686be5eca8c777d38d78439197bdf0ef9d54fe6bc21fa49d1b46",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-2A0C43738AE5": {
+      "case_id": "JDG-N03",
+      "fact_digest": "d280f3fb7e892deabd9ada11d26377e905526394311dd035c87b439d7d022bb8",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "AUTHOR_INTERESTS"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-2CD9267663B9": {
+      "case_id": "OBJ-R03",
+      "fact_digest": "dd8a91569e006e9cc4428aad1321338c91da89a4e7b501c95a82b7e7df1659ae",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-2E39FF59A91E": {
+      "case_id": "OBJ-R02",
+      "fact_digest": "f093476c19fd0b11251e32a7ba19f881c53f8d2022cd86a6fd25464faa3842cb",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-34E617594E14": {
+      "case_id": "OBJ-N04",
+      "fact_digest": "25dafe2b08dc5a4f1a1b2059fd1bfeb7e451847ba1ed9b228190ba93d1694156",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "ACQUISITION"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-4A588B77F7A6": {
+      "case_id": "OBJ-N03",
+      "fact_digest": "e7ed87f132f18f69385dff70b192d41c9b6c64adbc25785fea7fc3c47dd2a894",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "USE_DATE"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-4CFAE0E2222E": {
+      "case_id": "JDG-R06",
+      "fact_digest": "2ed08c4102d0ba860ab77abc6003d49d84ded1c355bb48c91cfc696308a17b68",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-4DB4BF9B388F": {
+      "case_id": "OBJ-N06",
+      "fact_digest": "0efc5586e6ed69ba68c2947b6ad79e6a923fdce6b27ac5b879c492bac22c92a3",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "USE_PURPOSE",
+        "USE_EVENT_EVIDENCE"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-5077FC0F46C0": {
+      "case_id": "OBJ-R04",
+      "fact_digest": "96f708ecbfe0ca43fff8cf82101d6141f4a335e251666f25284e392591d06886",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-516F1496B134": {
+      "case_id": "OBJ-R06",
+      "fact_digest": "3adff50a5f72c65498f75ebe22b00018b869ca5b1f43c51697acfac04df975a2",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-54876899496D": {
+      "case_id": "JDG-R03",
+      "fact_digest": "8f3da95e6e6e3af5faa4cc1e4ab35c010fc6c21641b196e6aef156554cb74500",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-61082C345087": {
+      "case_id": "OBJ-N03",
+      "fact_digest": "e7ed87f132f18f69385dff70b192d41c9b6c64adbc25785fea7fc3c47dd2a894",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "USE_DATE"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-6A5182B56EBB": {
+      "case_id": "JDG-R04",
+      "fact_digest": "df1893cb387b6fc19f76dbde1e1854d919fd64a2777e28a0d575f53d7218937e",
+      "form": "A",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-789F1B81EA99": {
+      "case_id": "OBJ-R03",
+      "fact_digest": "dd8a91569e006e9cc4428aad1321338c91da89a4e7b501c95a82b7e7df1659ae",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-793CC04067AC": {
+      "case_id": "JDG-R05",
+      "fact_digest": "ccd60710d661536ce58501297bb296c8e0926afb6547452382268ec300a65bc6",
+      "form": "B",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-7A3DEE695CFF": {
+      "case_id": "OBJ-R04",
+      "fact_digest": "96f708ecbfe0ca43fff8cf82101d6141f4a335e251666f25284e392591d06886",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-7A70CE1B9BBC": {
+      "case_id": "JDG-N01",
+      "fact_digest": "ea59d4d9a0b1c5bc3f5c4746010e4aebe4b1163c73bf4c53db579701f1bf0390",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "NECESSITY"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-845DF1A55937": {
+      "case_id": "OBJ-N01",
+      "fact_digest": "977a64ab0ef736e90734ec63d96bfcd9abddcf3bbe399d3e1881bb28c1bb7781",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "WORK_TYPE"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-8AB1D736EA0D": {
+      "case_id": "JDG-R02",
+      "fact_digest": "c5798ea83e76c034a0121792c6854622c282eaee5d52b2086732177312306b6e",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-8B8356555756": {
+      "case_id": "OBJ-N02",
+      "fact_digest": "eee67bef9af9e4245d2b57ed53f5aba461dd22797424341866594fa6c1238857",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "WORK_SOURCE"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-8C141C544DB7": {
+      "case_id": "JDG-N01",
+      "fact_digest": "ea59d4d9a0b1c5bc3f5c4746010e4aebe4b1163c73bf4c53db579701f1bf0390",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "NECESSITY"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-93D834FEE599": {
+      "case_id": "JDG-R02",
+      "fact_digest": "c5798ea83e76c034a0121792c6854622c282eaee5d52b2086732177312306b6e",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-9570631907B2": {
+      "case_id": "JDG-N04",
+      "fact_digest": "a575d9b3dce290d69e48c3b91645ddc221fe7703533d6b022a6d80e672d57000",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-A4FAEA0B5CC3": {
+      "case_id": "OBJ-R05",
+      "fact_digest": "1fc28e9b884a686be5eca8c777d38d78439197bdf0ef9d54fe6bc21fa49d1b46",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-A54C19080A9E": {
+      "case_id": "JDG-R04",
+      "fact_digest": "df1893cb387b6fc19f76dbde1e1854d919fd64a2777e28a0d575f53d7218937e",
+      "form": "B",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-A5E634525BE6": {
+      "case_id": "JDG-R06",
+      "fact_digest": "2ed08c4102d0ba860ab77abc6003d49d84ded1c355bb48c91cfc696308a17b68",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-A7E40D80CC64": {
+      "case_id": "JDG-R01",
+      "fact_digest": "0245bda05849f50a10bb4e283942563396c00ff9e2b632341b0c8734eccf2c0c",
+      "form": "B",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-AA1CCD8ED796": {
+      "case_id": "JDG-N04",
+      "fact_digest": "a575d9b3dce290d69e48c3b91645ddc221fe7703533d6b022a6d80e672d57000",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-AB6148C79A98": {
+      "case_id": "OBJ-R02",
+      "fact_digest": "f093476c19fd0b11251e32a7ba19f881c53f8d2022cd86a6fd25464faa3842cb",
+      "form": "B",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-AD0538506C29": {
+      "case_id": "JDG-N05",
+      "fact_digest": "39fd52ea75951896b434b69e39aca79e329676f5a7014326dcbdd57c86d06557",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-B0AC5C13549D": {
+      "case_id": "OBJ-R01",
+      "fact_digest": "8935c4a5d9534d16f57340edb56c0bb30e0f8dbd78af118c0220b3f2e87f1c21",
+      "form": "B",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-B7B4D8602770": {
+      "case_id": "JDG-R03",
+      "fact_digest": "8f3da95e6e6e3af5faa4cc1e4ab35c010fc6c21641b196e6aef156554cb74500",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-BD6712D94417": {
+      "case_id": "JDG-N03",
+      "fact_digest": "d280f3fb7e892deabd9ada11d26377e905526394311dd035c87b439d7d022bb8",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "AUTHOR_INTERESTS"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-C335D9AFCCD0": {
+      "case_id": "OBJ-R01",
+      "fact_digest": "8935c4a5d9534d16f57340edb56c0bb30e0f8dbd78af118c0220b3f2e87f1c21",
+      "form": "A",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-C6DD829666A1": {
+      "case_id": "JDG-R05",
+      "fact_digest": "ccd60710d661536ce58501297bb296c8e0926afb6547452382268ec300a65bc6",
+      "form": "A",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-C947713615B2": {
+      "case_id": "OBJ-N05",
+      "fact_digest": "ec75f433b97b658c747635da75b25579126f6ce3b4ccd15f97da10d04548590a",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "PUBLICATION"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-DD7B07EFB2F2": {
+      "case_id": "JDG-N05",
+      "fact_digest": "39fd52ea75951896b434b69e39aca79e329676f5a7014326dcbdd57c86d06557",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-DE08AD020D29": {
+      "case_id": "JDG-N02",
+      "fact_digest": "9e63825eba58fb1ab2c541a2b53790eb40427eb592f87eb70c63a99692d39f1c",
+      "form": "A",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "presentation": "IPEL",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-E99E1726FAE7": {
+      "case_id": "JDG-R01",
+      "fact_digest": "0245bda05849f50a10bb4e283942563396c00ff9e2b632341b0c8734eccf2c0c",
+      "form": "A",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "BASELINE",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-F017970C3954": {
+      "case_id": "OBJ-N04",
+      "fact_digest": "25dafe2b08dc5a4f1a1b2059fd1bfeb7e451847ba1ed9b228190ba93d1694156",
+      "form": "B",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "ACQUISITION"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-F329FDAE9C2D": {
+      "case_id": "JDG-N02",
+      "fact_digest": "9e63825eba58fb1ab2c541a2b53790eb40427eb592f87eb70c63a99692d39f1c",
+      "form": "B",
+      "machine_gate_outcome": "PASS_EVIDENCE_GATE",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "judgment_sensitive"
+    },
+    "PKT-F6EF253EC0C7": {
+      "case_id": "OBJ-N05",
+      "fact_digest": "ec75f433b97b658c747635da75b25579126f6ce3b4ccd15f97da10d04548590a",
+      "form": "A",
+      "machine_gate_outcome": "REVIEW_REQUIRED",
+      "missing_fact_codes": [
+        "PUBLICATION"
+      ],
+      "presentation": "BASELINE",
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    },
+    "PKT-FE7BE7868240": {
+      "case_id": "OBJ-R06",
+      "fact_digest": "3adff50a5f72c65498f75ebe22b00018b869ca5b1f43c51697acfac04df975a2",
+      "form": "A",
+      "machine_gate_outcome": "FAIL_EVIDENCE_GATE",
+      "missing_fact_codes": [],
+      "presentation": "IPEL",
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stratum": "objective"
+    }
+  },
+  "benchmark_version": "stage006-v1",
+  "warning": "EXPERIMENTER-ONLY. Do not distribute with reviewer packets."
+}

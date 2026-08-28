@@ -1,0 +1,202 @@
+{
+  "purpose": "Scoring implementation test only; not study data.",
+  "responses": [
+    {
+      "assessment_seconds": 28,
+      "confidence_0_to_100": 55,
+      "decision": "UNSURE",
+      "missing_information_codes": [],
+      "packet_id": "PKT-7A3DEE695CFF"
+    },
+    {
+      "assessment_seconds": 32,
+      "confidence_0_to_100": 62,
+      "decision": "READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-E99E1726FAE7"
+    },
+    {
+      "assessment_seconds": 36,
+      "confidence_0_to_100": 69,
+      "decision": "READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-789F1B81EA99"
+    },
+    {
+      "assessment_seconds": 40,
+      "confidence_0_to_100": 76,
+      "decision": "READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-C6DD829666A1"
+    },
+    {
+      "assessment_seconds": 44,
+      "confidence_0_to_100": 55,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-A5E634525BE6"
+    },
+    {
+      "assessment_seconds": 48,
+      "confidence_0_to_100": 62,
+      "decision": "UNSURE",
+      "missing_information_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "packet_id": "PKT-DE08AD020D29"
+    },
+    {
+      "assessment_seconds": 52,
+      "confidence_0_to_100": 69,
+      "decision": "READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-8AB1D736EA0D"
+    },
+    {
+      "assessment_seconds": 28,
+      "confidence_0_to_100": 76,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "packet_id": "PKT-DD7B07EFB2F2"
+    },
+    {
+      "assessment_seconds": 32,
+      "confidence_0_to_100": 55,
+      "decision": "READY",
+      "missing_information_codes": [
+        "AUTHOR_INTERESTS"
+      ],
+      "packet_id": "PKT-2A0C43738AE5"
+    },
+    {
+      "assessment_seconds": 36,
+      "confidence_0_to_100": 62,
+      "decision": "NOT_READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-1BEA23B96C27"
+    },
+    {
+      "assessment_seconds": 40,
+      "confidence_0_to_100": 69,
+      "decision": "UNSURE",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-2E39FF59A91E"
+    },
+    {
+      "assessment_seconds": 44,
+      "confidence_0_to_100": 76,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "ACQUISITION"
+      ],
+      "packet_id": "PKT-34E617594E14"
+    },
+    {
+      "assessment_seconds": 48,
+      "confidence_0_to_100": 55,
+      "decision": "NOT_READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-FE7BE7868240"
+    },
+    {
+      "assessment_seconds": 52,
+      "confidence_0_to_100": 62,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "packet_id": "PKT-9570631907B2"
+    },
+    {
+      "assessment_seconds": 28,
+      "confidence_0_to_100": 69,
+      "decision": "READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-1EBB802B76AA"
+    },
+    {
+      "assessment_seconds": 32,
+      "confidence_0_to_100": 76,
+      "decision": "UNSURE",
+      "missing_information_codes": [],
+      "packet_id": "PKT-6A5182B56EBB"
+    },
+    {
+      "assessment_seconds": 36,
+      "confidence_0_to_100": 55,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-C335D9AFCCD0"
+    },
+    {
+      "assessment_seconds": 40,
+      "confidence_0_to_100": 62,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "packet_id": "PKT-03457729D9A7"
+    },
+    {
+      "assessment_seconds": 44,
+      "confidence_0_to_100": 69,
+      "decision": "NOT_READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-7A70CE1B9BBC"
+    },
+    {
+      "assessment_seconds": 48,
+      "confidence_0_to_100": 76,
+      "decision": "READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-B7B4D8602770"
+    },
+    {
+      "assessment_seconds": 52,
+      "confidence_0_to_100": 55,
+      "decision": "UNSURE",
+      "missing_information_codes": [
+        "USE_DATE"
+      ],
+      "packet_id": "PKT-4A588B77F7A6"
+    },
+    {
+      "assessment_seconds": 28,
+      "confidence_0_to_100": 62,
+      "decision": "NOT_READY",
+      "missing_information_codes": [],
+      "packet_id": "PKT-1C75744F6654"
+    },
+    {
+      "assessment_seconds": 32,
+      "confidence_0_to_100": 69,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "PUBLICATION"
+      ],
+      "packet_id": "PKT-F6EF253EC0C7"
+    },
+    {
+      "assessment_seconds": 36,
+      "confidence_0_to_100": 76,
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "USE_PURPOSE"
+      ],
+      "packet_id": "PKT-0CB3F9C79CF4"
+    }
+  ],
+  "synthetic_nonhuman": true
+}

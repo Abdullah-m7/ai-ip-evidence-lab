@@ -1,0 +1,35 @@
+{
+  "acceptance": {
+    "balanced_presentations": true,
+    "balanced_readiness": true,
+    "balanced_strata": true,
+    "benign_single_missing_cases_present": true,
+    "counterbalanced_every_case": true,
+    "factual_parity_100_percent": true,
+    "latent_records_identical_across_forms": true,
+    "no_answer_label_leakage": true,
+    "readiness_not_compliance_construct_proven": true,
+    "three_per_cell_presentation": true,
+    "unique_packet_ids": true
+  },
+  "all_acceptance_gates_pass": true,
+  "case_count": 24,
+  "forms": {
+    "A": 24,
+    "B": 24
+  },
+  "human_data_collected": false,
+  "human_effect_estimates": null,
+  "ready_cases_with_machine_fail": [
+    "JDG-R02",
+    "JDG-R03",
+    "JDG-R06",
+    "OBJ-R02",
+    "OBJ-R03",
+    "OBJ-R04",
+    "OBJ-R05",
+    "OBJ-R06"
+  ],
+  "stage": "006",
+  "status": "BENCHMARK_READY_NOT_HUMAN_RESULTS"
+}

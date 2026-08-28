@@ -1,0 +1,4851 @@
+{
+  "benchmark_version": "stage006-v1",
+  "form": "A",
+  "packet_count": 24,
+  "packets": [
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Safety Manual B442"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/b4428641d0/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "author-distributed licensed copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-04-10"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": true
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/b4428641d0"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/b4428641d0"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/b4428641d0"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/b4428641d0"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/b4428641d0"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-7A3DEE695CFF"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Maintenance Handbook 719C",
+              "Type: literary",
+              "Source: https://synthetic.example/719cf35728/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed repository copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-05-10",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/719cf35728",
+              "Independent-elements assessment basis: evidence://independent-elements/719cf35728"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/719cf35728",
+              "Acquisition: evidence://acquisition/719cf35728",
+              "Use Event: evidence://use-event/719cf35728"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-E99E1726FAE7"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Technical Note A781",
+              "Type: literary",
+              "Source: https://synthetic.example/a7818f4168/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: false",
+              "Acquisition Status: verified",
+              "Acquisition Method: institutional subscription copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-03-07",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/a7818f4168",
+              "Independent-elements assessment basis: evidence://independent-elements/a7818f4168"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/a7818f4168",
+              "Acquisition: evidence://acquisition/a7818f4168",
+              "Use Event: evidence://use-event/a7818f4168"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-789F1B81EA99"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Training Memo 636A",
+              "Type: literary",
+              "Source: https://synthetic.example/636ae25df4/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed archive copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-01-22",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: assessed",
+              "Impact-assessment basis: evidence://impact/636ae25df4",
+              "Independent-elements assessment basis: evidence://independent-elements/636ae25df4"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/636ae25df4",
+              "Acquisition: evidence://acquisition/636ae25df4",
+              "Use Event: evidence://use-event/636ae25df4"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-C6DD829666A1"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Reference Chapter FEAA"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/feaa22c41c/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "documented vendor copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "commercial AI model development evaluation"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-02-25"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": true
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "adverse"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/feaa22c41c"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/feaa22c41c"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/feaa22c41c"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/feaa22c41c"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/feaa22c41c"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-A5E634525BE6"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Policy Guide 92C3"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/92c369f292/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "purchased digital copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-04-04"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "uncertain"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/92c369f292"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/92c369f292"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/92c369f292"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/92c369f292"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/92c369f292"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-DE08AD020D29"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Policy Guide AA4E"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/aa4eff1742/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "purchased digital copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-06-13"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "unsupported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/aa4eff1742"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/aa4eff1742"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/aa4eff1742"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/aa4eff1742"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/aa4eff1742"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-8AB1D736EA0D"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Training Memo E6CC",
+              "Type: literary",
+              "Source: https://synthetic.example/e6ccc7709d/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed archive copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-07-13",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: assessed",
+              "Impact-assessment basis: evidence://impact/e6ccc7709d",
+              "Independent-elements assessment basis: None recorded"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/e6ccc7709d",
+              "Acquisition: evidence://acquisition/e6ccc7709d",
+              "Use Event: evidence://use-event/e6ccc7709d"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-DD7B07EFB2F2"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Technical Note F9BA",
+              "Type: literary",
+              "Source: https://synthetic.example/f9ba9df213/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: institutional subscription copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-05-07",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: None recorded",
+              "Independent-elements assessment basis: evidence://independent-elements/f9ba9df213"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/f9ba9df213",
+              "Acquisition: evidence://acquisition/f9ba9df213",
+              "Use Event: evidence://use-event/f9ba9df213"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-2A0C43738AE5"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Reference Chapter 4529"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/4529340619/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "documented vendor copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "commercial AI model development evaluation"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-08-16"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": true
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "uncertain"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "not_assessed"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/4529340619"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/4529340619"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/4529340619"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/4529340619"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/4529340619"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-1BEA23B96C27"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Policy Guide 47A6"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/47a666cb59/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "false"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "purchased digital copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-02-04"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/47a666cb59"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/47a666cb59"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/47a666cb59"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/47a666cb59"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/47a666cb59"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-2E39FF59A91E"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Safety Manual EE37"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/ee3737999c/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "unverified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "author-distributed licensed copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-02-01"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/ee3737999c"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/ee3737999c"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/ee3737999c"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/ee3737999c"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/ee3737999c"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-34E617594E14"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Reference Chapter 06A4"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/06a4edf749/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "documented vendor copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-06-16"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/06a4edf749"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/06a4edf749"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": true
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_granted"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/06a4edf749"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/06a4edf749"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/06a4edf749"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-FE7BE7868240"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Safety Manual 8A12"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/8a1202a82b/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "author-distributed licensed copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-06-10"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "selected paragraphs needed for the declared model-development test"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "requires_review"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/8a1202a82b"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/8a1202a82b"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/8a1202a82b"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/8a1202a82b"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/8a1202a82b"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-9570631907B2"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Training Memo 1005",
+              "Type: literary",
+              "Source: https://synthetic.example/1005c28812/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed archive copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-05-13",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: Yes",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/1005c28812",
+              "Independent-elements assessment basis: evidence://independent-elements/1005c28812"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/1005c28812",
+              "Acquisition: evidence://acquisition/1005c28812",
+              "Use Event: evidence://use-event/1005c28812"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-1EBB802B76AA"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Safety Manual BD84"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/bd848ac37d/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "author-distributed licensed copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-08-19"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/bd848ac37d"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/bd848ac37d"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/bd848ac37d"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/bd848ac37d"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/bd848ac37d"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-6A5182B56EBB"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Maintenance Handbook 1187",
+              "Type: literary",
+              "Source: https://synthetic.example/1187ce884a/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed repository copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-01-01",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/1187ce884a",
+              "Independent-elements assessment basis: evidence://independent-elements/1187ce884a"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/1187ce884a",
+              "Acquisition: evidence://acquisition/1187ce884a",
+              "Use Event: evidence://use-event/1187ce884a"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-C335D9AFCCD0"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Policy Guide 1025"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "MISSING_SLOT",
+                "value": "NOT_RECORDED"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "purchased digital copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "RECORDED",
+                "value": "non-commercial evaluation of an AI text-analysis pipeline"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-08-22"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/10250bb383"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/10250bb383"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/10250bb383"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/10250bb383"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://use-event/10250bb383"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-03457729D9A7"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Maintenance Handbook 030C",
+              "Type: literary",
+              "Source: https://synthetic.example/030c29fa72/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed repository copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-03-01",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: uncertain",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/030c29fa72",
+              "Independent-elements assessment basis: evidence://independent-elements/030c29fa72"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/030c29fa72",
+              "Acquisition: evidence://acquisition/030c29fa72",
+              "Use Event: evidence://use-event/030c29fa72"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-7A70CE1B9BBC"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Technical Note 486F",
+              "Type: literary",
+              "Source: https://synthetic.example/486f1a7947/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: institutional subscription copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-07-16",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: unjustified",
+              "Exploitation-opportunity effect: adverse",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/486f1a7947",
+              "Independent-elements assessment basis: evidence://independent-elements/486f1a7947"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/486f1a7947",
+              "Acquisition: evidence://acquisition/486f1a7947",
+              "Use Event: evidence://use-event/486f1a7947"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-B7B4D8602770"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Technical Note E9AF",
+              "Type: literary",
+              "Source: https://synthetic.example/e9aff27c46/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: institutional subscription copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Extent Description: a short machine-readable excerpt required for the declared evaluation",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/e9aff27c46",
+              "Independent-elements assessment basis: evidence://independent-elements/e9aff27c46"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/e9aff27c46",
+              "Acquisition: evidence://acquisition/e9aff27c46",
+              "Use Event: evidence://use-event/e9aff27c46"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-4A588B77F7A6"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Maintenance Handbook 3AE3",
+              "Source: https://synthetic.example/3ae3eecad4/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: verified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed repository copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-07-19",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/3ae3eecad4",
+              "Independent-elements assessment basis: evidence://independent-elements/3ae3eecad4"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/3ae3eecad4",
+              "Acquisition: evidence://acquisition/3ae3eecad4",
+              "Use Event: evidence://use-event/3ae3eecad4"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-1C75744F6654"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Provenance review note",
+        "sections": [
+          {
+            "heading": "Work",
+            "items": [
+              "Title: Synthetic Training Memo 9D7E",
+              "Type: literary",
+              "Source: https://synthetic.example/9d7e2a7019/source",
+              "Content SHA-256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "Publication Status: unverified",
+              "Acquisition Status: verified",
+              "Acquisition Method: licensed archive copy"
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "items": [
+              "Purpose: non-commercial evaluation of an AI text-analysis pipeline",
+              "Date: 2026-03-04",
+              "Extent Description: a bounded excerpt used only for the stated analysis task",
+              "Necessity Status: supported",
+              "Republication: No",
+              "Distribution: No",
+              "Direct Commercial Exploitation: No",
+              "Purely Commercial Context: No",
+              "Materiality To Work: non substantial",
+              "Normal Exploitation Impact: none"
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "items": [
+              "Legitimate-interests prejudice: none",
+              "Exploitation-opportunity effect: none",
+              "Independent Elements Status: none identified",
+              "Impact-assessment basis: evidence://impact/9d7e2a7019",
+              "Independent-elements assessment basis: evidence://independent-elements/9d7e2a7019"
+            ]
+          },
+          {
+            "heading": "Output context",
+            "items": [
+              "Transformed: No",
+              "Republished: No",
+              "Made Public: No",
+              "Included In Final Product: No",
+              "Inclusion Necessary: not applicable",
+              "Permission Status: not applicable",
+              "Public Domain Status: no"
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "items": [
+              "Publication: evidence://publication/9d7e2a7019",
+              "Acquisition: evidence://acquisition/9d7e2a7019",
+              "Use Event: evidence://use-event/9d7e2a7019"
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-F6EF253EC0C7"
+    },
+    {
+      "instructions": {
+        "decision_options": [
+          "READY",
+          "NOT_READY",
+          "UNSURE"
+        ],
+        "missing_fact_options": [
+          {
+            "code": "WORK_TYPE",
+            "description": "Type/category of the work is not sufficiently recorded."
+          },
+          {
+            "code": "WORK_SOURCE",
+            "description": "Source from which the work was obtained is not sufficiently recorded."
+          },
+          {
+            "code": "USE_PURPOSE",
+            "description": "Purpose of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "USE_DATE",
+            "description": "Date of the AI-development use is not sufficiently recorded."
+          },
+          {
+            "code": "PUBLICATION",
+            "description": "Whether the work was lawfully published is unresolved or unsupported."
+          },
+          {
+            "code": "ACQUISITION",
+            "description": "Whether the relevant copy was lawfully acquired is unresolved or unsupported."
+          },
+          {
+            "code": "NECESSITY",
+            "description": "Necessity/proportionality of the copying or analysis is unresolved."
+          },
+          {
+            "code": "PROHIBITED_USE_STATUS",
+            "description": "Republication/distribution/direct-exploitation status is unresolved."
+          },
+          {
+            "code": "COMMERCIAL_EFFECT",
+            "description": "Commercial materiality or effect on normal exploitation is unresolved."
+          },
+          {
+            "code": "AUTHOR_INTERESTS",
+            "description": "Effect on legitimate author interests lacks a sufficient assessment or basis."
+          },
+          {
+            "code": "OUTPUT_CONTEXT",
+            "description": "Final-output use / transformation / permission context is unresolved."
+          },
+          {
+            "code": "INDEPENDENT_ELEMENTS",
+            "description": "Independently protected elements are unresolved or lack assessment basis."
+          },
+          {
+            "code": "USE_EVENT_EVIDENCE",
+            "description": "Contemporaneous evidence of the use event is not recorded."
+          }
+        ],
+        "response_fields": [
+          "decision",
+          "missing_information_codes",
+          "confidence_0_to_100",
+          "assessment_seconds"
+        ],
+        "task": "Decide only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful."
+      },
+      "material": {
+        "format_name": "Structured evidence record",
+        "sections": [
+          {
+            "heading": "Work",
+            "rows": [
+              {
+                "field": "Title",
+                "slot_status": "RECORDED",
+                "value": "Synthetic Reference Chapter 7248"
+              },
+              {
+                "field": "Type",
+                "slot_status": "RECORDED",
+                "value": "literary"
+              },
+              {
+                "field": "Source",
+                "slot_status": "RECORDED",
+                "value": "https://synthetic.example/724804407e/source"
+              },
+              {
+                "field": "Content SHA-256",
+                "slot_status": "RECORDED",
+                "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              {
+                "field": "Publication Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Status",
+                "slot_status": "RECORDED",
+                "value": "verified"
+              },
+              {
+                "field": "Acquisition Method",
+                "slot_status": "RECORDED",
+                "value": "documented vendor copy"
+              }
+            ]
+          },
+          {
+            "heading": "AI-development use",
+            "rows": [
+              {
+                "field": "Purpose",
+                "slot_status": "MISSING_SLOT",
+                "value": "NOT_RECORDED"
+              },
+              {
+                "field": "Date",
+                "slot_status": "RECORDED",
+                "value": "2026-04-07"
+              },
+              {
+                "field": "Extent Description",
+                "slot_status": "RECORDED",
+                "value": "a small portion necessary for the documented evaluation run"
+              },
+              {
+                "field": "Necessity Status",
+                "slot_status": "RECORDED",
+                "value": "supported"
+              },
+              {
+                "field": "Republication",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Distribution",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Direct Commercial Exploitation",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Purely Commercial Context",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Materiality To Work",
+                "slot_status": "RECORDED",
+                "value": "non_substantial"
+              },
+              {
+                "field": "Normal Exploitation Impact",
+                "slot_status": "RECORDED",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "heading": "Rights / market assessment",
+            "rows": [
+              {
+                "field": "Legitimate-interests prejudice",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Exploitation-opportunity effect",
+                "slot_status": "RECORDED",
+                "value": "none"
+              },
+              {
+                "field": "Independent Elements Status",
+                "slot_status": "RECORDED",
+                "value": "none_identified"
+              },
+              {
+                "field": "Impact-assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://impact/724804407e"
+                ]
+              },
+              {
+                "field": "Independent-elements assessment basis",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://independent-elements/724804407e"
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Output context",
+            "rows": [
+              {
+                "field": "Transformed",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Republished",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Made Public",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Included In Final Product",
+                "slot_status": "RECORDED",
+                "value": false
+              },
+              {
+                "field": "Inclusion Necessary",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Permission Status",
+                "slot_status": "RECORDED",
+                "value": "not_applicable"
+              },
+              {
+                "field": "Public Domain Status",
+                "slot_status": "RECORDED",
+                "value": "no"
+              }
+            ]
+          },
+          {
+            "heading": "Evidence references",
+            "rows": [
+              {
+                "field": "Publication",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://publication/724804407e"
+                ]
+              },
+              {
+                "field": "Acquisition",
+                "slot_status": "RECORDED",
+                "value": [
+                  "evidence://acquisition/724804407e"
+                ]
+              },
+              {
+                "field": "Use Event",
+                "slot_status": "RECORDED",
+                "value": []
+              }
+            ]
+          }
+        ]
+      },
+      "packet_id": "PKT-0CB3F9C79CF4"
+    }
+  ]
+}

@@ -108,6 +108,19 @@ The stage explicitly reports `IMPLEMENTATION_DIVERSITY_NOT_ESTABLISHED`; cross-v
 PYTHONPATH=. python3 experiments/stage005_cross_validator.py --c2patool .tools/c2patool --cross-validator .tools/c2pa-validate
 ```
 
+## Stage 006 — blinded reviewer-utility benchmark
+
+Stage 006 moves from provenance infrastructure to the core human-review hypothesis. It generates 24 synthetic latent cases, two counterbalanced reviewer forms, a strong information-equivalent narrative baseline, an IPEL structured presentation, a hidden answer key, and a deterministic scoring/audit pipeline.
+
+The benchmark defines **evidence readiness separately from legal compliance**. Eight READY cases intentionally have `FAIL_EVIDENCE_GATE` machine outcomes because an explicit adverse fact can still be sufficiently observable for legal evaluation. Reviewer packets never contain readiness labels or hidden case IDs.
+
+No human data has been collected in Stage 006. Files under `synthetic_responses/` are explicitly non-human scoring fixtures only. See `docs/STAGE_006_PREREGISTRATION.md`, `docs/STAGE_006_CODEBOOK.md`, and `reports/STAGE_006_REPORT.md`.
+
+```bash
+PYTHONPATH=. python3 experiments/stage006_build_benchmark.py
+python3 -m unittest discover -s tests -v
+```
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.

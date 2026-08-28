@@ -1,0 +1,420 @@
+{
+  "base_record": "examples/records/valid.json",
+  "benchmark_version": "stage006-v1",
+  "cases": [
+    {
+      "case_id": "OBJ-R01",
+      "missing_fact_codes": [],
+      "mutations": [],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "complete favorable objective record",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-R02",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.acquisition_status",
+          "value": "false"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "explicit unlawful acquisition fact",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-R03",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.publication_status",
+          "value": "false"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "explicit unlawful publication fact",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-R04",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.distribution",
+          "value": true
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "explicit distribution fact",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-R05",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.republication",
+          "value": true
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "explicit republication fact",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-R06",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.transformed",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "output_context.permission_status",
+          "value": "not_granted"
+        },
+        {
+          "op": "set",
+          "path": "output_context.public_domain_status",
+          "value": "no"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "explicit transformed output without permission",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N01",
+      "missing_fact_codes": [
+        "WORK_TYPE"
+      ],
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "work.type"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "work type absent",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N02",
+      "missing_fact_codes": [
+        "WORK_SOURCE"
+      ],
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "work.source"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "work source absent",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N03",
+      "missing_fact_codes": [
+        "USE_DATE"
+      ],
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "use.date"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "use date absent",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N04",
+      "missing_fact_codes": [
+        "ACQUISITION"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.acquisition_status",
+          "value": "unverified"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "lawful acquisition unresolved",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N05",
+      "missing_fact_codes": [
+        "PUBLICATION"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.publication_status",
+          "value": "unverified"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "lawful publication unresolved",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "OBJ-N06",
+      "missing_fact_codes": [
+        "USE_PURPOSE",
+        "USE_EVENT_EVIDENCE"
+      ],
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "use.purpose"
+        },
+        {
+          "op": "set",
+          "path": "evidence.use_event",
+          "value": []
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "use purpose and contemporaneous use-event evidence absent",
+      "stratum": "objective"
+    },
+    {
+      "case_id": "JDG-R01",
+      "missing_fact_codes": [],
+      "mutations": [],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "necessity supported with recorded rationale",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-R02",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.necessity_status",
+          "value": "unsupported"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "necessity explicitly unsupported",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-R03",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.legitimate_interests_prejudice",
+          "value": "unjustified"
+        },
+        {
+          "op": "set",
+          "path": "rights_context.exploitation_opportunity_effect",
+          "value": "adverse"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "adverse author-interest assessment with basis",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-R04",
+      "missing_fact_codes": [],
+      "mutations": [],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "favorable author-interest assessment with basis",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-R05",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "assessed"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "independent elements assessed with basis",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-R06",
+      "missing_fact_codes": [],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "substantial"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "adverse"
+        },
+        {
+          "op": "set",
+          "path": "use.purpose",
+          "value": "commercial AI model development evaluation"
+        }
+      ],
+      "readiness": "READY_FOR_LEGAL_EVALUATION",
+      "scenario": "purely commercial substantial adverse effect explicitly assessed",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N01",
+      "missing_fact_codes": [
+        "NECESSITY"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.necessity_status",
+          "value": "uncertain"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "necessity unresolved",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N02",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "uncertain"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "normal exploitation effect unresolved",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N03",
+      "missing_fact_codes": [
+        "AUTHOR_INTERESTS"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.impact_assessment_basis",
+          "value": []
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "favorable author-interest claim lacks assessment basis",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N04",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "requires_review"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "independent protected elements require review",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N05",
+      "missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "assessed"
+        },
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_basis",
+          "value": []
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "independent elements assessment lacks basis",
+      "stratum": "judgment_sensitive"
+    },
+    {
+      "case_id": "JDG-N06",
+      "missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "uncertain"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "not_assessed"
+        },
+        {
+          "op": "set",
+          "path": "use.purpose",
+          "value": "commercial AI model development evaluation"
+        }
+      ],
+      "readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "scenario": "commercial materiality and exploitation effect unresolved",
+      "stratum": "judgment_sensitive"
+    }
+  ],
+  "construct": {
+    "not_ready": "At least one scoped relevant fact is missing, unresolved, or unsupported for legal evaluation.",
+    "ready": "All scoped relevant facts are sufficiently observable/evidenced for legal evaluation; this does not mean the conduct is lawful."
+  },
+  "response_missing_fact_codes": [
+    "WORK_TYPE",
+    "WORK_SOURCE",
+    "USE_PURPOSE",
+    "USE_DATE",
+    "PUBLICATION",
+    "ACQUISITION",
+    "NECESSITY",
+    "PROHIBITED_USE_STATUS",
+    "COMMERCIAL_EFFECT",
+    "AUTHOR_INTERESTS",
+    "OUTPUT_CONTEXT",
+    "INDEPENDENT_ELEMENTS",
+    "USE_EVENT_EVIDENCE"
+  ],
+  "seed": 20260828
+}
