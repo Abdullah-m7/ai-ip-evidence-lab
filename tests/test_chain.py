@@ -94,6 +94,26 @@ class ChainTests(unittest.TestCase):
         with self.assertRaises(TypeError):
             build_chain("chain-001", bad)
 
+    def test_non_object_first_event_fails_closed(self):
+        attacked = copy.deepcopy(self.chain)
+        attacked[0] = "not-an-event"
+        result = verify_chain(attacked, self.checkpoint)
+        self.assertFalse(result.integrity_verified)
+        self.assertIn("EVENT_NOT_OBJECT", {x.code for x in result.findings})
+
+    def test_non_object_tail_event_fails_closed(self):
+        attacked = copy.deepcopy(self.chain)
+        attacked[-1] = ["not-an-event"]
+        result = verify_chain(attacked, self.checkpoint)
+        self.assertFalse(result.integrity_verified)
+        self.assertIn("EVENT_NOT_OBJECT", {x.code for x in result.findings})
+
+    def test_malformed_checkpoint_fails_closed(self):
+        result = verify_chain(self.chain, ["not-a-checkpoint"])
+        self.assertFalse(result.integrity_verified)
+        self.assertFalse(result.boundary_verified)
+        self.assertIn("CHECKPOINT_CONTRACT_ERROR", {x.code for x in result.findings})
+
 
 if __name__ == "__main__":
     unittest.main()

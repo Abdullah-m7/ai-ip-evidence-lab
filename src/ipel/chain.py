@@ -125,7 +125,7 @@ def verify_chain(
     if not isinstance(events, list) or not events:
         return VerificationResult(False, False, False, [ChainFinding("EMPTY_CHAIN", "Chain must contain at least one event.")])
 
-    expected_chain_id = events[0].get("chain_id")
+    expected_chain_id = events[0].get("chain_id") if isinstance(events[0], dict) else None
     previous_hash: str | None = None
 
     for index, event in enumerate(events):
@@ -161,13 +161,17 @@ def verify_chain(
 
     boundary_verified = False
     if checkpoint is not None:
+        if not isinstance(checkpoint, dict):
+            findings.append(ChainFinding("CHECKPOINT_CONTRACT_ERROR", "Checkpoint must be a JSON object."))
+            return VerificationResult(False, False, False, findings)
         if checkpoint.get("version") != CHECKPOINT_VERSION:
             findings.append(ChainFinding("CHECKPOINT_VERSION_MISMATCH", "Unexpected checkpoint version."))
         if checkpoint.get("chain_id") != expected_chain_id:
             findings.append(ChainFinding("CHECKPOINT_CHAIN_MISMATCH", "Checkpoint belongs to a different chain."))
         if checkpoint.get("event_count") != len(events):
             findings.append(ChainFinding("CHECKPOINT_COUNT_MISMATCH", "Event count differs from checkpoint."))
-        if checkpoint.get("head_hash") != events[-1].get("event_hash"):
+        observed_head = events[-1].get("event_hash") if isinstance(events[-1], dict) else None
+        if checkpoint.get("head_hash") != observed_head:
             findings.append(ChainFinding("CHECKPOINT_HEAD_MISMATCH", "Chain head differs from checkpoint."))
         boundary_verified = not any(f.code.startswith("CHECKPOINT_") for f in findings)
 
