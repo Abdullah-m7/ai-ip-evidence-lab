@@ -81,6 +81,19 @@ PYTHONPATH=. python3 experiments/stage003_semantic_roundtrip.py
 python3 -m unittest discover -s tests -v
 ```
 
+## Stage 004 — real C2PA hard-binding experiment
+
+Stage 004 uses pinned `c2patool 0.27.16` to generate and validate an actual embedded C2PA manifest on a synthetic JPEG. A one-byte asset mutation triggers `assertion.dataHash.mismatch`; signed assertion corruption triggers `assertion.hashedURI.mismatch`; signing-credential corruption triggers `claimSignature.mismatch`.
+
+The clean artifact deliberately uses c2patool's development signer: its claim signature and data hash validate while signer trust remains unestablished. This keeps cryptographic validity, provenance trust, and Saudi legal-evidence readiness as separate dimensions. A valid CAWG `allowed` signal never upgrades unlawful acquisition or missing output permission.
+
+See `docs/C2PA_CONFORMANT_EXPERIMENT.md` and `reports/STAGE_004_REPORT.md`.
+
+```bash
+./scripts/install_c2patool.sh .tools/c2patool
+PYTHONPATH=. python3 experiments/stage004_conformant_c2pa.py --c2patool .tools/c2patool
+```
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.

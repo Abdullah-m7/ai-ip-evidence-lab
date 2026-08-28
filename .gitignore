@@ -3,3 +3,6 @@ __pycache__/
 .pytest_cache/
 .venv/
 .DS_Store
+
+.stage004-tools/
+.tools/

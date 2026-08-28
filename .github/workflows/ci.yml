@@ -33,3 +33,17 @@ jobs:
         run: PYTHONPATH=. python experiments/stage003_semantic_roundtrip.py > /tmp/stage003-report.json
       - name: Confirm Stage 003 artifacts are deterministic
         run: git diff --exit-code -- examples/profiles reports/stage003_semantic_roundtrip.json
+
+  stage004-c2pa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned c2patool
+        run: ./scripts/install_c2patool.sh .tools/c2patool
+      - name: Run real C2PA Stage 004 experiment
+        run: PYTHONPATH=. python experiments/stage004_conformant_c2pa.py --c2patool .tools/c2patool --output reports/stage004_conformant_c2pa.json > /tmp/stage004-report.json
+      - name: Confirm Stage 004 semantic report is reproducible
+        run: git diff --exit-code -- reports/stage004_conformant_c2pa.json
