@@ -108,3 +108,66 @@ jobs:
           PY
       - name: Run Stage 007 adjudication/lock tests
         run: python -m unittest tests.test_stage007_adjudication tests.test_stage007_power_lock tests.test_stage007_prelock -v
+
+  stage008-distribution-intake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Stage 008 distribution/intake tests
+        run: python -m unittest tests.test_stage008_distribution -v
+      - name: Export a TEST-ONLY per-distribution bundle
+        env:
+          IPEL_STAGE008_KEY_HEX: "1111111111111111111111111111111111111111111111111111111111111111"
+        run: |
+          PYTHONPATH=. python scripts/export_adjudication_bundle.py \
+            --distribution-id CI-TEST-001 \
+            --output-dir .stage008-distributions/CI-TEST-001 \
+            --private-dir .private-stage008/CI-TEST-001
+          if grep -R -E 'ADJ-|OBJ-|JDG-|github\.com|Abdullah-m7' .stage008-distributions/CI-TEST-001; then
+            echo "Forbidden internal/public-repository identifier leaked into distribution bundle"
+            exit 1
+          fi
+      - name: Fill a synthetic returned-response file
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('.stage008-distributions/CI-TEST-001/response_template.json')
+          d = json.loads(p.read_text())
+          d['data_origin'] = 'SYNTHETIC_NON_HUMAN'
+          d['synthetic_fixture'] = True
+          d['adjudicator_id'] = 'SYNTHETIC-CI-ONLY'
+          for row in d['responses']:
+              row['decision'] = 'READY'
+              row['confidence_0_to_100'] = 75
+              row['rationale'] = 'Synthetic CI software test only.'
+          Path('.stage008-distributions/CI-TEST-001/response.json').write_text(json.dumps(d, indent=2, sort_keys=True) + '\n')
+          PY
+      - name: Ingest synthetic response through explicit test lane
+        env:
+          IPEL_STAGE008_KEY_HEX: "1111111111111111111111111111111111111111111111111111111111111111"
+        run: |
+          PYTHONPATH=. python scripts/ingest_adjudication_responses.py \
+            --bundle .stage008-distributions/CI-TEST-001/adjudication_bundle.json \
+            --manifest .stage008-distributions/CI-TEST-001/bundle_manifest.json \
+            --private-mapping .private-stage008/CI-TEST-001/private_case_mapping.json \
+            --response .stage008-distributions/CI-TEST-001/response.json \
+            --ledger .private-stage008/CI-TEST-001/intake_ledger.json \
+            --allow-synthetic
+      - name: Verify synthetic intake ledger and no repository mutation
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          import json
+          from pathlib import Path
+          from src.ipel.adjudication_distribution import verify_intake_ledger
+          p = Path('.private-stage008/CI-TEST-001/intake_ledger.json')
+          ledger = json.loads(p.read_text())
+          verify_intake_ledger(ledger)
+          assert ledger['data_origin'] == 'SYNTHETIC_NON_HUMAN'
+          assert len(ledger['responses']) == 24
+          assert 'POST_ADJUDICATION_LOCK' not in json.dumps(ledger)
+          PY
+          git diff --exit-code
