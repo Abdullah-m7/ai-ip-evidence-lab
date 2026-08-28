@@ -39,3 +39,11 @@ The asset is not the copyrighted work itself. It is the **credibility of the his
 - proof that a dataset ingestion system emitted a record for *every* work used.
 
 These limitations are research targets, not implementation bugs to hide.
+
+## Stage 002 integrity threat model
+
+Stage 002 adds a hash-linked event history and an optional external checkpoint. This narrows one threat only: **detectable post-hoc modification of a previously committed event history**.
+
+A hash chain without an external checkpoint is insufficient against an attacker who can rewrite an event and recompute every downstream hash. Tail deletion can also leave an internally consistent shorter chain. Therefore, verification reports `boundary_verified=false` when no checkpoint is supplied, even if internal hashes are consistent.
+
+The checkpoint itself is not authenticated in Stage 002. If the same attacker can replace both the event store and its sole checkpoint, the prototype provides no protection. C2PA signatures, trusted timestamps, append-only transparency services, independent witnesses, or other anchoring mechanisms are candidate later layers—not assumptions smuggled into this stage.
