@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import argparse
-import copy
 import hashlib
 import json
 import subprocess
@@ -17,6 +16,28 @@ MANIFEST_CONSTRAINED = ROOT / "examples/stage004/manifest-constrained.json"
 MANIFEST_ALLOWED = ROOT / "examples/stage004/manifest-allowed.json"
 BASE_RECORD = ROOT / "examples/records/valid.json"
 EXPECTED_SOURCE_SHA256 = "652c561108a2961573a7dd10f720033359f650453ef33694f7dbc5fee29aae5e"
+PINNED_RELEASE = "c2patool-v0.27.16"
+PINNED_ARCHIVES = {
+    "c2patool-v0.27.16-universal-apple-darwin.zip": "2c2cd9f949c7231a71bce26b0d4f7e7b45db2128bf93cd0e3189ad0172e9039e",
+    "c2patool-v0.27.16-x86_64-unknown-linux-gnu.tar.gz": "62eed34f0c90a24b696b1969c8aad4340e11ec7264e1cf6fc375ad15c1db7663",
+}
+
+
+def validate_tool_provenance(provenance: dict) -> None:
+    if not isinstance(provenance, dict):
+        raise SystemExit("c2patool provenance must be an object")
+    if provenance.get("repository") != "contentauth/c2pa-rs":
+        raise SystemExit("unexpected c2patool repository provenance")
+    if provenance.get("release") != PINNED_RELEASE or provenance.get("version") != "0.27.16":
+        raise SystemExit("unexpected c2patool release provenance")
+    asset = provenance.get("asset")
+    if asset not in PINNED_ARCHIVES:
+        raise SystemExit("unrecognized pinned c2patool release asset")
+    if provenance.get("archive_sha256") != PINNED_ARCHIVES[asset] or provenance.get("archive_digest_verified") is not True:
+        raise SystemExit("c2patool archive digest provenance mismatch")
+    expected_url = f"https://github.com/contentauth/c2pa-rs/releases/download/{PINNED_RELEASE}/{asset}"
+    if provenance.get("download_url") != expected_url:
+        raise SystemExit("unexpected c2patool download provenance")
 
 
 def run_json(tool: Path, *args: str) -> dict:
@@ -83,8 +104,7 @@ def main() -> int:
     if not provenance_path.exists():
         raise SystemExit(f"missing tool provenance sidecar: {provenance_path}")
     tool_provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
-    if tool_provenance.get("release") != "c2patool-v0.27.16" or tool_provenance.get("archive_digest_verified") is not True:
-        raise SystemExit("c2patool provenance sidecar does not prove pinned archive verification")
+    validate_tool_provenance(tool_provenance)
 
     version = subprocess.run([str(tool), "-V"], check=True, capture_output=True, text=True).stdout.strip()
     if version != "c2patool 0.27.16":
