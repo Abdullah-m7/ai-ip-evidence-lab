@@ -121,6 +121,14 @@ PYTHONPATH=. python3 experiments/stage006_build_benchmark.py
 python3 -m unittest discover -s tests -v
 ```
 
+## Stage 007 — independent adjudication and study lock
+
+Stage 007 prepares an independently adjudicable ground-truth layer before any primary human utility study. The 24 latent Stage-006 cases are re-rendered as neutral factual inventories under new `ADJ-*` IDs, with all author labels, condition labels, and machine outcomes hidden from adjudicators.
+
+Consensus is fail-closed: at least three eligible independent adjudicators are required per case and READY/NOT_READY needs a two-thirds threshold. Synthetic adjudication fixtures exist only for software tests. `REAL_ADJUDICATION_COLLECTED=false` until actual human responses are ingested.
+
+The stage also adds a simulation-based design grid and a three-state freeze protocol (`PRE_ADJUDICATION_LOCK → POST_ADJUDICATION_LOCK → PRE_PRIMARY_STUDY_LOCK`) that prevents synthetic data or unspecified recruitment/ethics details from being used to claim a final study lock.
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.
