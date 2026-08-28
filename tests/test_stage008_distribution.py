@@ -10,8 +10,10 @@ from src.ipel.adjudication_distribution import (
     RESPONSE_VERSION,
     DistributionError,
     ROOT,
+    _hmac_hex,
     append_intake,
     build_distribution,
+    canonical_bytes,
     guard_bundle_destination,
     guard_private_destination,
     new_intake_ledger,
@@ -103,10 +105,15 @@ class Stage008DistributionTests(unittest.TestCase):
         with self.assertRaises(DistributionError):
             validate_private_mapping(tampered, self.manifest, self.key)
 
-    def test_private_mapping_is_bound_to_frozen_source_packet(self):
+    def test_private_mapping_source_binding_survives_recomputed_mac(self):
         tampered = copy.deepcopy(self.mapping)
         tampered["source_packet_sha256"] = "0" * 64
-        # Even before the source binding check, keyed mapping authentication must fail.
+        payload = {k: copy.deepcopy(v) for k, v in tampered.items() if k != "mapping_hmac_sha256"}
+        # Even an actor with the HMAC key cannot make a mapping for a different source packet
+        # pass the frozen-source check merely by recomputing mapping authentication.
+        tampered["mapping_hmac_sha256"] = _hmac_hex(
+            self.key, "mapping-auth", canonical_bytes(payload)
+        )
         with self.assertRaises(DistributionError):
             validate_private_mapping(tampered, self.manifest, self.key)
 
@@ -121,12 +128,20 @@ class Stage008DistributionTests(unittest.TestCase):
             guard_private_destination(Path(td) / "mapping.json", ROOT)
             guard_bundle_destination(Path(td) / "bundle", ROOT)
 
-    def test_private_output_roots_are_not_tracked(self):
+    def test_private_output_roots_are_untracked_and_gitignored(self):
         tracked = subprocess.check_output(
             ["git", "ls-files", ".private-stage008", ".stage008-distributions"],
             cwd=ROOT, text=True,
         ).strip()
         self.assertEqual(tracked, "")
+        for probe in (
+            ".private-stage008/PROBE/private_case_mapping.json",
+            ".stage008-distributions/PROBE/adjudication_bundle.json",
+        ):
+            result = subprocess.run(
+                ["git", "check-ignore", "-q", "--no-index", probe], cwd=ROOT
+            )
+            self.assertEqual(result.returncode, 0, probe)
 
     def test_synthetic_roundtrip_requires_explicit_synthetic_lane(self):
         response = self.synthetic_response()
