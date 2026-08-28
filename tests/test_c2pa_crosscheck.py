@@ -70,6 +70,13 @@ class CrossCheckTests(unittest.TestCase):
         self.assertEqual(default.signer_trust, "untrusted")
         self.assertEqual(trusted.signer_trust, "trusted")
 
+    def test_conflicting_trust_signals_fail_safe(self):
+        report = cross_report(trusted=True)
+        report["manifests"][0]["validationResults"]["failure"].append({"code": "signingCredential.untrusted"})
+        evidence = normalize_cross_validator(report)
+        self.assertEqual(evidence.signer_trust, "conflicting")
+        self.assertNotEqual(evidence.signer_trust, "trusted")
+
     def test_malformed_tdm_is_semantic_warning_not_crypto_failure(self):
         left = normalize_c2patool(reader_report(tdm_use="maybe"))
         right = normalize_cross_validator(cross_report(tdm_use="maybe"))

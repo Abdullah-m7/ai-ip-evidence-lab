@@ -144,10 +144,14 @@ def normalize_cross_validator(report: dict[str, Any]) -> CommonValidation:
         refs = "valid"
     else:
         refs = "unknown"
-    if "signingCredential.trusted" in success:
-        trust = "trusted"
-    elif "signingCredential.untrusted" in failure:
+    trusted_signal = "signingCredential.trusted" in success
+    untrusted_signal = "signingCredential.untrusted" in failure
+    if trusted_signal and untrusted_signal:
+        trust = "conflicting"
+    elif untrusted_signal:
         trust = "untrusted"
+    elif trusted_signal:
+        trust = "trusted"
     else:
         trust = "not_established"
     entries, warnings = _cross_tdm(manifest)
