@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/ipel/stage008-bundle-manifest.schema.json",
+  "title": "Stage 008 adjudication bundle manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "bundle_version",
+    "bundle_id",
+    "distribution_id",
+    "case_count",
+    "bundle_sha256",
+    "bundle_hmac_sha256"
+  ],
+  "properties": {
+    "manifest_version": {"const": "stage008-bundle-manifest-v1"},
+    "bundle_version": {"const": "stage008-distribution-v1"},
+    "bundle_id": {"type": "string", "pattern": "^BND-[A-F0-9]{16}$"},
+    "distribution_id": {"type": "string", "pattern": "^[A-Za-z0-9._-]{3,80}$"},
+    "case_count": {"const": 24},
+    "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bundle_hmac_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

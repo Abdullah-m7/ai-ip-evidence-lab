@@ -8,3 +8,6 @@ __pycache__/
 .tools/
 
 .stage005-tools/
+
+.private-stage008/
+.stage008-distributions/
