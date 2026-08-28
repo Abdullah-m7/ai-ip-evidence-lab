@@ -1,5 +1,6 @@
 import copy
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -58,13 +59,16 @@ class Stage008DistributionTests(unittest.TestCase):
             "responses": rows,
         }
 
-    def synthetic_ledger(self, *, count=3):
-        normalized = normalize_external_response(
+    def normalized(self, *, count=3):
+        return normalize_external_response(
             self.synthetic_response(count=count), self.bundle, self.manifest, self.mapping,
             self.key, allow_synthetic=True,
         )
+
+    def synthetic_ledger(self, *, count=3):
         return append_intake(
-            new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key), normalized, self.key
+            new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key),
+            self.normalized(count=count), self.key,
         )
 
     def test_bundle_is_clean_and_has_per_distribution_ids(self):
@@ -99,6 +103,13 @@ class Stage008DistributionTests(unittest.TestCase):
         with self.assertRaises(DistributionError):
             validate_private_mapping(tampered, self.manifest, self.key)
 
+    def test_private_mapping_is_bound_to_frozen_source_packet(self):
+        tampered = copy.deepcopy(self.mapping)
+        tampered["source_packet_sha256"] = "0" * 64
+        # Even before the source binding check, keyed mapping authentication must fail.
+        with self.assertRaises(DistributionError):
+            validate_private_mapping(tampered, self.manifest, self.key)
+
     def test_private_and_distribution_path_guards(self):
         with self.assertRaises(DistributionError):
             guard_private_destination(ROOT / "tracked-private-map.json", ROOT)
@@ -109,6 +120,13 @@ class Stage008DistributionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             guard_private_destination(Path(td) / "mapping.json", ROOT)
             guard_bundle_destination(Path(td) / "bundle", ROOT)
+
+    def test_private_output_roots_are_not_tracked(self):
+        tracked = subprocess.check_output(
+            ["git", "ls-files", ".private-stage008", ".stage008-distributions"],
+            cwd=ROOT, text=True,
+        ).strip()
+        self.assertEqual(tracked, "")
 
     def test_synthetic_roundtrip_requires_explicit_synthetic_lane(self):
         response = self.synthetic_response()
@@ -122,6 +140,7 @@ class Stage008DistributionTests(unittest.TestCase):
             allow_synthetic=True,
         )
         self.assertEqual(normalized["data_origin"], "SYNTHETIC_NON_HUMAN")
+        self.assertEqual(normalized["bundle_sha256"], self.manifest["bundle_sha256"])
         self.assertEqual(len(normalized["normalized_responses"]), 24)
         self.assertTrue(all(row["adjudication_case_id"].startswith("ADJ-") for row in normalized["normalized_responses"]))
         ledger = append_intake(
@@ -130,6 +149,7 @@ class Stage008DistributionTests(unittest.TestCase):
         verify_intake_ledger(ledger, self.key)
         self.assertEqual(len(ledger["events"]), 1)
         self.assertEqual(len(ledger["responses"]), 24)
+        self.assertEqual(ledger["events"][0]["bundle_sha256"], self.manifest["bundle_sha256"])
         self.assertNotIn("POST_ADJUDICATION_LOCK", json.dumps(ledger))
 
     def test_duplicate_external_response_is_rejected(self):
@@ -139,6 +159,15 @@ class Stage008DistributionTests(unittest.TestCase):
             normalize_external_response(
                 response, self.bundle, self.manifest, self.mapping, self.key,
                 allow_synthetic=True,
+            )
+
+    def test_direct_append_revalidates_internal_rows(self):
+        normalized = self.normalized(count=1)
+        normalized["normalized_responses"][0]["adjudication_case_id"] = "ADJ-000000000000"
+        with self.assertRaises(DistributionError):
+            append_intake(
+                new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key),
+                normalized, self.key,
             )
 
     def test_post_intake_response_tampering_is_detected(self):
@@ -162,10 +191,7 @@ class Stage008DistributionTests(unittest.TestCase):
             verify_intake_ledger(tampered, self.key)
 
     def test_intake_ledger_refuses_duplicate_adjudicator_case(self):
-        normalized = normalize_external_response(
-            self.synthetic_response(count=2), self.bundle, self.manifest, self.mapping,
-            self.key, allow_synthetic=True,
-        )
+        normalized = self.normalized(count=2)
         ledger = append_intake(
             new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key), normalized, self.key
         )

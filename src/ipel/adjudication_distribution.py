@@ -21,12 +21,15 @@ from src.ipel.adjudication import AdjudicationError, validate_adjudication_respo
 ROOT = Path(__file__).resolve().parents[2]
 PRIVATE_ROOT = ROOT / ".private-stage008"
 DISTRIBUTION_ROOT = ROOT / ".stage008-distributions"
+SOURCE_PACKET = ROOT / "benchmarks/stage007/generated/adjudication_packet.json"
+HIDDEN_CASE_MAP = ROOT / "benchmarks/stage007/generated/hidden_case_map.json"
 BUNDLE_VERSION = "stage008-distribution-v1"
 MAPPING_VERSION = "stage008-private-mapping-v1"
 RESPONSE_VERSION = "stage008-external-response-v1"
 LEDGER_VERSION = "stage008-keyed-intake-ledger-v1"
 EXTERNAL_CASE_RE = re.compile(r"^CASE-[A-F0-9]{16}$")
 DISTRIBUTION_ID_RE = re.compile(r"^[A-Za-z0-9._-]{3,80}$")
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 FORBIDDEN_EXTERNAL_TOKENS = (
     "ADJ-",
     "OBJ-",
@@ -74,10 +77,13 @@ def parse_key_hex(value: str) -> bytes:
     return key
 
 
-def _hmac_hex(key: bytes, message: str | bytes) -> str:
+def _hmac_hex(key: bytes, domain: str, message: str | bytes) -> str:
     _validate_key(key)
+    if not isinstance(domain, str) or not domain:
+        raise DistributionError("HMAC domain must be non-empty")
     raw = message.encode("utf-8") if isinstance(message, str) else message
-    return hmac.new(key, raw, hashlib.sha256).hexdigest()
+    framed = domain.encode("utf-8") + b"\x00" + raw
+    return hmac.new(key, framed, hashlib.sha256).hexdigest()
 
 
 def key_fingerprint(key: bytes) -> str:
@@ -86,12 +92,31 @@ def key_fingerprint(key: bytes) -> str:
 
 
 def _external_case_id(key: bytes, distribution_id: str, internal_id: str) -> str:
-    digest = _hmac_hex(key, f"case|{distribution_id}|{internal_id}")
+    digest = _hmac_hex(key, "case-id", f"{distribution_id}|{internal_id}")
     return "CASE-" + digest[:16].upper()
 
 
 def _bundle_id(key: bytes, distribution_id: str) -> str:
-    return "BND-" + _hmac_hex(key, f"bundle|{distribution_id}")[:16].upper()
+    return "BND-" + _hmac_hex(key, "bundle-id", distribution_id)[:16].upper()
+
+
+def _source_packet_sha256() -> str:
+    try:
+        source = json.loads(SOURCE_PACKET.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise DistributionError("cannot read frozen Stage-007 source packet") from exc
+    return object_sha256(source)
+
+
+def _valid_internal_case_ids() -> set[str]:
+    try:
+        hidden = json.loads(HIDDEN_CASE_MAP.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise DistributionError("cannot read frozen Stage-007 hidden case map") from exc
+    mapping = hidden.get("mapping") if isinstance(hidden, dict) else None
+    if not isinstance(mapping, dict) or len(mapping) != 24:
+        raise DistributionError("frozen Stage-007 hidden case map is invalid")
+    return set(mapping)
 
 
 def _sanitized_instructions(source: dict[str, Any]) -> dict[str, Any]:
@@ -134,6 +159,8 @@ def build_distribution(
     _validate_key(key)
     if DISTRIBUTION_ID_RE.fullmatch(distribution_id or "") is None:
         raise DistributionError("invalid distribution_id")
+    if object_sha256(source_packet) != _source_packet_sha256():
+        raise DistributionError("source packet does not match the frozen Stage-007 adjudication packet")
     packets = source_packet.get("packets")
     if source_packet.get("case_count") != 24 or not isinstance(packets, list) or len(packets) != 24:
         raise DistributionError("expected the frozen 24-case Stage-007 adjudication packet")
@@ -162,7 +189,7 @@ def build_distribution(
             }
         )
 
-    order_seed = int(_hmac_hex(key, f"order|{distribution_id}")[:16], 16)
+    order_seed = int(_hmac_hex(key, "packet-order", distribution_id)[:16], 16)
     random.Random(order_seed).shuffle(external_packets)
     bundle_id = _bundle_id(key, distribution_id)
     bundle = {
@@ -186,7 +213,7 @@ def build_distribution(
         "distribution_id": distribution_id,
         "case_count": 24,
         "bundle_sha256": bundle_sha,
-        "bundle_hmac_sha256": _hmac_hex(key, bundle_sha),
+        "bundle_hmac_sha256": _hmac_hex(key, "bundle-auth", bundle_sha),
     }
     mapping_payload = {
         "mapping_version": MAPPING_VERSION,
@@ -199,7 +226,9 @@ def build_distribution(
         "do_not_commit": True,
     }
     private_mapping = dict(mapping_payload)
-    private_mapping["mapping_hmac_sha256"] = _hmac_hex(key, canonical_bytes(mapping_payload))
+    private_mapping["mapping_hmac_sha256"] = _hmac_hex(
+        key, "mapping-auth", canonical_bytes(mapping_payload)
+    )
     return bundle, manifest, private_mapping
 
 
@@ -219,7 +248,8 @@ def validate_bundle(bundle: Any, manifest: Any, key: bytes) -> None:
     if actual_sha != manifest.get("bundle_sha256"):
         raise DistributionError("bundle SHA-256 mismatch")
     if not hmac.compare_digest(
-        str(manifest.get("bundle_hmac_sha256", "")), _hmac_hex(key, actual_sha)
+        str(manifest.get("bundle_hmac_sha256", "")),
+        _hmac_hex(key, "bundle-auth", actual_sha),
     ):
         raise DistributionError("bundle HMAC mismatch")
     packets = bundle.get("packets")
@@ -242,21 +272,26 @@ def validate_private_mapping(mapping: Any, manifest: dict[str, Any], key: bytes)
         raise DistributionError("private mapping must be an object")
     mac = mapping.get("mapping_hmac_sha256")
     payload = {key_: copy.deepcopy(value) for key_, value in mapping.items() if key_ != "mapping_hmac_sha256"}
-    expected_mac = _hmac_hex(key, canonical_bytes(payload))
+    expected_mac = _hmac_hex(key, "mapping-auth", canonical_bytes(payload))
     if not isinstance(mac, str) or not hmac.compare_digest(mac, expected_mac):
         raise DistributionError("private mapping HMAC mismatch")
     if payload.get("mapping_version") != MAPPING_VERSION or payload.get("do_not_commit") is not True:
         raise DistributionError("unexpected private-mapping metadata")
     if payload.get("key_fingerprint") != key_fingerprint(key):
         raise DistributionError("private mapping key fingerprint mismatch")
+    if payload.get("source_packet_sha256") != _source_packet_sha256():
+        raise DistributionError("private mapping is not bound to the frozen Stage-007 source packet")
     for field in ("bundle_id", "distribution_id", "bundle_sha256"):
         if payload.get(field) != manifest.get(field):
             raise DistributionError(f"private mapping/manifest mismatch: {field}")
     table = payload.get("external_to_internal")
     if not isinstance(table, dict) or len(table) != 24:
         raise DistributionError("private mapping must contain 24 cases")
-    if any(EXTERNAL_CASE_RE.fullmatch(str(ext)) is None or not isinstance(internal, str) or not internal.startswith("ADJ-") for ext, internal in table.items()):
-        raise DistributionError("private mapping contains invalid case IDs")
+    valid_internal = _valid_internal_case_ids()
+    if set(table.values()) != valid_internal:
+        raise DistributionError("private mapping internal IDs do not match the frozen Stage-007 case set")
+    if any(EXTERNAL_CASE_RE.fullmatch(str(ext)) is None for ext in table):
+        raise DistributionError("private mapping contains invalid external case IDs")
     return dict(table)
 
 
@@ -373,6 +408,7 @@ def normalize_external_response(
         "data_origin": origin,
         "bundle_id": manifest["bundle_id"],
         "distribution_id": manifest["distribution_id"],
+        "bundle_sha256": manifest["bundle_sha256"],
         "adjudicator_id": adjudicator_id,
         "submission_sha256": object_sha256(document),
         "normalized_responses": normalized,
@@ -392,11 +428,47 @@ def new_intake_ledger(data_origin: str, key: bytes) -> dict[str, Any]:
     }
 
 
+def _validate_normalized_rows(normalized: dict[str, Any]) -> list[dict[str, Any]]:
+    if not isinstance(normalized, dict):
+        raise DistributionError("normalized intake must be an object")
+    origin = normalized.get("data_origin")
+    if origin not in {"REAL_HUMAN", "SYNTHETIC_NON_HUMAN"}:
+        raise DistributionError("normalized intake has invalid data origin")
+    for field in ("bundle_id", "distribution_id", "bundle_sha256", "adjudicator_id", "submission_sha256"):
+        if not isinstance(normalized.get(field), str) or not normalized[field]:
+            raise DistributionError(f"normalized intake missing {field}")
+    if SHA256_RE.fullmatch(normalized["bundle_sha256"]) is None or SHA256_RE.fullmatch(normalized["submission_sha256"]) is None:
+        raise DistributionError("normalized intake contains invalid SHA-256 values")
+    rows = normalized.get("normalized_responses")
+    if not isinstance(rows, list) or not rows:
+        raise DistributionError("normalized intake contains no responses")
+    valid_internal = _valid_internal_case_ids()
+    allow_synthetic = origin == "SYNTHETIC_NON_HUMAN"
+    validated_rows: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for row in rows:
+        try:
+            validated = validate_adjudication_response(
+                row, valid_internal, allow_synthetic=allow_synthetic
+            )
+        except AdjudicationError as exc:
+            raise DistributionError("normalized intake row failed Stage-007 validation") from exc
+        pair = (validated["adjudicator_id"], validated["adjudication_case_id"])
+        if pair in seen:
+            raise DistributionError(f"duplicate adjudicator/case in normalized intake: {pair}")
+        seen.add(pair)
+        if validated["adjudicator_id"] != normalized["adjudicator_id"]:
+            raise DistributionError("normalized adjudicator_id mismatch")
+        validated_rows.append(validated)
+    return validated_rows
+
+
 def append_intake(
     ledger: dict[str, Any], normalized: dict[str, Any], key: bytes
 ) -> dict[str, Any]:
     _validate_key(key)
     verify_intake_ledger(ledger, key)
+    rows = _validate_normalized_rows(normalized)
     if ledger.get("data_origin") != normalized.get("data_origin"):
         raise DistributionError("real and synthetic intake data cannot be mixed")
     out = copy.deepcopy(ledger)
@@ -404,11 +476,8 @@ def append_intake(
         (row.get("adjudicator_id"), row.get("adjudication_case_id"))
         for row in out.get("responses", []) if isinstance(row, dict)
     }
-    rows = copy.deepcopy(normalized.get("normalized_responses"))
-    if not isinstance(rows, list) or not rows:
-        raise DistributionError("normalized intake contains no responses")
     for row in rows:
-        pair = (row.get("adjudicator_id"), row.get("adjudication_case_id"))
+        pair = (row["adjudicator_id"], row["adjudication_case_id"])
         if pair in existing_pairs:
             raise DistributionError(f"duplicate adjudicator/case intake: {pair}")
         existing_pairs.add(pair)
@@ -419,6 +488,7 @@ def append_intake(
         "receipt_index": len(out["events"]),
         "bundle_id": normalized["bundle_id"],
         "distribution_id": normalized["distribution_id"],
+        "bundle_sha256": normalized["bundle_sha256"],
         "adjudicator_id": normalized["adjudicator_id"],
         "submission_sha256": normalized["submission_sha256"],
         "normalized_responses_sha256": response_sha,
@@ -427,9 +497,11 @@ def append_intake(
         "previous_receipt_hmac": previous_hmac,
     }
     event = dict(payload)
-    event["receipt_hmac_sha256"] = _hmac_hex(key, canonical_bytes(payload))
+    event["receipt_hmac_sha256"] = _hmac_hex(
+        key, "intake-receipt", canonical_bytes(payload)
+    )
     out["events"].append(event)
-    out["responses"].extend(rows)
+    out["responses"].extend(copy.deepcopy(rows))
     verify_intake_ledger(out, key)
     return out
 
@@ -447,6 +519,8 @@ def verify_intake_ledger(ledger: Any, key: bytes) -> None:
     responses = ledger.get("responses")
     if not isinstance(events, list) or not isinstance(responses, list):
         raise DistributionError("intake ledger arrays are missing")
+    valid_internal = _valid_internal_case_ids()
+    allow_synthetic = origin == "SYNTHETIC_NON_HUMAN"
     cursor = 0
     previous_hmac = None
     pairs: set[tuple[Any, Any]] = set()
@@ -458,18 +532,28 @@ def verify_intake_ledger(ledger: Any, key: bytes) -> None:
             raise DistributionError("intake receipt chain mismatch")
         if event.get("response_start") != cursor or not isinstance(event.get("response_count"), int) or event["response_count"] <= 0:
             raise DistributionError("intake receipt range mismatch")
+        if not isinstance(event.get("bundle_sha256"), str) or SHA256_RE.fullmatch(event["bundle_sha256"]) is None:
+            raise DistributionError("intake receipt bundle SHA-256 is invalid")
         end = cursor + event["response_count"]
         rows = responses[cursor:end]
         if len(rows) != event["response_count"] or object_sha256(rows) != event.get("normalized_responses_sha256"):
             raise DistributionError("post-intake response tampering detected")
-        expected_hmac = _hmac_hex(key, canonical_bytes(payload))
+        expected_hmac = _hmac_hex(
+            key, "intake-receipt", canonical_bytes(payload)
+        )
         actual_hmac = event.get("receipt_hmac_sha256")
         if not isinstance(actual_hmac, str) or not hmac.compare_digest(actual_hmac, expected_hmac):
             raise DistributionError("intake receipt HMAC mismatch")
         for row in rows:
-            if not isinstance(row, dict) or row.get("data_origin") != origin:
+            try:
+                validated = validate_adjudication_response(
+                    row, valid_internal, allow_synthetic=allow_synthetic
+                )
+            except AdjudicationError as exc:
+                raise DistributionError("intake response failed Stage-007 validation") from exc
+            if validated.get("data_origin") != origin:
                 raise DistributionError("intake response origin mismatch")
-            pair = (row.get("adjudicator_id"), row.get("adjudication_case_id"))
+            pair = (validated.get("adjudicator_id"), validated.get("adjudication_case_id"))
             if pair in pairs:
                 raise DistributionError("duplicate adjudicator/case pair in intake ledger")
             pairs.add(pair)
