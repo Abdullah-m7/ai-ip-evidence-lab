@@ -157,15 +157,19 @@ jobs:
             --response .stage008-distributions/CI-TEST-001/response.json \
             --ledger .private-stage008/CI-TEST-001/intake_ledger.json \
             --allow-synthetic
-      - name: Verify synthetic intake ledger and no repository mutation
+      - name: Verify keyed synthetic intake ledger and no repository mutation
+        env:
+          IPEL_STAGE008_KEY_HEX: "1111111111111111111111111111111111111111111111111111111111111111"
         run: |
           PYTHONPATH=. python - <<'PY'
-          import json
+          import json, os
           from pathlib import Path
-          from src.ipel.adjudication_distribution import verify_intake_ledger
+          from src.ipel.adjudication_distribution import parse_key_hex, verify_intake_ledger
           p = Path('.private-stage008/CI-TEST-001/intake_ledger.json')
           ledger = json.loads(p.read_text())
-          verify_intake_ledger(ledger)
+          key = parse_key_hex(os.environ['IPEL_STAGE008_KEY_HEX'])
+          verify_intake_ledger(ledger, key)
+          assert ledger['ledger_version'] == 'stage008-keyed-intake-ledger-v1'
           assert ledger['data_origin'] == 'SYNTHETIC_NON_HUMAN'
           assert len(ledger['responses']) == 24
           assert 'POST_ADJUDICATION_LOCK' not in json.dumps(ledger)

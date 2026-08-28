@@ -10,13 +10,14 @@ Stage 008 operationalizes the transition from the frozen Stage-007 neutral adjud
 - Each distribution ID produces a distinct external case-ID namespace and packet order.
 - The public bundle excludes internal `ADJ-*` identifiers, Stage-006 IDs/labels, machine-gate outcomes, hidden-map names, and repository URLs.
 - Bundle and private-mapping integrity are checked with keyed HMACs.
+- The private intake ledger uses an HMAC-SHA-256 receipt chain tied to the same secret key; changing recorded responses after intake cannot be repaired by recomputing only public SHA-256 values.
 - Synthetic responses require an explicit software-test lane and cannot be mixed into a real intake ledger.
 - Intake produces raw normalized responses only; it has no study-lock promotion capability.
 
 ## Important limitation
 This design reduces accidental deblinding but cannot make a public benchmark cryptographically secret from a motivated adjudicator who searches for the underlying synthetic facts.
 
-The project also cannot authenticate a human decision before intake without an adjudicator-controlled signature or an authenticated collection service. Stage 008 therefore claims **post-intake tamper evidence**: the exact received response document is hashed, normalized rows are hashed, and intake receipts form a hash chain. Changes to recorded responses after intake are detectable.
+The project also cannot authenticate a human decision before intake without an adjudicator-controlled signature or an authenticated collection service. Stage 008 therefore claims **keyed post-intake tamper evidence**, conditional on secure retention of the distribution key. The exact received response document is hashed at intake; normalized rows are hashed; and every receipt is authenticated and chained with HMAC-SHA-256.
 
 ## Real-world state
 - Real adjudicators recruited: **false**

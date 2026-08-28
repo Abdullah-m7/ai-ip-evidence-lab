@@ -6,7 +6,7 @@ Stage 007 froze the neutral adjudication construct. Stage 008 prepares the opera
 This stage does **not** collect or invent human responses.
 
 ## Threat model
-The project repository is public, so complete cryptographic blindness is impossible: a motivated adjudicator can search public materials. Stage 008 therefore targets **casual/accidental deblinding**, mapping integrity, and post-intake tamper evidence.
+The project repository is public, so complete cryptographic blindness is impossible: a motivated adjudicator can search public materials. Stage 008 therefore targets **casual/accidental deblinding**, mapping integrity, and keyed post-intake tamper evidence.
 
 It does not claim to prove:
 - that a respondent is biologically human;
@@ -22,7 +22,8 @@ For a real export, generate a high-entropy secret key of at least 32 bytes and p
 The same key is used to derive:
 - per-distribution external case IDs via HMAC-SHA-256;
 - bundle HMACs;
-- private-mapping authentication.
+- private-mapping authentication;
+- the private intake receipt HMAC chain.
 
 A different `distribution_id` produces a different set of external case IDs and a different packet order even for the same frozen cases.
 
@@ -64,14 +65,16 @@ PYTHONPATH=. python scripts/ingest_adjudication_responses.py \
   --ledger /secure/private/intake_ledger.json
 ```
 
-The ingestion tool produces/extends a private hash-chained intake ledger. It preserves `prior_exposure` and `conflict_of_interest` rather than deleting those rows.
+The ingestion tool produces/extends a private keyed-HMAC intake ledger. It preserves `prior_exposure` and `conflict_of_interest` rather than deleting those rows.
 
 ## Integrity boundary
 Bundle and private-mapping tampering are detectable at ingestion because they are covered by a project-held HMAC.
 
-For responses, the system creates an exact `submission_sha256` at intake and then hashes the normalized response slice into an append-only receipt chain. Therefore **post-intake** modification of a recorded response is detectable.
+For responses, the system computes the exact `submission_sha256` at intake, hashes each normalized response slice, and authenticates every intake receipt with HMAC-SHA-256. Each receipt includes the previous receipt HMAC. Therefore an attacker who can edit the ledger but does **not** possess the distribution key cannot make a changed post-intake response pass verification merely by recomputing public SHA-256 values.
 
-This does not authenticate the respondent's decision before intake. Without an adjudicator-controlled signature or an authenticated collection service, the project cannot infer whether a pre-intake response file was changed in transit. The paper must not claim otherwise.
+This protection depends on keeping the distribution key secret and securely retaining it for later ledger verification.
+
+This still does not authenticate the respondent's decision before intake. Without an adjudicator-controlled signature or an authenticated collection service, the project cannot infer whether a pre-intake response file was changed in transit. The paper must not claim otherwise.
 
 ## Synthetic software tests
 Synthetic responses may be accepted only with the explicit `--allow-synthetic` lane and `SYNTHETIC_NON_HUMAN` origin. They cannot be mixed into a `REAL_HUMAN` intake ledger and cannot promote a Stage-007 study lock.

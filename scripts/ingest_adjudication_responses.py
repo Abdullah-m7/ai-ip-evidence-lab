@@ -53,10 +53,10 @@ def main() -> int:
 
     if ledger_path.exists():
         ledger = load_json(ledger_path)
-        verify_intake_ledger(ledger)
+        verify_intake_ledger(ledger, key)
     else:
-        ledger = new_intake_ledger(normalized["data_origin"])
-    updated = append_intake(ledger, normalized)
+        ledger = new_intake_ledger(normalized["data_origin"], key)
+    updated = append_intake(ledger, normalized, key)
     write_json(ledger_path, updated)
 
     print(json.dumps({
@@ -66,7 +66,8 @@ def main() -> int:
         "response_rows": len(updated["responses"]),
         "ledger": str(ledger_path),
         "lock_promoted": False,
-        "warning": "Ingestion records responses and post-intake integrity only. It does not establish human identity or promote a Stage-007 lock.",
+        "receipt_chain": "HMAC_SHA256_KEYED",
+        "warning": "Ingestion records responses and keyed post-intake integrity only. It does not establish human identity, authenticate pre-intake response authorship, or promote a Stage-007 lock.",
     }, indent=2, sort_keys=True))
     return 0
 

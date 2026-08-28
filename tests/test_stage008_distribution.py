@@ -15,6 +15,7 @@ from src.ipel.adjudication_distribution import (
     guard_private_destination,
     new_intake_ledger,
     normalize_external_response,
+    object_sha256,
     scan_external_leakage,
     validate_bundle,
     validate_private_mapping,
@@ -57,6 +58,15 @@ class Stage008DistributionTests(unittest.TestCase):
             "responses": rows,
         }
 
+    def synthetic_ledger(self, *, count=3):
+        normalized = normalize_external_response(
+            self.synthetic_response(count=count), self.bundle, self.manifest, self.mapping,
+            self.key, allow_synthetic=True,
+        )
+        return append_intake(
+            new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key), normalized, self.key
+        )
+
     def test_bundle_is_clean_and_has_per_distribution_ids(self):
         self.assertEqual(self.bundle["bundle_version"], BUNDLE_VERSION)
         self.assertEqual(self.bundle["case_count"], 24)
@@ -68,11 +78,13 @@ class Stage008DistributionTests(unittest.TestCase):
         other, _, _ = build_distribution(self.source, "TEST-DIST-002", self.key)
         self.assertNotEqual(set(ids), {p["external_case_id"] for p in other["packets"]})
 
-    def test_wrong_key_fails_closed(self):
+    def test_wrong_key_fails_bundle_mapping_and_ledger(self):
         with self.assertRaises(DistributionError):
             validate_bundle(self.bundle, self.manifest, self.wrong_key)
         with self.assertRaises(DistributionError):
             validate_private_mapping(self.mapping, self.manifest, self.wrong_key)
+        with self.assertRaises(DistributionError):
+            verify_intake_ledger(self.synthetic_ledger(), self.wrong_key)
 
     def test_one_field_bundle_tamper_is_detected(self):
         tampered = copy.deepcopy(self.bundle)
@@ -112,8 +124,10 @@ class Stage008DistributionTests(unittest.TestCase):
         self.assertEqual(normalized["data_origin"], "SYNTHETIC_NON_HUMAN")
         self.assertEqual(len(normalized["normalized_responses"]), 24)
         self.assertTrue(all(row["adjudication_case_id"].startswith("ADJ-") for row in normalized["normalized_responses"]))
-        ledger = append_intake(new_intake_ledger("SYNTHETIC_NON_HUMAN"), normalized)
-        verify_intake_ledger(ledger)
+        ledger = append_intake(
+            new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key), normalized, self.key
+        )
+        verify_intake_ledger(ledger, self.key)
         self.assertEqual(len(ledger["events"]), 1)
         self.assertEqual(len(ledger["responses"]), 24)
         self.assertNotIn("POST_ADJUDICATION_LOCK", json.dumps(ledger))
@@ -128,24 +142,35 @@ class Stage008DistributionTests(unittest.TestCase):
             )
 
     def test_post_intake_response_tampering_is_detected(self):
-        normalized = normalize_external_response(
-            self.synthetic_response(count=3), self.bundle, self.manifest, self.mapping,
-            self.key, allow_synthetic=True,
-        )
-        ledger = append_intake(new_intake_ledger("SYNTHETIC_NON_HUMAN"), normalized)
+        ledger = self.synthetic_ledger()
         tampered = copy.deepcopy(ledger)
         tampered["responses"][0]["decision"] = "NOT_READY"
         with self.assertRaises(DistributionError):
-            verify_intake_ledger(tampered)
+            verify_intake_ledger(tampered, self.key)
+
+    def test_public_rehash_cannot_repair_keyed_receipt(self):
+        ledger = self.synthetic_ledger()
+        tampered = copy.deepcopy(ledger)
+        tampered["responses"][0]["decision"] = "NOT_READY"
+        event = tampered["events"][0]
+        start = event["response_start"]
+        end = start + event["response_count"]
+        # An attacker can recompute every public/unkeyed hash after changing a response...
+        event["normalized_responses_sha256"] = object_sha256(tampered["responses"][start:end])
+        # ...but cannot recompute receipt_hmac_sha256 without the private distribution key.
+        with self.assertRaises(DistributionError):
+            verify_intake_ledger(tampered, self.key)
 
     def test_intake_ledger_refuses_duplicate_adjudicator_case(self):
         normalized = normalize_external_response(
             self.synthetic_response(count=2), self.bundle, self.manifest, self.mapping,
             self.key, allow_synthetic=True,
         )
-        ledger = append_intake(new_intake_ledger("SYNTHETIC_NON_HUMAN"), normalized)
+        ledger = append_intake(
+            new_intake_ledger("SYNTHETIC_NON_HUMAN", self.key), normalized, self.key
+        )
         with self.assertRaises(DistributionError):
-            append_intake(ledger, normalized)
+            append_intake(ledger, normalized, self.key)
 
 
 if __name__ == "__main__":

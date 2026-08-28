@@ -2,8 +2,8 @@
 
 This module reduces casual/accidental deblinding by remapping public Stage-007 case
 identifiers to per-distribution HMAC-derived external IDs. It also provides keyed
-bundle/mapping integrity checks and a post-intake hash chain. It does NOT prove human
-identity, adjudicator qualification, or pre-intake response authenticity.
+bundle/mapping integrity checks and a keyed post-intake receipt chain. It does NOT
+prove human identity, adjudicator qualification, or pre-intake response authenticity.
 """
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ DISTRIBUTION_ROOT = ROOT / ".stage008-distributions"
 BUNDLE_VERSION = "stage008-distribution-v1"
 MAPPING_VERSION = "stage008-private-mapping-v1"
 RESPONSE_VERSION = "stage008-external-response-v1"
-LEDGER_VERSION = "stage008-intake-ledger-v1"
+LEDGER_VERSION = "stage008-keyed-intake-ledger-v1"
 EXTERNAL_CASE_RE = re.compile(r"^CASE-[A-F0-9]{16}$")
 DISTRIBUTION_ID_RE = re.compile(r"^[A-Za-z0-9._-]{3,80}$")
 FORBIDDEN_EXTERNAL_TOKENS = (
@@ -281,8 +281,7 @@ def guard_bundle_destination(path: Path, repo_root: Path = ROOT) -> None:
 
 
 def response_template(bundle: dict[str, Any], manifest: dict[str, Any]) -> dict[str, Any]:
-    validate_identity = bundle.get("bundle_id") == manifest.get("bundle_id")
-    if not validate_identity:
+    if bundle.get("bundle_id") != manifest.get("bundle_id"):
         raise DistributionError("bundle/manifest identity mismatch")
     return {
         "response_version": RESPONSE_VERSION,
@@ -380,20 +379,24 @@ def normalize_external_response(
     }
 
 
-def new_intake_ledger(data_origin: str) -> dict[str, Any]:
+def new_intake_ledger(data_origin: str, key: bytes) -> dict[str, Any]:
+    _validate_key(key)
     if data_origin not in {"REAL_HUMAN", "SYNTHETIC_NON_HUMAN"}:
         raise DistributionError("invalid ledger data origin")
     return {
         "ledger_version": LEDGER_VERSION,
         "data_origin": data_origin,
+        "key_fingerprint": key_fingerprint(key),
         "events": [],
         "responses": [],
     }
 
 
-def append_intake(ledger: dict[str, Any], normalized: dict[str, Any]) -> dict[str, Any]:
-    if not isinstance(ledger, dict) or ledger.get("ledger_version") != LEDGER_VERSION:
-        raise DistributionError("invalid intake ledger")
+def append_intake(
+    ledger: dict[str, Any], normalized: dict[str, Any], key: bytes
+) -> dict[str, Any]:
+    _validate_key(key)
+    verify_intake_ledger(ledger, key)
     if ledger.get("data_origin") != normalized.get("data_origin"):
         raise DistributionError("real and synthetic intake data cannot be mixed")
     out = copy.deepcopy(ledger)
@@ -411,7 +414,7 @@ def append_intake(ledger: dict[str, Any], normalized: dict[str, Any]) -> dict[st
         existing_pairs.add(pair)
     start = len(out["responses"])
     response_sha = object_sha256(rows)
-    previous = out["events"][-1]["receipt_hash"] if out["events"] else None
+    previous_hmac = out["events"][-1]["receipt_hmac_sha256"] if out["events"] else None
     payload = {
         "receipt_index": len(out["events"]),
         "bundle_id": normalized["bundle_id"],
@@ -421,19 +424,22 @@ def append_intake(ledger: dict[str, Any], normalized: dict[str, Any]) -> dict[st
         "normalized_responses_sha256": response_sha,
         "response_start": start,
         "response_count": len(rows),
-        "previous_receipt_hash": previous,
+        "previous_receipt_hmac": previous_hmac,
     }
     event = dict(payload)
-    event["receipt_hash"] = object_sha256(payload)
+    event["receipt_hmac_sha256"] = _hmac_hex(key, canonical_bytes(payload))
     out["events"].append(event)
     out["responses"].extend(rows)
-    verify_intake_ledger(out)
+    verify_intake_ledger(out, key)
     return out
 
 
-def verify_intake_ledger(ledger: Any) -> None:
+def verify_intake_ledger(ledger: Any, key: bytes) -> None:
+    _validate_key(key)
     if not isinstance(ledger, dict) or ledger.get("ledger_version") != LEDGER_VERSION:
         raise DistributionError("invalid intake ledger")
+    if ledger.get("key_fingerprint") != key_fingerprint(key):
+        raise DistributionError("intake ledger key fingerprint mismatch")
     origin = ledger.get("data_origin")
     if origin not in {"REAL_HUMAN", "SYNTHETIC_NON_HUMAN"}:
         raise DistributionError("invalid intake ledger origin")
@@ -442,13 +448,13 @@ def verify_intake_ledger(ledger: Any) -> None:
     if not isinstance(events, list) or not isinstance(responses, list):
         raise DistributionError("intake ledger arrays are missing")
     cursor = 0
-    previous = None
+    previous_hmac = None
     pairs: set[tuple[Any, Any]] = set()
     for index, event in enumerate(events):
         if not isinstance(event, dict):
             raise DistributionError("invalid intake receipt")
-        payload = {k: copy.deepcopy(v) for k, v in event.items() if k != "receipt_hash"}
-        if event.get("receipt_index") != index or event.get("previous_receipt_hash") != previous:
+        payload = {k: copy.deepcopy(v) for k, v in event.items() if k != "receipt_hmac_sha256"}
+        if event.get("receipt_index") != index or event.get("previous_receipt_hmac") != previous_hmac:
             raise DistributionError("intake receipt chain mismatch")
         if event.get("response_start") != cursor or not isinstance(event.get("response_count"), int) or event["response_count"] <= 0:
             raise DistributionError("intake receipt range mismatch")
@@ -456,9 +462,10 @@ def verify_intake_ledger(ledger: Any) -> None:
         rows = responses[cursor:end]
         if len(rows) != event["response_count"] or object_sha256(rows) != event.get("normalized_responses_sha256"):
             raise DistributionError("post-intake response tampering detected")
-        expected_receipt = object_sha256(payload)
-        if event.get("receipt_hash") != expected_receipt:
-            raise DistributionError("intake receipt hash mismatch")
+        expected_hmac = _hmac_hex(key, canonical_bytes(payload))
+        actual_hmac = event.get("receipt_hmac_sha256")
+        if not isinstance(actual_hmac, str) or not hmac.compare_digest(actual_hmac, expected_hmac):
+            raise DistributionError("intake receipt HMAC mismatch")
         for row in rows:
             if not isinstance(row, dict) or row.get("data_origin") != origin:
                 raise DistributionError("intake response origin mismatch")
@@ -466,7 +473,7 @@ def verify_intake_ledger(ledger: Any) -> None:
             if pair in pairs:
                 raise DistributionError("duplicate adjudicator/case pair in intake ledger")
             pairs.add(pair)
-        previous = event["receipt_hash"]
+        previous_hmac = actual_hmac
         cursor = end
     if cursor != len(responses):
         raise DistributionError("unreceipted responses found in intake ledger")
