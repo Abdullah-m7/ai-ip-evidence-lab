@@ -1,0 +1,199 @@
+{
+  "benchmark_version": "stage007-adjudication-v1",
+  "mapping": {
+    "ADJ-13839AE4ED46": {
+      "fact_digest": "96f708ecbfe0ca43fff8cf82101d6141f4a335e251666f25284e392591d06886",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R04",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-25B6CCE5DB73": {
+      "fact_digest": "e7ed87f132f18f69385dff70b192d41c9b6c64adbc25785fea7fc3c47dd2a894",
+      "stage006_author_missing_fact_codes": [
+        "USE_DATE"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N03",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-2B61B8C1BD67": {
+      "fact_digest": "8935c4a5d9534d16f57340edb56c0bb30e0f8dbd78af118c0220b3f2e87f1c21",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R01",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-2DFFDE1D4D1D": {
+      "fact_digest": "3adff50a5f72c65498f75ebe22b00018b869ca5b1f43c51697acfac04df975a2",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R06",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-4370A6662966": {
+      "fact_digest": "a575d9b3dce290d69e48c3b91645ddc221fe7703533d6b022a6d80e672d57000",
+      "stage006_author_missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N04",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-44E6E4AE0A9B": {
+      "fact_digest": "ec75f433b97b658c747635da75b25579126f6ce3b4ccd15f97da10d04548590a",
+      "stage006_author_missing_fact_codes": [
+        "PUBLICATION"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N05",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-45EA3D87D744": {
+      "fact_digest": "25dafe2b08dc5a4f1a1b2059fd1bfeb7e451847ba1ed9b228190ba93d1694156",
+      "stage006_author_missing_fact_codes": [
+        "ACQUISITION"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N04",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-4A8B16273E47": {
+      "fact_digest": "0efc5586e6ed69ba68c2947b6ad79e6a923fdce6b27ac5b879c492bac22c92a3",
+      "stage006_author_missing_fact_codes": [
+        "USE_PURPOSE",
+        "USE_EVENT_EVIDENCE"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N06",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-885D5D1556E2": {
+      "fact_digest": "f093476c19fd0b11251e32a7ba19f881c53f8d2022cd86a6fd25464faa3842cb",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R02",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-95F1C0BE8EE5": {
+      "fact_digest": "9e63825eba58fb1ab2c541a2b53790eb40427eb592f87eb70c63a99692d39f1c",
+      "stage006_author_missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N02",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-A0B7E2E7D138": {
+      "fact_digest": "d280f3fb7e892deabd9ada11d26377e905526394311dd035c87b439d7d022bb8",
+      "stage006_author_missing_fact_codes": [
+        "AUTHOR_INTERESTS"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N03",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-A4224423FC3B": {
+      "fact_digest": "dd8a91569e006e9cc4428aad1321338c91da89a4e7b501c95a82b7e7df1659ae",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R03",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-A5BC92E1E16E": {
+      "fact_digest": "ea59d4d9a0b1c5bc3f5c4746010e4aebe4b1163c73bf4c53db579701f1bf0390",
+      "stage006_author_missing_fact_codes": [
+        "NECESSITY"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N01",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-A5DDAC1D2060": {
+      "fact_digest": "eee67bef9af9e4245d2b57ed53f5aba461dd22797424341866594fa6c1238857",
+      "stage006_author_missing_fact_codes": [
+        "WORK_SOURCE"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N02",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-A94B8BE0DFA0": {
+      "fact_digest": "d9eca8a27e64d2c363999a74d6c53215cb229eb9786b14e1d29b1b550eb0f877",
+      "stage006_author_missing_fact_codes": [
+        "COMMERCIAL_EFFECT"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N06",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-ACDB810E65E6": {
+      "fact_digest": "1fc28e9b884a686be5eca8c777d38d78439197bdf0ef9d54fe6bc21fa49d1b46",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-R05",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-ADD608B60671": {
+      "fact_digest": "c5798ea83e76c034a0121792c6854622c282eaee5d52b2086732177312306b6e",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R02",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-C29FC4589F74": {
+      "fact_digest": "39fd52ea75951896b434b69e39aca79e329676f5a7014326dcbdd57c86d06557",
+      "stage006_author_missing_fact_codes": [
+        "INDEPENDENT_ELEMENTS"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-N05",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-D0FCA5E9807D": {
+      "fact_digest": "df1893cb387b6fc19f76dbde1e1854d919fd64a2777e28a0d575f53d7218937e",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R04",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-D1F1419E8704": {
+      "fact_digest": "8f3da95e6e6e3af5faa4cc1e4ab35c010fc6c21641b196e6aef156554cb74500",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R03",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-DAE44BEF06B6": {
+      "fact_digest": "2ed08c4102d0ba860ab77abc6003d49d84ded1c355bb48c91cfc696308a17b68",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R06",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-EE4A2341F8A9": {
+      "fact_digest": "977a64ab0ef736e90734ec63d96bfcd9abddcf3bbe399d3e1881bb28c1bb7781",
+      "stage006_author_missing_fact_codes": [
+        "WORK_TYPE"
+      ],
+      "stage006_author_readiness": "NOT_READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "OBJ-N01",
+      "stage006_stratum": "objective"
+    },
+    "ADJ-FBC729E9DBE8": {
+      "fact_digest": "ccd60710d661536ce58501297bb296c8e0926afb6547452382268ec300a65bc6",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R05",
+      "stage006_stratum": "judgment_sensitive"
+    },
+    "ADJ-FCD121364040": {
+      "fact_digest": "0245bda05849f50a10bb4e283942563396c00ff9e2b632341b0c8734eccf2c0c",
+      "stage006_author_missing_fact_codes": [],
+      "stage006_author_readiness": "READY_FOR_LEGAL_EVALUATION",
+      "stage006_case_id": "JDG-R01",
+      "stage006_stratum": "judgment_sensitive"
+    }
+  },
+  "warning": "HIDDEN PROVENANCE. Never provide this mapping to adjudicators."
+}

@@ -79,3 +79,32 @@ jobs:
         run: git diff --exit-code -- benchmarks/stage006/generated
       - name: Run Stage 006 benchmark/scoring tests
         run: python -m unittest tests.test_reviewer_benchmark tests.test_stage006_artifacts -v
+
+  stage007-adjudication-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild Stage 007 adjudication preparation
+        run: PYTHONPATH=. python experiments/stage007_build_preparation.py > /tmp/stage007-preparation.json
+      - name: Rebuild Stage 007 power design grid
+        run: PYTHONPATH=. python experiments/stage007_power_simulation.py > /tmp/stage007-power.json
+      - name: Confirm Stage 007 artifacts are byte-reproducible
+        run: git diff --exit-code -- benchmarks/stage007/generated
+      - name: Validate Stage 007 pre-adjudication freeze
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          import json
+          from pathlib import Path
+          from src.ipel.study_lock import validate_freeze_manifest
+          root = Path('.').resolve()
+          manifest = json.loads((root / 'benchmarks/stage007/generated/pre_adjudication_lock.json').read_text())
+          validate_freeze_manifest(root, manifest)
+          assert manifest['state'] == 'PRE_ADJUDICATION_LOCK'
+          assert manifest['real_adjudication_collected'] is False
+          assert manifest['final_sample_size_locked'] is False
+          PY
+      - name: Run Stage 007 adjudication/lock tests
+        run: python -m unittest tests.test_stage007_adjudication tests.test_stage007_power_lock tests.test_stage007_prelock -v

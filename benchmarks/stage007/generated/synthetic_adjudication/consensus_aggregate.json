@@ -1,0 +1,351 @@
+{
+  "aggregate": {
+    "all_cases_resolved": true,
+    "case_count": 24,
+    "cases": {
+      "ADJ-13839AE4ED46": {
+        "adjudication_case_id": "ADJ-13839AE4ED46",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-25B6CCE5DB73": {
+        "adjudication_case_id": "ADJ-25B6CCE5DB73",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "USE_DATE"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-2B61B8C1BD67": {
+        "adjudication_case_id": "ADJ-2B61B8C1BD67",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-2DFFDE1D4D1D": {
+        "adjudication_case_id": "ADJ-2DFFDE1D4D1D",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-4370A6662966": {
+        "adjudication_case_id": "ADJ-4370A6662966",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "INDEPENDENT_ELEMENTS"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-44E6E4AE0A9B": {
+        "adjudication_case_id": "ADJ-44E6E4AE0A9B",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "PUBLICATION"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-45EA3D87D744": {
+        "adjudication_case_id": "ADJ-45EA3D87D744",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "ACQUISITION"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-4A8B16273E47": {
+        "adjudication_case_id": "ADJ-4A8B16273E47",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "USE_EVENT_EVIDENCE",
+          "USE_PURPOSE"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-885D5D1556E2": {
+        "adjudication_case_id": "ADJ-885D5D1556E2",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-95F1C0BE8EE5": {
+        "adjudication_case_id": "ADJ-95F1C0BE8EE5",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "COMMERCIAL_EFFECT"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-A0B7E2E7D138": {
+        "adjudication_case_id": "ADJ-A0B7E2E7D138",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "AUTHOR_INTERESTS"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-A4224423FC3B": {
+        "adjudication_case_id": "ADJ-A4224423FC3B",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-A5BC92E1E16E": {
+        "adjudication_case_id": "ADJ-A5BC92E1E16E",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "NECESSITY"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-A5DDAC1D2060": {
+        "adjudication_case_id": "ADJ-A5DDAC1D2060",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "WORK_SOURCE"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-A94B8BE0DFA0": {
+        "adjudication_case_id": "ADJ-A94B8BE0DFA0",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "COMMERCIAL_EFFECT"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-ACDB810E65E6": {
+        "adjudication_case_id": "ADJ-ACDB810E65E6",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-ADD608B60671": {
+        "adjudication_case_id": "ADJ-ADD608B60671",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-C29FC4589F74": {
+        "adjudication_case_id": "ADJ-C29FC4589F74",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "INDEPENDENT_ELEMENTS"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-D0FCA5E9807D": {
+        "adjudication_case_id": "ADJ-D0FCA5E9807D",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-D1F1419E8704": {
+        "adjudication_case_id": "ADJ-D1F1419E8704",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-DAE44BEF06B6": {
+        "adjudication_case_id": "ADJ-DAE44BEF06B6",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-EE4A2341F8A9": {
+        "adjudication_case_id": "ADJ-EE4A2341F8A9",
+        "decision": "NOT_READY",
+        "decision_counts": {
+          "NOT_READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [
+          "WORK_TYPE"
+        ],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-FBC729E9DBE8": {
+        "adjudication_case_id": "ADJ-FBC729E9DBE8",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      },
+      "ADJ-FCD121364040": {
+        "adjudication_case_id": "ADJ-FCD121364040",
+        "decision": "READY",
+        "decision_counts": {
+          "READY": 3
+        },
+        "decision_fraction": 1.0,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "RESOLVED",
+        "unresolved_reason": null
+      }
+    },
+    "consensus_fraction": 0.6666666666666666,
+    "data_origin": "SYNTHETIC_NON_HUMAN",
+    "min_adjudicators": 3,
+    "resolved_cases": 24,
+    "unresolved_cases": 0
+  },
+  "warning": "SYNTHETIC_NON_HUMAN software-test result only."
+}

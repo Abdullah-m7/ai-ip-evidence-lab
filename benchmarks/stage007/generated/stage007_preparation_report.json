@@ -1,0 +1,25 @@
+{
+  "FINAL_SAMPLE_SIZE_LOCKED": false,
+  "REAL_ADJUDICATION_COLLECTED": false,
+  "acceptance": {
+    "hidden_mapping_one_to_one": true,
+    "neutral_packet_has_24_cases": true,
+    "no_stage006_answer_or_condition_leakage": true,
+    "procedural_blinding_limitation_disclosed": true,
+    "pseudonymous_ids_unique": true,
+    "real_adjudication_absent": true,
+    "synthetic_consensus_fixture_resolves_all_cases": true,
+    "synthetic_disagreement_fixture_stays_unresolved": true
+  },
+  "all_acceptance_gates_pass": true,
+  "blinding_model": "PROCEDURAL_NOT_CRYPTOGRAPHIC",
+  "case_count": 24,
+  "decision_consensus_fraction": 0.6666666666666666,
+  "leakage_hits": [],
+  "lock_state_target": "PRE_ADJUDICATION_LOCK",
+  "minimum_independent_adjudicators_per_case": 3,
+  "public_repository_deblinding_risk": true,
+  "stage": "007",
+  "status": "PRE_ADJUDICATION_PREPARATION_READY",
+  "synthetic_fixture_warning": "All generated adjudication responses are NON-HUMAN software tests."
+}

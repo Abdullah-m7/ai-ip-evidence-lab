@@ -1,0 +1,29 @@
+{
+  "aggregate": {
+    "all_cases_resolved": false,
+    "case_count": 1,
+    "cases": {
+      "ADJ-13839AE4ED46": {
+        "adjudication_case_id": "ADJ-13839AE4ED46",
+        "decision": null,
+        "decision_counts": {
+          "NOT_READY": 1,
+          "READY": 1,
+          "UNSURE": 1
+        },
+        "decision_fraction": 0.3333333333333333,
+        "eligible_adjudicators": 3,
+        "excluded_adjudicators": 0,
+        "missing_information_codes": [],
+        "status": "UNRESOLVED",
+        "unresolved_reason": "DECISION_CONSENSUS_NOT_MET"
+      }
+    },
+    "consensus_fraction": 0.6666666666666666,
+    "data_origin": "SYNTHETIC_NON_HUMAN",
+    "min_adjudicators": 3,
+    "resolved_cases": 0,
+    "unresolved_cases": 1
+  },
+  "warning": "SYNTHETIC_NON_HUMAN software-test result only."
+}

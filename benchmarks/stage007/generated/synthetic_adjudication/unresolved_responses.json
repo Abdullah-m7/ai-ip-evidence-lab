@@ -1,0 +1,43 @@
+{
+  "responses": [
+    {
+      "adjudication_case_id": "ADJ-13839AE4ED46",
+      "adjudicator_id": "SYN-U1",
+      "confidence_0_to_100": 60,
+      "conflict_of_interest": false,
+      "data_origin": "SYNTHETIC_NON_HUMAN",
+      "decision": "READY",
+      "missing_information_codes": [],
+      "prior_exposure": false,
+      "rationale": "Synthetic disagreement fixture; not a human judgment.",
+      "synthetic_fixture": true
+    },
+    {
+      "adjudication_case_id": "ADJ-13839AE4ED46",
+      "adjudicator_id": "SYN-U2",
+      "confidence_0_to_100": 60,
+      "conflict_of_interest": false,
+      "data_origin": "SYNTHETIC_NON_HUMAN",
+      "decision": "NOT_READY",
+      "missing_information_codes": [
+        "WORK_SOURCE"
+      ],
+      "prior_exposure": false,
+      "rationale": "Synthetic disagreement fixture; not a human judgment.",
+      "synthetic_fixture": true
+    },
+    {
+      "adjudication_case_id": "ADJ-13839AE4ED46",
+      "adjudicator_id": "SYN-U3",
+      "confidence_0_to_100": 60,
+      "conflict_of_interest": false,
+      "data_origin": "SYNTHETIC_NON_HUMAN",
+      "decision": "UNSURE",
+      "missing_information_codes": [],
+      "prior_exposure": false,
+      "rationale": "Synthetic disagreement fixture; not a human judgment.",
+      "synthetic_fixture": true
+    }
+  ],
+  "warning": "SYNTHETIC_NON_HUMAN software-test data only."
+}

@@ -1,0 +1,122 @@
+{
+  "$id": "https://example.org/ipel/stage007-adjudication-response.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "data_origin": {
+            "const": "SYNTHETIC_NON_HUMAN"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "synthetic_fixture": {
+            "const": true
+          }
+        },
+        "required": [
+          "synthetic_fixture"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_origin": {
+            "const": "REAL_HUMAN"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "synthetic_fixture": {
+            "not": {
+              "const": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "adjudication_case_id": {
+      "pattern": "^ADJ-[A-F0-9]{12}$",
+      "type": "string"
+    },
+    "adjudicator_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "type": "string"
+    },
+    "confidence_0_to_100": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+    },
+    "conflict_of_interest": {
+      "type": "boolean"
+    },
+    "data_origin": {
+      "enum": [
+        "REAL_HUMAN",
+        "SYNTHETIC_NON_HUMAN"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "READY",
+        "NOT_READY",
+        "UNSURE"
+      ]
+    },
+    "missing_information_codes": {
+      "items": {
+        "enum": [
+          "WORK_TYPE",
+          "WORK_SOURCE",
+          "USE_PURPOSE",
+          "USE_DATE",
+          "PUBLICATION",
+          "ACQUISITION",
+          "NECESSITY",
+          "PROHIBITED_USE_STATUS",
+          "COMMERCIAL_EFFECT",
+          "AUTHOR_INTERESTS",
+          "OUTPUT_CONTEXT",
+          "INDEPENDENT_ELEMENTS",
+          "USE_EVENT_EVIDENCE"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "prior_exposure": {
+      "type": "boolean"
+    },
+    "rationale": {
+      "maxLength": 4000,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "data_origin",
+    "adjudicator_id",
+    "adjudication_case_id",
+    "decision",
+    "missing_information_codes",
+    "confidence_0_to_100",
+    "prior_exposure",
+    "conflict_of_interest"
+  ],
+  "title": "Stage 007 adjudication response",
+  "type": "object"
+}
