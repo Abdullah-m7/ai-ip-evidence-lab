@@ -75,6 +75,20 @@ class C2PAProfileTests(unittest.TestCase):
         profile["ipel_jurisdictional"]["work"]["title"] = "Duplicated title"
         self.assertTrue(any("duplicate generic field" in e for e in validate_profile(profile)))
 
+    def test_field_map_tampering_is_rejected(self):
+        profile = to_profile(VALID)
+        profile["field_map"] = {"work.source": "c2pa.ingredient.informationalURI"}
+        with self.assertRaises(ProfileError):
+            from_profile(profile)
+
+    def test_manifest_and_signal_contract_fails_closed(self):
+        profile = to_profile(VALID)
+        profile["c2pa"]["manifest_ref"] = ""
+        profile["c2pa"]["validation_signals"]["trust_state"] = None
+        errors = validate_profile(profile)
+        self.assertTrue(any("manifest_ref" in e for e in errors))
+        self.assertTrue(any("trust_state" in e for e in errors))
+
     def test_missing_jurisdictional_source_fails_closed(self):
         profile = to_profile(VALID)
         del profile["ipel_jurisdictional"]["work"]["source"]

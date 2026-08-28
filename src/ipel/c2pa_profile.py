@@ -162,16 +162,24 @@ def validate_profile(profile: Any) -> list[str]:
         errors.append("unexpected C2PA version")
     if c2pa.get("representation") != "aligned-intermediate-not-a-manifest":
         errors.append("representation must disclaim Manifest conformance")
+    manifest_ref = c2pa.get("manifest_ref")
+    if not isinstance(manifest_ref, str) or not manifest_ref.strip():
+        errors.append("c2pa.manifest_ref must be a non-empty string")
     ingredient = c2pa.get("ingredient")
     if not isinstance(ingredient, dict):
         errors.append("c2pa.ingredient must be an object")
     else:
         if ingredient.get("relationship") != "inputTo":
             errors.append("c2pa.ingredient.relationship must be inputTo")
+        title = ingredient.get("dc:title")
+        if title is not None and (not isinstance(title, str) or not title.strip()):
+            errors.append("c2pa.ingredient.dc:title must be a non-empty string")
     tdm = c2pa.get("tdm_assertion")
     if not isinstance(tdm, dict) or tdm.get("label") != "cawg.training-mining":
         errors.append("CAWG TDM assertion label is required")
     else:
+        if tdm.get("version") != CAWG_TDM_VERSION:
+            errors.append("unexpected CAWG TDM version")
         entries = tdm.get("entries")
         if not isinstance(entries, dict) or not entries:
             errors.append("CAWG TDM entries are required")
@@ -181,6 +189,13 @@ def validate_profile(profile: Any) -> list[str]:
                     errors.append(f"unsupported TDM key: {key}")
                 if not isinstance(entry, dict) or entry.get("use") not in TDM_USES:
                     errors.append(f"invalid TDM use for {key}")
+    signals = c2pa.get("validation_signals")
+    if not isinstance(signals, dict):
+        errors.append("c2pa.validation_signals must be an object")
+    else:
+        for key in ("manifest_state", "trust_state"):
+            if not isinstance(signals.get(key), str) or not signals[key].strip():
+                errors.append(f"c2pa.validation_signals.{key} must be a non-empty string")
     if not isinstance(profile.get("ipel_jurisdictional"), dict):
         errors.append("ipel_jurisdictional must be an object")
     else:
@@ -192,6 +207,8 @@ def validate_profile(profile: Any) -> list[str]:
         for original in GENERIC_FIELD_MAP:
             if _get(jurisdictional, original) is not None:
                 errors.append(f"duplicate generic field retained: {original}")
+    if profile.get("field_map") != GENERIC_FIELD_MAP:
+        errors.append("field_map is missing or modified")
     barriers = profile.get("interpretation_barriers")
     if barriers != INTERPRETATION_BARRIERS:
         errors.append("interpretation barriers are missing or modified")
@@ -231,7 +248,8 @@ def semantic_loss(original: dict[str, Any], reconstructed: dict[str, Any]) -> li
     left = _flatten(original)
     right = _flatten(reconstructed)
     paths = sorted(set(left) | set(right))
-    return [path for path in paths if left.get(path) != right.get(path)]
+    missing = object()
+    return [path for path in paths if left.get(path, missing) != right.get(path, missing)]
 
 
 def duplicate_generic_fields(profile: dict[str, Any]) -> list[str]:
