@@ -23,3 +23,6 @@ The hidden mapping preserves the original Stage-006 author labels so later adjud
 
 ## Scientific boundary
 This stage does not establish content validity yet. That requires actual independent human adjudication. A future disagreement with the author labels is a scientifically useful result and must be preserved rather than coerced into consensus.
+
+## Blinding limitation
+Because the repository is public, adjudication blinding is procedural rather than cryptographic. The neutral distribution packet contains no answer labels, but an adjudicator who independently searches the repository could become exposed. Real adjudication must therefore use isolated packet distribution and the prespecified prior-exposure flag/exclusion rule.

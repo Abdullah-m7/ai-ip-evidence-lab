@@ -94,6 +94,11 @@ def adjudication_instructions() -> dict[str, Any]:
             {"code": code, "description": description}
             for code, description in MISSING_FACT_CODEBOOK.items()
         ],
+        "blinding_instruction": (
+            "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, "
+            "Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you "
+            "have previously seen the underlying cases or labels, set prior_exposure=true."
+        ),
         "response_fields": [
             "adjudicator_id", "adjudication_case_id", "decision",
             "missing_information_codes", "confidence_0_to_100", "rationale",
@@ -228,6 +233,9 @@ def aggregate_case(
     min_adjudicators: int = DEFAULT_MIN_ADJUDICATORS,
     consensus_fraction: float = DEFAULT_CONSENSUS_FRACTION,
 ) -> ConsensusResult:
+    adjudicator_ids = [r.get("adjudicator_id") for r in responses]
+    if len(adjudicator_ids) != len(set(adjudicator_ids)):
+        raise AdjudicationError("aggregate_case refuses duplicate adjudicator IDs")
     eligible = [r for r in responses if not r["prior_exposure"] and not r["conflict_of_interest"]]
     excluded = len(responses) - len(eligible)
     if len(eligible) < min_adjudicators:

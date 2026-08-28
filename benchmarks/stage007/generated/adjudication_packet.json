@@ -5,6 +5,7 @@
     {
       "adjudication_case_id": "ADJ-2DFFDE1D4D1D",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -238,6 +239,7 @@
     {
       "adjudication_case_id": "ADJ-FCD121364040",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -471,6 +473,7 @@
     {
       "adjudication_case_id": "ADJ-13839AE4ED46",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -704,6 +707,7 @@
     {
       "adjudication_case_id": "ADJ-EE4A2341F8A9",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -933,6 +937,7 @@
     {
       "adjudication_case_id": "ADJ-D1F1419E8704",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -1166,6 +1171,7 @@
     {
       "adjudication_case_id": "ADJ-C29FC4589F74",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -1399,6 +1405,7 @@
     {
       "adjudication_case_id": "ADJ-4370A6662966",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -1632,6 +1639,7 @@
     {
       "adjudication_case_id": "ADJ-FBC729E9DBE8",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -1865,6 +1873,7 @@
     {
       "adjudication_case_id": "ADJ-25B6CCE5DB73",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -2094,6 +2103,7 @@
     {
       "adjudication_case_id": "ADJ-4A8B16273E47",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -2323,6 +2333,7 @@
     {
       "adjudication_case_id": "ADJ-A5DDAC1D2060",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -2552,6 +2563,7 @@
     {
       "adjudication_case_id": "ADJ-A94B8BE0DFA0",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -2785,6 +2797,7 @@
     {
       "adjudication_case_id": "ADJ-45EA3D87D744",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -3018,6 +3031,7 @@
     {
       "adjudication_case_id": "ADJ-DAE44BEF06B6",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -3251,6 +3265,7 @@
     {
       "adjudication_case_id": "ADJ-D0FCA5E9807D",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -3484,6 +3499,7 @@
     {
       "adjudication_case_id": "ADJ-2B61B8C1BD67",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -3717,6 +3733,7 @@
     {
       "adjudication_case_id": "ADJ-ACDB810E65E6",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -3950,6 +3967,7 @@
     {
       "adjudication_case_id": "ADJ-A5BC92E1E16E",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -4183,6 +4201,7 @@
     {
       "adjudication_case_id": "ADJ-885D5D1556E2",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -4416,6 +4435,7 @@
     {
       "adjudication_case_id": "ADJ-A4224423FC3B",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -4649,6 +4669,7 @@
     {
       "adjudication_case_id": "ADJ-A0B7E2E7D138",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -4882,6 +4903,7 @@
     {
       "adjudication_case_id": "ADJ-44E6E4AE0A9B",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -5115,6 +5137,7 @@
     {
       "adjudication_case_id": "ADJ-ADD608B60671",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",
@@ -5348,6 +5371,7 @@
     {
       "adjudication_case_id": "ADJ-95F1C0BE8EE5",
       "instructions": {
+        "blinding_instruction": "This is procedural blinding, not cryptographic secrecy. Do not consult the project repository, Stage-006 case materials, answer keys, or other project artifacts while adjudicating. If you have previously seen the underlying cases or labels, set prior_exposure=true.",
         "construct": "Classify only whether the available record is sufficiently complete and evidenced for a qualified legal reviewer to evaluate the scoped copyright questions. Do not decide whether the conduct is lawful.",
         "decision_options": [
           "READY",

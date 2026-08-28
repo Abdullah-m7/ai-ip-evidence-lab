@@ -57,3 +57,10 @@ No case may be silently rewritten after primary reviewer outcomes are observed.
 
 ## Synthetic fixtures
 Files under `benchmarks/stage007/generated/synthetic_adjudication/` are explicitly `SYNTHETIC_NON_HUMAN`. They test validation and consensus code only and must never be reported as content-validity evidence.
+
+## Blinding threat model: procedural, not cryptographic
+The research repository is public and contains Stage-006 materials. Therefore Stage-007 blinding is **procedural rather than cryptographic**: a motivated adjudicator who deliberately searches the repository could contaminate themselves.
+
+For real adjudication, distribute only the neutral adjudication packet and response instructions, do not direct adjudicators to the repository during the task, and require the `prior_exposure` declaration. Any adjudicator who has seen the underlying Stage-006 cases/labels or consults project materials during adjudication is excluded from primary consensus while their response is preserved for audit.
+
+The study must report this limitation. The project does not claim that public-repository case provenance is secret.

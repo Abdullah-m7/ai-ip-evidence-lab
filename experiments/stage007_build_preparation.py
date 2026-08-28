@@ -101,6 +101,10 @@ def main() -> int:
         "synthetic_consensus_fixture_resolves_all_cases": synthetic_aggregate["all_cases_resolved"] is True,
         "synthetic_disagreement_fixture_stays_unresolved": unresolved_aggregate["all_cases_resolved"] is False,
         "real_adjudication_absent": packet["real_adjudication_collected"] is False,
+        "procedural_blinding_limitation_disclosed": all(
+            "procedural blinding" in item["instructions"]["blinding_instruction"].lower()
+            for item in packet["packets"]
+        ),
     }
     report = {
         "stage": "007",
@@ -113,6 +117,8 @@ def main() -> int:
         "decision_consensus_fraction": 2 / 3,
         "leakage_hits": leakage,
         "synthetic_fixture_warning": "All generated adjudication responses are NON-HUMAN software tests.",
+        "blinding_model": "PROCEDURAL_NOT_CRYPTOGRAPHIC",
+        "public_repository_deblinding_risk": True,
         "acceptance": acceptance,
         "all_acceptance_gates_pass": all(acceptance.values()),
     }

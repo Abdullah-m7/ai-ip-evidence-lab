@@ -91,6 +91,23 @@ class Stage007AdjudicationTests(unittest.TestCase):
         self.assertEqual(result.status, "UNRESOLVED")
         self.assertEqual(result.unresolved_reason, "NOT_READY_WITHOUT_MISSING_INFORMATION_CONSENSUS")
 
+    def test_visible_packet_discloses_procedural_blinding(self):
+        for packet in self.packet["packets"]:
+            text = packet["instructions"]["blinding_instruction"].lower()
+            self.assertIn("procedural blinding", text)
+            self.assertIn("prior_exposure=true", text)
+
+    def test_direct_aggregate_rejects_duplicate_adjudicator(self):
+        case_id = sorted(self.valid_ids)[0]
+        row = {
+            "data_origin":"SYNTHETIC_NON_HUMAN", "synthetic_fixture":True,
+            "adjudicator_id":"DUP", "adjudication_case_id":case_id, "decision":"READY",
+            "missing_information_codes":[], "confidence_0_to_100":80, "rationale":"test",
+            "prior_exposure":False, "conflict_of_interest":False,
+        }
+        with self.assertRaises(AdjudicationError):
+            aggregate_case(case_id, [row, dict(row), dict(row)])
+
 
 if __name__ == "__main__":
     unittest.main()
