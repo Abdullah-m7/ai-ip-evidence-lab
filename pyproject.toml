@@ -1,0 +1,8 @@
+[project]
+name = "ai-ip-evidence-lab"
+version = "0.1.0"
+description = "Research prototype for verifiable IP evidence in AI development pipelines"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
