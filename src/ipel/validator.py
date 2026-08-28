@@ -102,6 +102,11 @@ def _contract_findings(record: dict[str, Any]) -> list[Finding]:
         if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
             findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid evidence list: evidence.{key}"))
 
+    for key in ("impact_assessment_basis", "independent_elements_basis"):
+        value = _get(record, "rights_context", key)
+        if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid assessment-basis list: rights_context.{key}"))
+
     return findings
 
 
@@ -159,10 +164,13 @@ def evaluate(record: dict[str, Any]) -> GateResult:
 
     prejudice = _get(record, "rights_context", "legitimate_interests_prejudice")
     opportunity = _get(record, "rights_context", "exploitation_opportunity_effect")
+    impact_basis = _get(record, "rights_context", "impact_assessment_basis") or []
     if prejudice == "unjustified" or opportunity == "adverse":
         findings.append(Finding("IR-30(4)", "FAIL", "Record indicates prejudice or adverse exploitation-opportunity effect."))
     elif prejudice in (None, "uncertain", "not_assessed") or opportunity in (None, "uncertain", "not_assessed"):
         findings.append(Finding("IR-30(4)", "REVIEW", "Author-interest/market-effect assessment is incomplete or uncertain."))
+    elif not impact_basis:
+        findings.append(Finding("IR-30(4)", "REVIEW", "Favorable author-interest/market-effect assessment has no recorded basis."))
 
     # IR 30(5): some output configurations can be detected mechanically.
     out = _get(record, "output_context") or {}
@@ -178,8 +186,11 @@ def evaluate(record: dict[str, Any]) -> GateResult:
         findings.append(Finding("IR-30(5)", "REVIEW", "Final-product inclusion necessity is uncertain."))
 
     independent = _get(record, "rights_context", "independent_elements_status")
+    independent_basis = _get(record, "rights_context", "independent_elements_basis") or []
     if independent in (None, "requires_review", "not_assessed"):
         findings.append(Finding("IR-30(6)", "REVIEW", "Independently protected elements are not fully assessed."))
+    elif not independent_basis:
+        findings.append(Finding("IR-30(6)", "REVIEW", "Independent-elements assessment has no recorded basis."))
 
     # Evidence quality: assertions marked verified should have references.
     if publication == "verified" and not (_get(record, "evidence", "publication") or []):

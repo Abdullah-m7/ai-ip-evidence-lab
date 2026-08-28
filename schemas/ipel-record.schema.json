@@ -4,73 +4,271 @@
   "title": "IPEL Stage-001 Evidence Record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["record_version", "record_id", "work", "use", "rights_context", "output_context", "evidence"],
+  "required": [
+    "record_version",
+    "record_id",
+    "work",
+    "use",
+    "rights_context",
+    "output_context",
+    "evidence"
+  ],
   "properties": {
-    "record_version": {"const": "0.1.0"},
-    "record_id": {"type": "string", "minLength": 1},
+    "record_version": {
+      "const": "0.1.0"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
     "work": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "source", "publication_status", "acquisition_status"],
+      "required": [
+        "type",
+        "source",
+        "publication_status",
+        "acquisition_status"
+      ],
       "properties": {
-        "title": {"type": ["string", "null"]},
-        "type": {"type": "string", "minLength": 1},
-        "source": {"type": "string", "minLength": 1},
-        "sha256": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"},
-        "publication_status": {"enum": ["verified", "unverified", "false"]},
-        "acquisition_status": {"enum": ["verified", "unverified", "false"]},
-        "acquisition_method": {"type": ["string", "null"]}
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "publication_status": {
+          "enum": [
+            "verified",
+            "unverified",
+            "false"
+          ]
+        },
+        "acquisition_status": {
+          "enum": [
+            "verified",
+            "unverified",
+            "false"
+          ]
+        },
+        "acquisition_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "use": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["purpose", "date", "necessity_status", "republication", "distribution", "direct_commercial_exploitation", "purely_commercial_context"],
+      "required": [
+        "purpose",
+        "date",
+        "necessity_status",
+        "republication",
+        "distribution",
+        "direct_commercial_exploitation",
+        "purely_commercial_context"
+      ],
       "properties": {
-        "purpose": {"type": "string", "minLength": 1},
-        "date": {"type": "string", "format": "date"},
-        "extent_description": {"type": ["string", "null"]},
-        "necessity_status": {"enum": ["supported", "uncertain", "unsupported"]},
-        "republication": {"type": "boolean"},
-        "distribution": {"type": "boolean"},
-        "direct_commercial_exploitation": {"type": "boolean"},
-        "purely_commercial_context": {"type": "boolean"},
-        "materiality_to_work": {"enum": ["non_substantial", "substantial", "uncertain", "not_assessed"]},
-        "normal_exploitation_impact": {"enum": ["none", "adverse", "uncertain", "not_assessed"]}
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "extent_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "necessity_status": {
+          "enum": [
+            "supported",
+            "uncertain",
+            "unsupported"
+          ]
+        },
+        "republication": {
+          "type": "boolean"
+        },
+        "distribution": {
+          "type": "boolean"
+        },
+        "direct_commercial_exploitation": {
+          "type": "boolean"
+        },
+        "purely_commercial_context": {
+          "type": "boolean"
+        },
+        "materiality_to_work": {
+          "enum": [
+            "non_substantial",
+            "substantial",
+            "uncertain",
+            "not_assessed"
+          ]
+        },
+        "normal_exploitation_impact": {
+          "enum": [
+            "none",
+            "adverse",
+            "uncertain",
+            "not_assessed"
+          ]
+        }
       }
     },
     "rights_context": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["legitimate_interests_prejudice", "exploitation_opportunity_effect", "independent_elements_status"],
+      "required": [
+        "legitimate_interests_prejudice",
+        "exploitation_opportunity_effect",
+        "independent_elements_status",
+        "impact_assessment_basis",
+        "independent_elements_basis"
+      ],
       "properties": {
-        "legitimate_interests_prejudice": {"enum": ["none", "unjustified", "uncertain", "not_assessed"]},
-        "exploitation_opportunity_effect": {"enum": ["none", "adverse", "uncertain", "not_assessed"]},
-        "independent_elements_status": {"enum": ["none_identified", "assessed", "requires_review", "not_assessed"]}
+        "legitimate_interests_prejudice": {
+          "enum": [
+            "none",
+            "unjustified",
+            "uncertain",
+            "not_assessed"
+          ]
+        },
+        "exploitation_opportunity_effect": {
+          "enum": [
+            "none",
+            "adverse",
+            "uncertain",
+            "not_assessed"
+          ]
+        },
+        "independent_elements_status": {
+          "enum": [
+            "none_identified",
+            "assessed",
+            "requires_review",
+            "not_assessed"
+          ]
+        },
+        "impact_assessment_basis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "independent_elements_basis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     },
     "output_context": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["transformed", "republished", "made_public", "included_in_final_product", "inclusion_necessary", "permission_status", "public_domain_status"],
+      "required": [
+        "transformed",
+        "republished",
+        "made_public",
+        "included_in_final_product",
+        "inclusion_necessary",
+        "permission_status",
+        "public_domain_status"
+      ],
       "properties": {
-        "transformed": {"type": "boolean"},
-        "republished": {"type": "boolean"},
-        "made_public": {"type": "boolean"},
-        "included_in_final_product": {"type": "boolean"},
-        "inclusion_necessary": {"enum": ["yes", "no", "uncertain", "not_applicable"]},
-        "permission_status": {"enum": ["granted", "not_granted", "uncertain", "not_applicable"]},
-        "public_domain_status": {"enum": ["yes", "no", "uncertain"]}
+        "transformed": {
+          "type": "boolean"
+        },
+        "republished": {
+          "type": "boolean"
+        },
+        "made_public": {
+          "type": "boolean"
+        },
+        "included_in_final_product": {
+          "type": "boolean"
+        },
+        "inclusion_necessary": {
+          "enum": [
+            "yes",
+            "no",
+            "uncertain",
+            "not_applicable"
+          ]
+        },
+        "permission_status": {
+          "enum": [
+            "granted",
+            "not_granted",
+            "uncertain",
+            "not_applicable"
+          ]
+        },
+        "public_domain_status": {
+          "enum": [
+            "yes",
+            "no",
+            "uncertain"
+          ]
+        }
       }
     },
     "evidence": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["publication", "acquisition", "use_event"],
+      "required": [
+        "publication",
+        "acquisition",
+        "use_event"
+      ],
       "properties": {
-        "publication": {"type": "array", "items": {"type": "string", "minLength": 1}},
-        "acquisition": {"type": "array", "items": {"type": "string", "minLength": 1}},
-        "use_event": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        "publication": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "acquisition": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "use_event": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   }

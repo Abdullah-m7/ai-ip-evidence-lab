@@ -60,6 +60,16 @@ class EvidenceGateTests(unittest.TestCase):
         record["use"]["normal_exploitation_impact"] = "uncertain"
         self.assertEqual(evaluate(record).outcome, REVIEW)
 
+    def test_favorable_market_assessment_without_basis_requires_review(self):
+        record = load_example("valid.json")
+        record["rights_context"]["impact_assessment_basis"] = []
+        self.assertEqual(evaluate(record).outcome, REVIEW)
+
+    def test_independent_rights_assessment_without_basis_requires_review(self):
+        record = load_example("valid.json")
+        record["rights_context"]["independent_elements_basis"] = []
+        self.assertEqual(evaluate(record).outcome, REVIEW)
+
     def test_unnecessary_final_output_inclusion_fails(self):
         record = load_example("valid.json")
         record["output_context"]["included_in_final_product"] = True

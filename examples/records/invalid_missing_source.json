@@ -19,7 +19,9 @@
   "rights_context": {
     "legitimate_interests_prejudice": "not_assessed",
     "exploitation_opportunity_effect": "not_assessed",
-    "independent_elements_status": "not_assessed"
+    "independent_elements_status": "not_assessed",
+    "impact_assessment_basis": [],
+    "independent_elements_basis": []
   },
   "output_context": {
     "transformed": false,

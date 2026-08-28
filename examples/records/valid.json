@@ -25,7 +25,13 @@
   "rights_context": {
     "legitimate_interests_prejudice": "none",
     "exploitation_opportunity_effect": "none",
-    "independent_elements_status": "none_identified"
+    "independent_elements_status": "none_identified",
+    "impact_assessment_basis": [
+      "evidence://impact-review/synthetic-001"
+    ],
+    "independent_elements_basis": [
+      "evidence://rights-review/synthetic-001"
+    ]
   },
   "output_context": {
     "transformed": false,
@@ -37,8 +43,14 @@
     "public_domain_status": "no"
   },
   "evidence": {
-    "publication": ["evidence://publication/synthetic-001"],
-    "acquisition": ["evidence://receipt/synthetic-001"],
-    "use_event": ["evidence://event/synthetic-001"]
+    "publication": [
+      "evidence://publication/synthetic-001"
+    ],
+    "acquisition": [
+      "evidence://receipt/synthetic-001"
+    ],
+    "use_event": [
+      "evidence://event/synthetic-001"
+    ]
   }
 }
