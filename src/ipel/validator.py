@@ -65,7 +65,7 @@ def evaluate(record: dict[str, Any]) -> GateResult:
     acquisition = _get(record, "work", "acquisition_status")
     if publication == "false":
         findings.append(Finding("LAW-26(4)", "FAIL", "Record states that lawful publication is false."))
-    elif publication in (None, "unverified"):
+    elif publication not in ("verified", "false"):
         findings.append(Finding("LAW-26(4)", "REVIEW", "Lawful publication is not verified."))
 
     if acquisition == "false":

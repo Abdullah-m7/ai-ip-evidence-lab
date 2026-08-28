@@ -24,6 +24,11 @@ class EvidenceGateTests(unittest.TestCase):
         record["evidence"]["acquisition"] = []
         self.assertEqual(evaluate(record).outcome, REVIEW)
 
+    def test_unknown_publication_state_requires_review(self):
+        record = load_example("valid.json")
+        record["work"]["publication_status"] = "unknown"
+        self.assertEqual(evaluate(record).outcome, REVIEW)
+
     def test_explicit_unlawful_acquisition_fails(self):
         record = load_example("valid.json")
         record["work"]["acquisition_status"] = "false"
