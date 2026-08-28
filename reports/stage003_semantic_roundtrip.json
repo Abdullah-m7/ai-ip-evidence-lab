@@ -1,0 +1,111 @@
+{
+  "stage": "003",
+  "profile_kind": "c2pa-aligned-ipel-profile",
+  "c2pa_version": "2.4",
+  "cawg_tdm_version": "1.1",
+  "representation_is_conformant_manifest": false,
+  "case_count": 5,
+  "mapped_generic_fields": {
+    "work.title": "c2pa.ingredient.dc:title"
+  },
+  "article_30_3_fields_carried_by_c2pa": [],
+  "article_30_3_fields_retained_jurisdictionally": [
+    "work.type",
+    "work.source",
+    "use.purpose",
+    "use.date"
+  ],
+  "all_valid_profiles_zero_duplicate_generic_fields": true,
+  "all_roundtrips_zero_semantic_loss": true,
+  "all_article_30_3_tuples_preserved": true,
+  "all_gate_outcomes_preserved": true,
+  "false_equivalence_cases_preserved": {
+    "false_equivalence_allowed_unlawful_acquisition": "FAIL_EVIDENCE_GATE",
+    "false_equivalence_allowed_no_output_permission": "FAIL_EVIDENCE_GATE"
+  },
+  "invalid_missing_source_profile_errors": [
+    "missing jurisdictional core field: work.source"
+  ],
+  "cases": [
+    {
+      "case": "pass_clean",
+      "original_gate": "PASS_EVIDENCE_GATE",
+      "reconstructed_gate": "PASS_EVIDENCE_GATE",
+      "gate_preserved": true,
+      "article_30_3_preserved": true,
+      "semantic_loss_count": 0,
+      "duplicate_generic_field_count": 0,
+      "mapped_generic_field_count": 1,
+      "jurisdictional_leaf_count": 33,
+      "semantic_loss_paths": [],
+      "profile_validation_errors": [],
+      "tdm_use": "constrained",
+      "manifest_state": "unknown",
+      "trust_state": "unknown"
+    },
+    {
+      "case": "review_unverified_publication",
+      "original_gate": "REVIEW_REQUIRED",
+      "reconstructed_gate": "REVIEW_REQUIRED",
+      "gate_preserved": true,
+      "article_30_3_preserved": true,
+      "semantic_loss_count": 0,
+      "duplicate_generic_field_count": 0,
+      "mapped_generic_field_count": 1,
+      "jurisdictional_leaf_count": 33,
+      "semantic_loss_paths": [],
+      "profile_validation_errors": [],
+      "tdm_use": "allowed",
+      "manifest_state": "valid",
+      "trust_state": "trusted"
+    },
+    {
+      "case": "fail_distribution",
+      "original_gate": "FAIL_EVIDENCE_GATE",
+      "reconstructed_gate": "FAIL_EVIDENCE_GATE",
+      "gate_preserved": true,
+      "article_30_3_preserved": true,
+      "semantic_loss_count": 0,
+      "duplicate_generic_field_count": 0,
+      "mapped_generic_field_count": 1,
+      "jurisdictional_leaf_count": 33,
+      "semantic_loss_paths": [],
+      "profile_validation_errors": [],
+      "tdm_use": "constrained",
+      "manifest_state": "unknown",
+      "trust_state": "unknown"
+    },
+    {
+      "case": "false_equivalence_allowed_unlawful_acquisition",
+      "original_gate": "FAIL_EVIDENCE_GATE",
+      "reconstructed_gate": "FAIL_EVIDENCE_GATE",
+      "gate_preserved": true,
+      "article_30_3_preserved": true,
+      "semantic_loss_count": 0,
+      "duplicate_generic_field_count": 0,
+      "mapped_generic_field_count": 1,
+      "jurisdictional_leaf_count": 33,
+      "semantic_loss_paths": [],
+      "profile_validation_errors": [],
+      "tdm_use": "allowed",
+      "manifest_state": "valid",
+      "trust_state": "trusted"
+    },
+    {
+      "case": "false_equivalence_allowed_no_output_permission",
+      "original_gate": "FAIL_EVIDENCE_GATE",
+      "reconstructed_gate": "FAIL_EVIDENCE_GATE",
+      "gate_preserved": true,
+      "article_30_3_preserved": true,
+      "semantic_loss_count": 0,
+      "duplicate_generic_field_count": 0,
+      "mapped_generic_field_count": 1,
+      "jurisdictional_leaf_count": 33,
+      "semantic_loss_paths": [],
+      "profile_validation_errors": [],
+      "tdm_use": "allowed",
+      "manifest_state": "valid",
+      "trust_state": "trusted"
+    }
+  ]
+}

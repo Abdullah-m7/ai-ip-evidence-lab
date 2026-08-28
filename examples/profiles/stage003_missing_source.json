@@ -1,0 +1,89 @@
+{
+  "profile_version": "0.1.0",
+  "profile_kind": "c2pa-aligned-ipel-profile",
+  "c2pa": {
+    "spec_version": "2.4",
+    "representation": "aligned-intermediate-not-a-manifest",
+    "manifest_ref": "urn:c2pa:manifest:synthetic",
+    "ingredient": {
+      "relationship": "inputTo",
+      "dc:title": "Synthetic Example Work"
+    },
+    "tdm_assertion": {
+      "label": "cawg.training-mining",
+      "version": "1.1",
+      "entries": {
+        "cawg.ai_training": {
+          "use": "constrained"
+        }
+      }
+    },
+    "validation_signals": {
+      "manifest_state": "unknown",
+      "trust_state": "unknown"
+    }
+  },
+  "ipel_jurisdictional": {
+    "record_version": "0.1.0",
+    "record_id": "synthetic-001",
+    "work": {
+      "type": "literary",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "publication_status": "verified",
+      "acquisition_status": "verified",
+      "acquisition_method": "lawful purchased copy"
+    },
+    "use": {
+      "purpose": "non-commercial evaluation of an AI text-analysis pipeline",
+      "date": "2026-08-28",
+      "extent_description": "small machine-readable excerpt required for the declared evaluation",
+      "necessity_status": "supported",
+      "republication": false,
+      "distribution": false,
+      "direct_commercial_exploitation": false,
+      "purely_commercial_context": false,
+      "materiality_to_work": "non_substantial",
+      "normal_exploitation_impact": "none"
+    },
+    "rights_context": {
+      "legitimate_interests_prejudice": "none",
+      "exploitation_opportunity_effect": "none",
+      "independent_elements_status": "none_identified",
+      "impact_assessment_basis": [
+        "evidence://impact-review/synthetic-001"
+      ],
+      "independent_elements_basis": [
+        "evidence://rights-review/synthetic-001"
+      ]
+    },
+    "output_context": {
+      "transformed": false,
+      "republished": false,
+      "made_public": false,
+      "included_in_final_product": false,
+      "inclusion_necessary": "not_applicable",
+      "permission_status": "not_applicable",
+      "public_domain_status": "no"
+    },
+    "evidence": {
+      "publication": [
+        "evidence://publication/synthetic-001"
+      ],
+      "acquisition": [
+        "evidence://receipt/synthetic-001"
+      ],
+      "use_event": [
+        "evidence://event/synthetic-001"
+      ]
+    }
+  },
+  "field_map": {
+    "work.title": "c2pa.ingredient.dc:title"
+  },
+  "interpretation_barriers": [
+    "c2pa_validation_does_not_prove_lawful_publication",
+    "c2pa_validation_does_not_prove_lawful_acquisition",
+    "tdm_signal_does_not_prove_permission_or_license_validity",
+    "identity_or_signature_does_not_prove_rights_ownership"
+  ]
+}

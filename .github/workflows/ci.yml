@@ -1,4 +1,4 @@
-name: stage-001-ci
+name: ipel-ci
 
 on:
   push:
@@ -29,3 +29,7 @@ jobs:
             echo "Expected invalid record to fail the evidence gate"
             exit 1
           fi
+      - name: Reproduce Stage 003 semantic round-trip
+        run: PYTHONPATH=. python experiments/stage003_semantic_roundtrip.py > /tmp/stage003-report.json
+      - name: Confirm Stage 003 artifacts are deterministic
+        run: git diff --exit-code -- examples/profiles reports/stage003_semantic_roundtrip.json
