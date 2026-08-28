@@ -63,6 +63,29 @@ class Stage007PowerLockTests(unittest.TestCase):
         with self.assertRaises(StudyLockError):
             validate_freeze_manifest(ROOT, manifest)
 
+    def test_incomplete_hash_set_is_rejected(self):
+        manifest = build_freeze_manifest(ROOT, state="PRE_ADJUDICATION_LOCK", source_commit_sha="a" * 40)
+        manifest["file_sha256"].pop(next(iter(manifest["file_sha256"])))
+        with self.assertRaises(StudyLockError):
+            validate_freeze_manifest(ROOT, manifest)
+
+    def test_manually_forged_post_adjudication_flags_are_rejected(self):
+        manifest = build_freeze_manifest(ROOT, state="PRE_ADJUDICATION_LOCK", source_commit_sha="a" * 40)
+        manifest["state"] = "POST_ADJUDICATION_LOCK"
+        manifest["real_adjudication_collected"] = True
+        with self.assertRaises(StudyLockError):
+            validate_freeze_manifest(ROOT, manifest)
+
+    def test_manually_forged_primary_lock_is_rejected(self):
+        manifest = build_freeze_manifest(ROOT, state="PRE_ADJUDICATION_LOCK", source_commit_sha="a" * 40)
+        manifest["state"] = "PRE_PRIMARY_STUDY_LOCK"
+        manifest["real_adjudication_collected"] = True
+        manifest["study_design_locked"] = True
+        manifest["final_sample_size_locked"] = True
+        manifest["target_n"] = 24
+        with self.assertRaises(StudyLockError):
+            validate_freeze_manifest(ROOT, manifest)
+
 
 if __name__ == "__main__":
     unittest.main()

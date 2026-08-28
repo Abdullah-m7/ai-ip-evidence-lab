@@ -148,20 +148,66 @@ def build_freeze_manifest(
 def validate_freeze_manifest(root: Path, manifest: Any) -> None:
     if not isinstance(manifest, dict) or manifest.get("state") not in LOCK_STATES:
         raise StudyLockError("invalid freeze manifest")
-    state = manifest["state"]
-    if state == "PRE_ADJUDICATION_LOCK":
-        if manifest.get("real_adjudication_collected") is not False:
-            raise StudyLockError("pre-adjudication lock cannot claim real adjudication")
-        if manifest.get("final_sample_size_locked") is not False:
-            raise StudyLockError("pre-adjudication lock cannot claim final sample size")
-    if state in {"POST_ADJUDICATION_LOCK", "PRE_PRIMARY_STUDY_LOCK"} and manifest.get("real_adjudication_collected") is not True:
-        raise StudyLockError("post-adjudication states require real adjudication")
-    if state == "PRE_PRIMARY_STUDY_LOCK" and manifest.get("final_sample_size_locked") is not True:
-        raise StudyLockError("primary-study lock requires a final sample size")
+    if manifest.get("lock_version") != "stage007-lock-v1":
+        raise StudyLockError("unexpected lock version")
+    source_sha = manifest.get("source_commit_sha")
+    if not isinstance(source_sha, str) or re.fullmatch(r"[0-9a-f]{40}", source_sha) is None:
+        raise StudyLockError("invalid source_commit_sha")
+
     hashes = manifest.get("file_sha256")
-    if not isinstance(hashes, dict):
-        raise StudyLockError("freeze manifest missing file hashes")
+    if not isinstance(hashes, dict) or set(hashes) != set(PRE_ADJUDICATION_PATHS):
+        raise StudyLockError("freeze manifest must hash the complete pre-adjudication input set")
     for relative, expected in hashes.items():
+        if not isinstance(expected, str) or re.fullmatch(r"[0-9a-f]{64}", expected) is None:
+            raise StudyLockError(f"invalid SHA-256 value: {relative}")
         path = root / relative
         if not path.is_file() or sha256_file(path) != expected:
             raise StudyLockError(f"frozen input drift: {relative}")
+
+    state = manifest["state"]
+    real = manifest.get("real_adjudication_collected")
+    design_locked = manifest.get("study_design_locked")
+    final_n = manifest.get("final_sample_size_locked")
+
+    if state == "PRE_ADJUDICATION_LOCK":
+        if (real, design_locked, final_n) != (False, False, False):
+            raise StudyLockError("PRE_ADJUDICATION_LOCK flags are inconsistent")
+        forbidden = {"real_adjudication_summary", "real_adjudication_summary_sha256", "study_design", "study_design_sha256", "target_n"}
+        if forbidden & set(manifest):
+            raise StudyLockError("PRE_ADJUDICATION_LOCK contains premature higher-state fields")
+        return
+
+    if real is not True:
+        raise StudyLockError("post-adjudication states require real adjudication")
+    summary_rel = manifest.get("real_adjudication_summary")
+    summary_hash = manifest.get("real_adjudication_summary_sha256")
+    if not isinstance(summary_rel, str) or not isinstance(summary_hash, str):
+        raise StudyLockError("real adjudication provenance is missing")
+    summary_path = root / summary_rel
+    _repo_relative(root, summary_path)
+    if not summary_path.is_file() or sha256_file(summary_path) != summary_hash:
+        raise StudyLockError("real adjudication summary hash mismatch")
+    validate_real_adjudication_summary(_load_json(summary_path))
+
+    if state == "POST_ADJUDICATION_LOCK":
+        if (design_locked, final_n) != (False, False):
+            raise StudyLockError("POST_ADJUDICATION_LOCK cannot claim a locked primary design/sample size")
+        forbidden = {"study_design", "study_design_sha256", "target_n"}
+        if forbidden & set(manifest):
+            raise StudyLockError("POST_ADJUDICATION_LOCK contains premature primary-study fields")
+        return
+
+    if (design_locked, final_n) != (True, True):
+        raise StudyLockError("PRE_PRIMARY_STUDY_LOCK requires locked design and final sample size")
+    design_rel = manifest.get("study_design")
+    design_hash = manifest.get("study_design_sha256")
+    if not isinstance(design_rel, str) or not isinstance(design_hash, str):
+        raise StudyLockError("selected study-design provenance is missing")
+    design_path = root / design_rel
+    _repo_relative(root, design_path)
+    if not design_path.is_file() or sha256_file(design_path) != design_hash:
+        raise StudyLockError("study-design hash mismatch")
+    design = _load_json(design_path)
+    validate_study_design(design)
+    if manifest.get("target_n") != design["target_n"]:
+        raise StudyLockError("target_n does not match the locked study design")
