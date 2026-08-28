@@ -70,6 +70,17 @@ python3 experiments/stage002_attack_matrix.py
 
 See `docs/EVENT_CHAIN_SPEC.md`, `docs/C2PA_CROSSWALK.md`, and `reports/stage002_attack_matrix.json`. The current interoperability baseline is C2PA 2.4 AI/ML guidance + CAWG Training and Data Mining Assertion 1.1.
 
+## Stage 003 — C2PA-backed legal-evidence profile
+
+Stage 003 tests whether IPEL can layer jurisdiction-specific legal evidence over C2PA 2.4 and CAWG Training and Data Mining 1.1 semantics without false equivalence. The committed experiment preserves the Article 30(3) tuple and Stage-001 gate outcome across PASS/REVIEW/FAIL cases while keeping C2PA trust/TDM signals from becoming legal conclusions.
+
+A key negative result is intentional: none of the four Article 30(3) minimum fields (work type, source, purpose, date) are delegated to C2PA in the current profile because the closest generic fields are not semantically equivalent enough. See `docs/C2PA_PROFILE_DECISIONS.md` and `reports/STAGE_003_REPORT.md`.
+
+```bash
+PYTHONPATH=. python3 experiments/stage003_semantic_roundtrip.py
+python3 -m unittest discover -s tests -v
+```
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.

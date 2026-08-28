@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ipel/ipel-c2pa-profile.schema.json",
+  "title": "IPEL C2PA-aligned Profile Stage 003",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_version",
+    "profile_kind",
+    "c2pa",
+    "ipel_jurisdictional",
+    "field_map",
+    "interpretation_barriers"
+  ],
+  "properties": {
+    "profile_version": {
+      "const": "0.1.0"
+    },
+    "profile_kind": {
+      "const": "c2pa-aligned-ipel-profile"
+    },
+    "c2pa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spec_version",
+        "representation",
+        "manifest_ref",
+        "ingredient",
+        "tdm_assertion",
+        "validation_signals"
+      ],
+      "properties": {
+        "spec_version": {
+          "const": "2.4"
+        },
+        "representation": {
+          "const": "aligned-intermediate-not-a-manifest"
+        },
+        "manifest_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ingredient": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "relationship"
+          ],
+          "properties": {
+            "relationship": {
+              "const": "inputTo"
+            },
+            "dc:title": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "tdm_assertion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "version",
+            "entries"
+          ],
+          "properties": {
+            "label": {
+              "const": "cawg.training-mining"
+            },
+            "version": {
+              "const": "1.1"
+            },
+            "entries": {
+              "type": "object",
+              "minProperties": 1,
+              "propertyNames": {
+                "pattern": "^cawg\\.(data_mining|ai_inference|ai_training|ai_generative_training)$"
+              },
+              "additionalProperties": {
+                "type": "object",
+                "required": [
+                  "use"
+                ],
+                "properties": {
+                  "use": {
+                    "enum": [
+                      "allowed",
+                      "notAllowed",
+                      "constrained"
+                    ]
+                  },
+                  "constraint_info": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "validation_signals": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "manifest_state",
+            "trust_state"
+          ],
+          "properties": {
+            "manifest_state": {
+              "type": "string"
+            },
+            "trust_state": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ipel_jurisdictional": {
+      "type": "object",
+      "required": [
+        "record_version",
+        "record_id",
+        "work",
+        "use",
+        "rights_context",
+        "output_context",
+        "evidence"
+      ],
+      "properties": {
+        "record_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "work": {
+          "type": "object",
+          "required": [
+            "type",
+            "source"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "title": false
+          },
+          "additionalProperties": true
+        },
+        "use": {
+          "type": "object",
+          "required": [
+            "purpose",
+            "date"
+          ],
+          "properties": {
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "rights_context": {
+          "type": "object"
+        },
+        "output_context": {
+          "type": "object"
+        },
+        "evidence": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "field_map": {
+      "const": {
+        "work.title": "c2pa.ingredient.dc:title"
+      }
+    },
+    "interpretation_barriers": {
+      "const": [
+        "c2pa_validation_does_not_prove_lawful_publication",
+        "c2pa_validation_does_not_prove_lawful_acquisition",
+        "tdm_signal_does_not_prove_permission_or_license_validity",
+        "identity_or_signature_does_not_prove_rights_ownership"
+      ]
+    }
+  }
+}
