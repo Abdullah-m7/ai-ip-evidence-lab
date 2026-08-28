@@ -1,0 +1,38 @@
+{
+  "record_version": "0.1.0",
+  "record_id": "synthetic-002",
+  "work": {
+    "title": "Synthetic Missing-Source Work",
+    "type": "image",
+    "publication_status": "unverified",
+    "acquisition_status": "unverified"
+  },
+  "use": {
+    "purpose": "AI model development",
+    "date": "2026-08-28",
+    "necessity_status": "uncertain",
+    "republication": false,
+    "distribution": false,
+    "direct_commercial_exploitation": false,
+    "purely_commercial_context": false
+  },
+  "rights_context": {
+    "legitimate_interests_prejudice": "not_assessed",
+    "exploitation_opportunity_effect": "not_assessed",
+    "independent_elements_status": "not_assessed"
+  },
+  "output_context": {
+    "transformed": false,
+    "republished": false,
+    "made_public": false,
+    "included_in_final_product": false,
+    "inclusion_necessary": "not_applicable",
+    "permission_status": "not_applicable",
+    "public_domain_status": "uncertain"
+  },
+  "evidence": {
+    "publication": [],
+    "acquisition": [],
+    "use_event": []
+  }
+}
