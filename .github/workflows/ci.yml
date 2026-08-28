@@ -65,3 +65,17 @@ jobs:
         run: PYTHONPATH=. python experiments/stage005_cross_validator.py --c2patool .tools/c2patool --cross-validator .tools/c2pa-validate --output reports/stage005_cross_validator.json > /tmp/stage005-report.json
       - name: Confirm Stage 005 normalized report is reproducible
         run: git diff --exit-code -- reports/stage005_cross_validator.json
+
+  stage006-reviewer-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild Stage 006 blinded benchmark
+        run: PYTHONPATH=. python experiments/stage006_build_benchmark.py > /tmp/stage006-build-report.json
+      - name: Confirm Stage 006 artifacts are byte-reproducible
+        run: git diff --exit-code -- benchmarks/stage006/generated
+      - name: Run Stage 006 benchmark/scoring tests
+        run: python -m unittest tests.test_reviewer_benchmark tests.test_stage006_artifacts -v
