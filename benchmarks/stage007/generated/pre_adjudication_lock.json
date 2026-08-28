@@ -1,0 +1,25 @@
+{
+  "file_sha256": {
+    "benchmarks/stage006/case_spec.json": "d3827a0a861eb5f14e7ff40c0275e132898f45829fdc47e2f9ba292e0b314c14",
+    "benchmarks/stage006/generated/form_a.json": "c4530c0e71da72f1841779bf070acce2d5251bd1633a4e08a90c59823b921635",
+    "benchmarks/stage006/generated/form_b.json": "2792e9bc4d1ea0987e4209cf2ca6e8c555907223893708e61ab115c3a95dd0c6",
+    "benchmarks/stage007/generated/adjudication_packet.json": "03c05d49600445b863472d8807ff1fadd165955ee479f0e27b960f7bb80d64ca",
+    "benchmarks/stage007/generated/hidden_case_map.json": "53db1f762e4ff8c75f6e0eeaaf9e2d4d2c3e57806d2ec1171364b2c3bc119c95",
+    "benchmarks/stage007/generated/power_design_grid.json": "9cd12ab1975cde42e1c02f6f09ce9de947b9cc301ccc36fee47afc58a623a739",
+    "docs/STAGE_006_PREREGISTRATION.md": "653d474a64097d011d62aecef5e6a909e0b48ef62687295905b9987bdeb93484",
+    "docs/STAGE_007_ADJUDICATION_PROTOCOL.md": "3f1e11256d6f939fdda9d4afe35e74b81542171a32775090e6e70859f3b361ef",
+    "docs/STAGE_007_STUDY_LOCK_PROTOCOL.md": "84c4d3071d5d5c31cd8a6e18e01e3aa2288acf7f1ff4c5bc56893fa862f7fda9",
+    "experiments/stage007_build_preparation.py": "2e5897578a25d9fcc449cd233182ceee15ad0021c1977c7a184c7eb9055fc97a",
+    "experiments/stage007_power_simulation.py": "a443585d22f783ca29155fb011c76d463b447cadd4a8603680141ac3848c5c96",
+    "schemas/stage007-adjudication-response.schema.json": "178bf9b0d54041c35ba723d0bfa4a386286a7af3f496d019d7831732d2001eb4",
+    "src/ipel/adjudication.py": "b90fa8d7415357cbcfe675662044918ab012df862633ee7a626b4ebf9ac24b63",
+    "src/ipel/reviewer_benchmark.py": "905c0569911bfc0300f1e2f3f440a59ad49e5450089b276b038d537f67834b0e",
+    "src/ipel/study_lock.py": "7f0fbcb5f0eada132e31dcf90e595e42b94a86a70a2576dc3a66a8c5c97b81a2"
+  },
+  "final_sample_size_locked": false,
+  "lock_version": "stage007-lock-v1",
+  "real_adjudication_collected": false,
+  "source_commit_sha": "f4455f47963b3fc58e6fb0d4f915483adc74a257",
+  "state": "PRE_ADJUDICATION_LOCK",
+  "study_design_locked": false
+}
