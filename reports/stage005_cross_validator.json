@@ -1,0 +1,493 @@
+{
+  "acceptance": {
+    "all_three_corruptions_detected_by_both": true,
+    "allowed_signal_does_not_cure_unlawful_acquisition_under_trust_change": true,
+    "allowed_signal_does_not_grant_output_permission_under_trust_change": true,
+    "clean_common_semantics_agree": true,
+    "cross_version_validation_established": true,
+    "custom_trust_changes_trust_not_crypto": true,
+    "implementation_diversity_not_overclaimed": true,
+    "malformed_tdm_is_crypto_valid_but_semantically_rejected": true,
+    "no_manifest_negative_control_rejected_by_both": true,
+    "upstream_dependency_repair_disclosed": true
+  },
+  "all_acceptance_gates_pass": true,
+  "article_30_3_fields_newly_delegated": [],
+  "attack_agreement": {
+    "assertion_corrupt": true,
+    "asset_mutated": true,
+    "signature_corrupt": true
+  },
+  "cases": {
+    "assertion_corrupt": {
+      "agreement": {
+        "all_common_semantics_agree": true,
+        "different_engine_versions": true,
+        "fields": {
+          "assertion_references": true,
+          "asset_binding": true,
+          "claim_signature": true,
+          "cryptographic_validity": true,
+          "semantic_warnings": true,
+          "signer_trust": true,
+          "tdm_entries": true
+        },
+        "implementation_diversity_established": false,
+        "shared_engine_lineage": true
+      },
+      "cross_exit_code": 1,
+      "cross_validator": {
+        "assertion_references": "invalid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.78.0",
+        "failure_codes": [
+          "assertion.hashedURI.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [
+          "invalid TDM use: cawg.ai_generative_training"
+        ],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2pa-conformance-tool-cli",
+        "tdm_entries": {
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader": {
+        "assertion_references": "invalid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.90.16",
+        "failure_codes": [
+          "assertion.hashedURI.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [
+          "invalid TDM use: cawg.ai_generative_training"
+        ],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2patool-reader",
+        "tdm_entries": {
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader_exit_code": 0
+    },
+    "asset_mutated": {
+      "agreement": {
+        "all_common_semantics_agree": true,
+        "different_engine_versions": true,
+        "fields": {
+          "assertion_references": true,
+          "asset_binding": true,
+          "claim_signature": true,
+          "cryptographic_validity": true,
+          "semantic_warnings": true,
+          "signer_trust": true,
+          "tdm_entries": true
+        },
+        "implementation_diversity_established": false,
+        "shared_engine_lineage": true
+      },
+      "cross_exit_code": 1,
+      "cross_validator": {
+        "assertion_references": "valid",
+        "asset_binding": "invalid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.78.0",
+        "failure_codes": [
+          "assertion.dataHash.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2pa-conformance-tool-cli",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader": {
+        "assertion_references": "valid",
+        "asset_binding": "invalid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.90.16",
+        "failure_codes": [
+          "assertion.dataHash.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2patool-reader",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader_exit_code": 0
+    },
+    "clean": {
+      "agreement": {
+        "all_common_semantics_agree": true,
+        "different_engine_versions": true,
+        "fields": {
+          "assertion_references": true,
+          "asset_binding": true,
+          "claim_signature": true,
+          "cryptographic_validity": true,
+          "semantic_warnings": true,
+          "signer_trust": true,
+          "tdm_entries": true
+        },
+        "implementation_diversity_established": false,
+        "shared_engine_lineage": true
+      },
+      "cross_exit_code": 0,
+      "cross_validator": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "valid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.78.0",
+        "failure_codes": [
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2pa-conformance-tool-cli",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "valid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.90.16",
+        "failure_codes": [
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2patool-reader",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader_exit_code": 0
+    },
+    "malformed_tdm": {
+      "agreement": {
+        "all_common_semantics_agree": true,
+        "different_engine_versions": true,
+        "fields": {
+          "assertion_references": true,
+          "asset_binding": true,
+          "claim_signature": true,
+          "cryptographic_validity": true,
+          "semantic_warnings": true,
+          "signer_trust": true,
+          "tdm_entries": true
+        },
+        "implementation_diversity_established": false,
+        "shared_engine_lineage": true
+      },
+      "cross_exit_code": 0,
+      "cross_validator": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "valid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.78.0",
+        "failure_codes": [
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [
+          "invalid TDM use: cawg.ai_training"
+        ],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2pa-conformance-tool-cli",
+        "tdm_entries": {}
+      },
+      "reader": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "valid",
+        "cryptographic_validity": "valid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.90.16",
+        "failure_codes": [
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [
+          "invalid TDM use: cawg.ai_training"
+        ],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match",
+          "claimSignature.insideValidity",
+          "claimSignature.validated"
+        ],
+        "surface": "c2patool-reader",
+        "tdm_entries": {}
+      },
+      "reader_exit_code": 0
+    },
+    "no_manifest": {
+      "cross_error_class": "validation_failed",
+      "cross_exit_code": 1,
+      "cross_report_available": false,
+      "reader_error_class": "no_claim",
+      "reader_exit_code": 1,
+      "reader_report_available": false
+    },
+    "signature_corrupt": {
+      "agreement": {
+        "all_common_semantics_agree": true,
+        "different_engine_versions": true,
+        "fields": {
+          "assertion_references": true,
+          "asset_binding": true,
+          "claim_signature": true,
+          "cryptographic_validity": true,
+          "semantic_warnings": true,
+          "signer_trust": true,
+          "tdm_entries": true
+        },
+        "implementation_diversity_established": false,
+        "shared_engine_lineage": true
+      },
+      "cross_exit_code": 1,
+      "cross_validator": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "invalid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.78.0",
+        "failure_codes": [
+          "claimSignature.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match"
+        ],
+        "surface": "c2pa-conformance-tool-cli",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader": {
+        "assertion_references": "valid",
+        "asset_binding": "valid",
+        "claim_signature": "invalid",
+        "cryptographic_validity": "invalid",
+        "engine_lineage": "c2pa-rs",
+        "engine_version": "0.90.16",
+        "failure_codes": [
+          "claimSignature.mismatch",
+          "signingCredential.untrusted"
+        ],
+        "semantic_warnings": [],
+        "signer_trust": "untrusted",
+        "success_codes": [
+          "assertion.dataHash.match",
+          "assertion.hashedURI.match"
+        ],
+        "surface": "c2patool-reader",
+        "tdm_entries": {
+          "cawg.ai_generative_training": "notAllowed",
+          "cawg.ai_training": "constrained"
+        }
+      },
+      "reader_exit_code": 0
+    }
+  },
+  "implementation_diversity": "IMPLEMENTATION_DIVERSITY_NOT_ESTABLISHED",
+  "legal_boundary": {
+    "legal_fields_overwritten": false,
+    "no_output_permission_custom_trust": "FAIL_EVIDENCE_GATE",
+    "no_output_permission_default_trust": "FAIL_EVIDENCE_GATE",
+    "unlawful_acquisition_custom_trust": "FAIL_EVIDENCE_GATE",
+    "unlawful_acquisition_default_trust": "FAIL_EVIDENCE_GATE"
+  },
+  "result": "PASS",
+  "stage": "005",
+  "toolchains": {
+    "cross_validator": {
+      "compatibility_repair": true,
+      "declared_profile_commit_unavailable": "c43d11162c27c5e992c7010fc75b72bb3e5520e1",
+      "engine_lineage": "c2pa-rs",
+      "engine_version_observed": "0.78.0",
+      "repair_commits": {
+        "json_formula": "90ee7f44ded98c657a410a0bf1248a9e3f6f1627",
+        "profile_evaluator": "40c4201933e3b4760932b65913e2a9c57413f8ac"
+      },
+      "tool": "c2pa-validate 0.2.0"
+    },
+    "generator_reader": {
+      "engine_lineage": "c2pa-rs",
+      "engine_version_observed": "0.90.16",
+      "tool": "c2patool 0.27.16"
+    }
+  },
+  "trust_boundary": {
+    "allowed_custom": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "cryptographic_validity": "valid",
+      "engine_lineage": "c2pa-rs",
+      "engine_version": "0.78.0",
+      "failure_codes": [],
+      "semantic_warnings": [],
+      "signer_trust": "trusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated",
+        "signingCredential.trusted"
+      ],
+      "surface": "c2pa-conformance-tool-cli",
+      "tdm_entries": {
+        "cawg.ai_generative_training": "allowed",
+        "cawg.ai_training": "allowed"
+      }
+    },
+    "allowed_custom_exit_code": 0,
+    "allowed_default": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "cryptographic_validity": "valid",
+      "engine_lineage": "c2pa-rs",
+      "engine_version": "0.78.0",
+      "failure_codes": [
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "surface": "c2pa-conformance-tool-cli",
+      "tdm_entries": {
+        "cawg.ai_generative_training": "allowed",
+        "cawg.ai_training": "allowed"
+      }
+    },
+    "allowed_default_exit_code": 0,
+    "custom": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "cryptographic_validity": "valid",
+      "engine_lineage": "c2pa-rs",
+      "engine_version": "0.78.0",
+      "failure_codes": [],
+      "semantic_warnings": [],
+      "signer_trust": "trusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated",
+        "signingCredential.trusted"
+      ],
+      "surface": "c2pa-conformance-tool-cli",
+      "tdm_entries": {
+        "cawg.ai_generative_training": "notAllowed",
+        "cawg.ai_training": "constrained"
+      }
+    },
+    "custom_cross_exit_code": 0,
+    "default": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "cryptographic_validity": "valid",
+      "engine_lineage": "c2pa-rs",
+      "engine_version": "0.78.0",
+      "failure_codes": [
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "surface": "c2pa-conformance-tool-cli",
+      "tdm_entries": {
+        "cawg.ai_generative_training": "notAllowed",
+        "cawg.ai_training": "constrained"
+      }
+    }
+  }
+}

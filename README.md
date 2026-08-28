@@ -94,6 +94,20 @@ See `docs/C2PA_CONFORMANT_EXPERIMENT.md` and `reports/STAGE_004_REPORT.md`.
 PYTHONPATH=. python3 experiments/stage004_conformant_c2pa.py --c2patool .tools/c2patool
 ```
 
+## Stage 005 — cross-validator and trust-boundary benchmark
+
+Stage 005 validates the Stage-004 real C2PA artifact through a second conformance-oriented CLI. The two surfaces share c2pa-rs lineage but use different observed engine versions (`0.90.16` vs `0.78.0`). They agree on clean validity and all three corruption categories.
+
+The same clean artifact changes from `untrusted` under default trust to `trusted` under an explicitly configured test trust list, while the IPEL legal gate remains unchanged. A correctly signed TDM assertion with an invalid `use=maybe` value is cryptographically valid but semantically rejected.
+
+The stage explicitly reports `IMPLEMENTATION_DIVERSITY_NOT_ESTABLISHED`; cross-validator does not mean independent cryptographic implementation. See `docs/C2PA_CROSS_VALIDATOR_BENCHMARK.md` and `reports/STAGE_005_REPORT.md`.
+
+```bash
+./scripts/install_c2patool.sh .tools/c2patool
+./scripts/install_c2pa_conformance_tool.sh .tools/c2pa-validate
+PYTHONPATH=. python3 experiments/stage005_cross_validator.py --c2patool .tools/c2patool --cross-validator .tools/c2pa-validate
+```
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.

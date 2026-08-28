@@ -1,0 +1,13 @@
+{
+  "claim_generator_info": [{"name": "AI-IP Evidence Lab Stage 005", "version": "0.1.0"}],
+  "assertions": [
+    {
+      "label": "cawg.training-mining",
+      "data": {
+        "entries": {
+          "cawg.ai_training": {"use": "maybe"}
+        }
+      }
+    }
+  ]
+}

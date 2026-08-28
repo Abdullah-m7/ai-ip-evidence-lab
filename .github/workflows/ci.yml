@@ -47,3 +47,21 @@ jobs:
         run: PYTHONPATH=. python experiments/stage004_conformant_c2pa.py --c2patool .tools/c2patool --output reports/stage004_conformant_c2pa.json > /tmp/stage004-report.json
       - name: Confirm Stage 004 semantic report is reproducible
         run: git diff --exit-code -- reports/stage004_conformant_c2pa.json
+
+  stage005-cross-validator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Confirm Rust bootstrap is available
+        run: rustup --version
+      - name: Install pinned c2patool
+        run: ./scripts/install_c2patool.sh .tools/c2patool
+      - name: Build pinned cross-validator with disclosed compatibility repair
+        run: ./scripts/install_c2pa_conformance_tool.sh .tools/c2pa-validate
+      - name: Run Stage 005 cross-validator benchmark
+        run: PYTHONPATH=. python experiments/stage005_cross_validator.py --c2patool .tools/c2patool --cross-validator .tools/c2pa-validate --output reports/stage005_cross_validator.json > /tmp/stage005-report.json
+      - name: Confirm Stage 005 normalized report is reproducible
+        run: git diff --exit-code -- reports/stage005_cross_validator.json
