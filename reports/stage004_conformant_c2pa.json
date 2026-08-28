@@ -1,0 +1,238 @@
+{
+  "acceptance": {
+    "allowed_tdm_does_not_cure_unlawful_acquisition": true,
+    "allowed_tdm_does_not_grant_output_permission": true,
+    "assertion_corruption_detected": true,
+    "claim_signature_corruption_detected": true,
+    "one_byte_asset_mutation_detected": true,
+    "real_c2pa_artifact_validates": true,
+    "signature_validity_separate_from_signer_trust": true
+  },
+  "all_acceptance_gates_pass": true,
+  "allowed_plus_no_output_permission": {
+    "c2pa_evidence": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "digital_source_types": [
+        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+      ],
+      "issue_codes": [
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "tdm_conflicts": [],
+      "tdm_entries": {
+        "cawg.ai_generative_training": "allowed",
+        "cawg.ai_training": "allowed"
+      },
+      "validation_state": "valid"
+    },
+    "legal_fields_overwritten": false,
+    "legal_gate": {
+      "findings": [
+        {
+          "message": "Output transformation/republication/public availability is recorded without permission or public-domain status.",
+          "rule": "IR-30(5)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "outcome": "FAIL_EVIDENCE_GATE"
+    }
+  },
+  "allowed_plus_unlawful_acquisition": {
+    "c2pa_evidence": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "digital_source_types": [
+        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+      ],
+      "issue_codes": [
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "tdm_conflicts": [],
+      "tdm_entries": {
+        "cawg.ai_generative_training": "allowed",
+        "cawg.ai_training": "allowed"
+      },
+      "validation_state": "valid"
+    },
+    "legal_fields_overwritten": false,
+    "legal_gate": {
+      "findings": [
+        {
+          "message": "Record states that lawful acquisition is false.",
+          "rule": "LAW-26(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "outcome": "FAIL_EVIDENCE_GATE"
+    }
+  },
+  "allowed_signal": {
+    "assertion_references": "valid",
+    "asset_binding": "valid",
+    "claim_signature": "valid",
+    "digital_source_types": [
+      "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+    ],
+    "issue_codes": [
+      "signingCredential.untrusted"
+    ],
+    "semantic_warnings": [],
+    "signer_trust": "untrusted",
+    "success_codes": [
+      "assertion.dataHash.match",
+      "assertion.hashedURI.match",
+      "claimSignature.insideValidity",
+      "claimSignature.validated"
+    ],
+    "tdm_conflicts": [],
+    "tdm_entries": {
+      "cawg.ai_generative_training": "allowed",
+      "cawg.ai_training": "allowed"
+    },
+    "validation_state": "valid"
+  },
+  "article_30_3_fields_newly_delegated": [],
+  "assertion_corruption": {
+    "diff_count": 1,
+    "evidence": {
+      "assertion_references": "invalid",
+      "asset_binding": "valid",
+      "claim_signature": "valid",
+      "digital_source_types": [
+        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+      ],
+      "issue_codes": [
+        "assertion.hashedURI.mismatch",
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [
+        "invalid TDM use: cawg.ai_generative_training"
+      ],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "tdm_conflicts": [],
+      "tdm_entries": {
+        "cawg.ai_training": "constrained"
+      },
+      "validation_state": "invalid"
+    }
+  },
+  "clean_artifact": {
+    "assertion_references": "valid",
+    "asset_binding": "valid",
+    "claim_signature": "valid",
+    "digital_source_types": [
+      "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+    ],
+    "issue_codes": [
+      "signingCredential.untrusted"
+    ],
+    "semantic_warnings": [],
+    "signer_trust": "untrusted",
+    "success_codes": [
+      "assertion.dataHash.match",
+      "assertion.hashedURI.match",
+      "claimSignature.insideValidity",
+      "claimSignature.validated"
+    ],
+    "tdm_conflicts": [],
+    "tdm_entries": {
+      "cawg.ai_generative_training": "notAllowed",
+      "cawg.ai_training": "constrained"
+    },
+    "validation_state": "valid"
+  },
+  "one_byte_asset_mutation": {
+    "diff_count": 1,
+    "evidence": {
+      "assertion_references": "valid",
+      "asset_binding": "invalid",
+      "claim_signature": "valid",
+      "digital_source_types": [
+        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+      ],
+      "issue_codes": [
+        "assertion.dataHash.mismatch",
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.hashedURI.match",
+        "claimSignature.insideValidity",
+        "claimSignature.validated"
+      ],
+      "tdm_conflicts": [],
+      "tdm_entries": {
+        "cawg.ai_generative_training": "notAllowed",
+        "cawg.ai_training": "constrained"
+      },
+      "validation_state": "invalid"
+    }
+  },
+  "signing_credential_corruption": {
+    "diff_count": 1,
+    "evidence": {
+      "assertion_references": "valid",
+      "asset_binding": "valid",
+      "claim_signature": "invalid",
+      "digital_source_types": [
+        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+      ],
+      "issue_codes": [
+        "claimSignature.mismatch",
+        "signingCredential.untrusted"
+      ],
+      "semantic_warnings": [],
+      "signer_trust": "untrusted",
+      "success_codes": [
+        "assertion.dataHash.match",
+        "assertion.hashedURI.match"
+      ],
+      "tdm_conflicts": [],
+      "tdm_entries": {
+        "cawg.ai_generative_training": "notAllowed",
+        "cawg.ai_training": "constrained"
+      },
+      "validation_state": "invalid"
+    }
+  },
+  "stage": "004",
+  "synthetic_source": {
+    "copyright_ambiguity": false,
+    "sha256": "652c561108a2961573a7dd10f720033359f650453ef33694f7dbc5fee29aae5e"
+  },
+  "toolchain": {
+    "development_signer": true,
+    "pinned_release_archive_verified": true,
+    "release": "c2patool-v0.27.16",
+    "repository": "contentauth/c2pa-rs",
+    "version_output": "c2patool 0.27.16"
+  }
+}
