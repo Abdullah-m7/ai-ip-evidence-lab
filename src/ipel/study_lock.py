@@ -80,6 +80,27 @@ def validate_real_adjudication_summary(summary: Any) -> None:
         raise StudyLockError("POST_ADJUDICATION_LOCK requires all 24 benchmark cases")
 
 
+def recompute_real_adjudication(root: Path, responses_path: Path) -> dict[str, Any]:
+    from src.ipel.adjudication import aggregate_adjudication
+
+    document = _load_json(responses_path)
+    if not isinstance(document, dict) or document.get("data_origin") != "REAL_HUMAN":
+        raise StudyLockError("raw adjudication document must declare data_origin=REAL_HUMAN")
+    responses = document.get("responses")
+    if not isinstance(responses, list) or not responses:
+        raise StudyLockError("raw adjudication document requires a non-empty responses array")
+    hidden = _load_json(root / "benchmarks/stage007/generated/hidden_case_map.json")
+    mapping = hidden.get("mapping") if isinstance(hidden, dict) else None
+    if not isinstance(mapping, dict) or len(mapping) != 24:
+        raise StudyLockError("hidden adjudication case map is invalid")
+    try:
+        aggregate = aggregate_adjudication(responses, set(mapping), allow_synthetic=False)
+    except Exception as exc:
+        raise StudyLockError("raw adjudication responses failed real-data validation") from exc
+    validate_real_adjudication_summary(aggregate)
+    return aggregate
+
+
 def validate_study_design(design: Any) -> None:
     if not isinstance(design, dict):
         raise StudyLockError("study design must be an object")
@@ -105,6 +126,7 @@ def build_freeze_manifest(
     *,
     state: str,
     source_commit_sha: str,
+    real_adjudication_responses_path: Path | None = None,
     real_adjudication_summary_path: Path | None = None,
     study_design_path: Path | None = None,
 ) -> dict[str, Any]:
@@ -123,13 +145,20 @@ def build_freeze_manifest(
         "study_design_locked": False,
     }
     if state in {"POST_ADJUDICATION_LOCK", "PRE_PRIMARY_STUDY_LOCK"}:
+        if real_adjudication_responses_path is None or not real_adjudication_responses_path.is_file():
+            raise StudyLockError(f"{state} requires the raw real-adjudication response file")
         if real_adjudication_summary_path is None or not real_adjudication_summary_path.is_file():
             raise StudyLockError(f"{state} requires a real adjudication summary file")
+        responses_rel = _repo_relative(root, real_adjudication_responses_path)
+        summary_rel = _repo_relative(root, real_adjudication_summary_path)
+        recomputed = recompute_real_adjudication(root, real_adjudication_responses_path)
         summary = _load_json(real_adjudication_summary_path)
-        validate_real_adjudication_summary(summary)
-        rel = _repo_relative(root, real_adjudication_summary_path)
+        if summary != recomputed:
+            raise StudyLockError("real adjudication summary does not match recomputed raw responses")
         manifest["real_adjudication_collected"] = True
-        manifest["real_adjudication_summary"] = rel
+        manifest["real_adjudication_responses"] = responses_rel
+        manifest["real_adjudication_responses_sha256"] = sha256_file(real_adjudication_responses_path)
+        manifest["real_adjudication_summary"] = summary_rel
         manifest["real_adjudication_summary_sha256"] = sha256_file(real_adjudication_summary_path)
     if state == "PRE_PRIMARY_STUDY_LOCK":
         if study_design_path is None or not study_design_path.is_file():
@@ -172,22 +201,33 @@ def validate_freeze_manifest(root: Path, manifest: Any) -> None:
     if state == "PRE_ADJUDICATION_LOCK":
         if (real, design_locked, final_n) != (False, False, False):
             raise StudyLockError("PRE_ADJUDICATION_LOCK flags are inconsistent")
-        forbidden = {"real_adjudication_summary", "real_adjudication_summary_sha256", "study_design", "study_design_sha256", "target_n"}
+        forbidden = {
+            "real_adjudication_responses", "real_adjudication_responses_sha256",
+            "real_adjudication_summary", "real_adjudication_summary_sha256",
+            "study_design", "study_design_sha256", "target_n",
+        }
         if forbidden & set(manifest):
             raise StudyLockError("PRE_ADJUDICATION_LOCK contains premature higher-state fields")
         return
 
     if real is not True:
         raise StudyLockError("post-adjudication states require real adjudication")
+    responses_rel = manifest.get("real_adjudication_responses")
+    responses_hash = manifest.get("real_adjudication_responses_sha256")
     summary_rel = manifest.get("real_adjudication_summary")
     summary_hash = manifest.get("real_adjudication_summary_sha256")
-    if not isinstance(summary_rel, str) or not isinstance(summary_hash, str):
-        raise StudyLockError("real adjudication provenance is missing")
+    if not all(isinstance(x, str) for x in (responses_rel, responses_hash, summary_rel, summary_hash)):
+        raise StudyLockError("real adjudication raw/summary provenance is missing")
+    responses_path = root / responses_rel
     summary_path = root / summary_rel
-    _repo_relative(root, summary_path)
+    _repo_relative(root, responses_path); _repo_relative(root, summary_path)
+    if not responses_path.is_file() or sha256_file(responses_path) != responses_hash:
+        raise StudyLockError("real adjudication raw-response hash mismatch")
     if not summary_path.is_file() or sha256_file(summary_path) != summary_hash:
         raise StudyLockError("real adjudication summary hash mismatch")
-    validate_real_adjudication_summary(_load_json(summary_path))
+    recomputed = recompute_real_adjudication(root, responses_path)
+    if _load_json(summary_path) != recomputed:
+        raise StudyLockError("real adjudication summary does not match recomputed raw responses")
 
     if state == "POST_ADJUDICATION_LOCK":
         if (design_locked, final_n) != (False, False):

@@ -40,3 +40,8 @@ A higher lock state cannot be claimed merely by editing the manifest: `src/ipel/
 
 ## Mutation rule
 After PRE_ADJUDICATION_LOCK, any change to a frozen input requires a new manifest. After human adjudication begins, changes to latent cases require a new benchmark version and adjudication cycle. After primary outcome collection begins, outcome definitions and the strong baseline must not be weakened in response to observed results.
+
+## Human-origin provenance boundary
+A lock file cannot cryptographically prove that a person, rather than software, produced a response. For POST adjudication the state machine therefore enforces the strongest claim available inside the repository: a raw response set declaring `REAL_HUMAN`, schema/eligibility validation of every row, recomputation of the 24-case aggregate from those raw rows, exact equality with the committed summary, and hashes for both raw and summary files.
+
+This proves **structural provenance and internal consistency**, not biological human identity. Recruitment records, consent/ethics process, and adjudicator identity/qualification checks remain real-world study controls and must not be replaced by a JSON label.

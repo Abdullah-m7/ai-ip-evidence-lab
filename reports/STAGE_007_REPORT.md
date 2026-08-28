@@ -26,3 +26,6 @@ This stage does not establish content validity yet. That requires actual indepen
 
 ## Blinding limitation
 Because the repository is public, adjudication blinding is procedural rather than cryptographic. The neutral distribution packet contains no answer labels, but an adjudicator who independently searches the repository could become exposed. Real adjudication must therefore use isolated packet distribution and the prespecified prior-exposure flag/exclusion rule.
+
+## Human-origin provenance limitation
+Future `POST_ADJUDICATION_LOCK` requires hashed raw responses plus a summary that is independently recomputed from them; a standalone summary cannot promote the lock state. This is structural provenance only. The software cannot prove human identity from a file and does not claim to do so.

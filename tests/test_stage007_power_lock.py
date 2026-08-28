@@ -8,6 +8,7 @@ from src.ipel.study_lock import (
     StudyLockError,
     build_freeze_manifest,
     validate_freeze_manifest,
+    validate_study_design,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,24 +35,30 @@ class Stage007PowerLockTests(unittest.TestCase):
         self.assertFalse(manifest["final_sample_size_locked"])
         validate_freeze_manifest(ROOT, manifest)
 
-    def test_post_adjudication_lock_requires_real_human_summary(self):
+    def test_post_adjudication_lock_requires_raw_and_summary(self):
         with self.assertRaises(StudyLockError):
             build_freeze_manifest(ROOT, state="POST_ADJUDICATION_LOCK", source_commit_sha="a" * 40)
-        with tempfile.TemporaryDirectory() as td:
-            p = Path(td) / "synthetic.json"
-            p.write_text(json.dumps({"data_origin":"SYNTHETIC_NON_HUMAN","all_cases_resolved":True,"case_count":24}))
-            with self.assertRaises(StudyLockError):
-                build_freeze_manifest(ROOT, state="POST_ADJUDICATION_LOCK", source_commit_sha="a" * 40, real_adjudication_summary_path=p)
 
-    def test_primary_lock_requires_selected_study_design(self):
-        generated = ROOT / "benchmarks/stage007/generated"
-        real = generated / ".test-real-human-summary.json"
-        try:
-            real.write_text(json.dumps({"data_origin":"REAL_HUMAN","all_cases_resolved":True,"case_count":24}))
-            with self.assertRaises(StudyLockError):
-                build_freeze_manifest(ROOT, state="PRE_PRIMARY_STUDY_LOCK", source_commit_sha="a" * 40, real_adjudication_summary_path=real)
-        finally:
-            real.unlink(missing_ok=True)
+    def test_synthetic_response_set_cannot_promote_post_lock(self):
+        raw = ROOT / "benchmarks/stage007/generated/synthetic_adjudication/consensus_responses.json"
+        summary = ROOT / "benchmarks/stage007/generated/synthetic_adjudication/consensus_aggregate.json"
+        with self.assertRaises(StudyLockError):
+            build_freeze_manifest(
+                ROOT, state="POST_ADJUDICATION_LOCK", source_commit_sha="a" * 40,
+                real_adjudication_responses_path=raw, real_adjudication_summary_path=summary,
+            )
+
+    def test_primary_design_validator_rejects_unresolved_ethics(self):
+        with self.assertRaises(StudyLockError):
+            validate_study_design({
+                "reviewer_population":"copyright researchers",
+                "inclusion_criteria":["qualified reviewer"],
+                "target_n":48,
+                "power_rationale":"design grid",
+                "recruitment_constraints":"to be recruited",
+                "ethics_consent_status":"TBD",
+                "assignment_procedure":"balanced A/B",
+            })
 
     def test_source_commit_must_be_full_lowercase_hex_sha(self):
         with self.assertRaises(StudyLockError):
