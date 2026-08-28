@@ -1,0 +1,68 @@
+[
+  {
+    "attack": "deletion_middle",
+    "local_integrity_verified": false,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "CHECKPOINT_COUNT_MISMATCH",
+      "PREVIOUS_HASH_MISMATCH",
+      "SEQUENCE_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  },
+  {
+    "attack": "insertion_event",
+    "local_integrity_verified": false,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "CHECKPOINT_COUNT_MISMATCH",
+      "PREVIOUS_HASH_MISMATCH",
+      "SEQUENCE_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  },
+  {
+    "attack": "mutation_payload",
+    "local_integrity_verified": false,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "EVENT_HASH_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  },
+  {
+    "attack": "rehashed_forgery",
+    "local_integrity_verified": true,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "CHECKPOINT_HEAD_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  },
+  {
+    "attack": "reordered",
+    "local_integrity_verified": false,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "PREVIOUS_HASH_MISMATCH",
+      "SEQUENCE_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  },
+  {
+    "attack": "tail_deletion",
+    "local_integrity_verified": true,
+    "checkpoint_integrity_verified": false,
+    "detected_with_checkpoint": true,
+    "finding_codes": [
+      "CHECKPOINT_COUNT_MISMATCH",
+      "CHECKPOINT_HEAD_MISMATCH"
+    ],
+    "claim_truth_verified": false
+  }
+]

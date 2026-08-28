@@ -56,6 +56,20 @@ This is a research prototype, not legal advice. It deliberately separates:
 3. **rule evaluation** — what deterministic conditions can be checked;
 4. **legal judgment** — what remains context-dependent and must be decided by a qualified human or competent authority.
 
+## Stage 002 — integrity boundary experiment
+
+Stage 002 adds a tamper-evident work/use event chain and an explicit external checkpoint. The experiment detects committed-history mutation, deletion, insertion, reordering, recomputed-history forgery, and tail truncation **when the original checkpoint is available**.
+
+The negative result is equally important: an internally consistent hash chain alone cannot detect a fully rehashed rewrite or tail truncation. The prototype therefore never treats local hash consistency as proof of historical truth.
+
+Run the attack matrix:
+
+```bash
+python3 experiments/stage002_attack_matrix.py
+```
+
+See `docs/EVENT_CHAIN_SPEC.md`, `docs/C2PA_CROSSWALK.md`, and `reports/stage002_attack_matrix.json`. The current interoperability baseline is C2PA 2.4 AI/ML guidance + CAWG Training and Data Mining Assertion 1.1.
+
 ## Planned research tracks
 
 1. **Training provenance** — evidence for acquisition and use of works during AI development.

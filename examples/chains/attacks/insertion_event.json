@@ -1,0 +1,98 @@
+{
+  "events": [
+    {
+      "event_id": "evt-acquire-001",
+      "event_type": "WORK_ACQUIRED",
+      "occurred_at": "2026-08-28T12:00:00Z",
+      "actor": {
+        "id": "developer-1",
+        "type": "organization"
+      },
+      "payload": {
+        "work_id": "work-001",
+        "source": "https://example.org/work",
+        "acquisition_status": "verified"
+      },
+      "evidence_refs": [
+        {
+          "uri": "urn:receipt:1",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "version": "ipel-event-v1",
+      "chain_id": "chain-001",
+      "sequence": 0,
+      "previous_hash": null,
+      "event_hash": "ef371d537e91fa209d20a79b55c74667749c94d8d963c557020ca1d723907876"
+    },
+    {
+      "event_id": "evt-use-001",
+      "event_type": "WORK_USED_FOR_AI_DEVELOPMENT",
+      "occurred_at": "2026-08-28T13:00:00Z",
+      "actor": {
+        "id": "pipeline-7",
+        "type": "software"
+      },
+      "payload": {
+        "work_id": "work-001",
+        "purpose": "evaluation corpus construction",
+        "extent": "excerpt"
+      },
+      "evidence_refs": [
+        {
+          "uri": "urn:run:7",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ],
+      "version": "ipel-event-v1",
+      "chain_id": "chain-001",
+      "sequence": 1,
+      "previous_hash": "ef371d537e91fa209d20a79b55c74667749c94d8d963c557020ca1d723907876",
+      "event_hash": "bb3b734a8883578ec4a4ed3619a4b59277a413b0ab03402b5a0de581c1861b35"
+    },
+    {
+      "event_id": "evt-use-001",
+      "event_type": "WORK_USED_FOR_AI_DEVELOPMENT",
+      "occurred_at": "2026-08-28T13:00:00Z",
+      "actor": {
+        "id": "pipeline-7",
+        "type": "software"
+      },
+      "payload": {
+        "work_id": "work-001",
+        "purpose": "evaluation corpus construction",
+        "extent": "excerpt"
+      },
+      "evidence_refs": [
+        {
+          "uri": "urn:run:7",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ],
+      "version": "ipel-event-v1",
+      "chain_id": "chain-001",
+      "sequence": 1,
+      "previous_hash": "ef371d537e91fa209d20a79b55c74667749c94d8d963c557020ca1d723907876",
+      "event_hash": "bb3b734a8883578ec4a4ed3619a4b59277a413b0ab03402b5a0de581c1861b35"
+    },
+    {
+      "event_id": "evt-assess-001",
+      "event_type": "RIGHTS_ASSESSMENT_RECORDED",
+      "occurred_at": "2026-08-28T14:00:00Z",
+      "actor": {
+        "id": "reviewer-2",
+        "type": "human"
+      },
+      "payload": {
+        "work_id": "work-001",
+        "assessment": "reviewed"
+      },
+      "evidence_refs": [],
+      "version": "ipel-event-v1",
+      "chain_id": "chain-001",
+      "sequence": 2,
+      "previous_hash": "bb3b734a8883578ec4a4ed3619a4b59277a413b0ab03402b5a0de581c1861b35",
+      "event_hash": "11f01ee4a5c348d416c10188c920cfd6d4b4c62a9f230d67232bf872d9929e61"
+    }
+  ]
+}
