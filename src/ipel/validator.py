@@ -46,8 +46,67 @@ def _get(record: dict[str, Any], *path: str) -> Any:
     return cur
 
 
-def evaluate(record: dict[str, Any]) -> GateResult:
+def _contract_findings(record: dict[str, Any]) -> list[Finding]:
+    """Validate the safety-critical subset of the Stage-001 record contract.
+
+    The JSON Schema remains the portable contract. This local check exists so the
+    evidence gate fails closed even when callers do not run a JSON-Schema validator.
+    """
     findings: list[Finding] = []
+
+    required_strings = (
+        ("record_version",),
+        ("record_id",),
+        ("work", "type"),
+        ("work", "source"),
+        ("use", "purpose"),
+        ("use", "date"),
+    )
+    for path in required_strings:
+        value = _get(record, *path)
+        if not isinstance(value, str) or not value.strip():
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid required string: {'.'.join(path)}"))
+
+    enum_fields = {
+        ("work", "publication_status"): {"verified", "unverified", "false"},
+        ("work", "acquisition_status"): {"verified", "unverified", "false"},
+        ("use", "necessity_status"): {"supported", "uncertain", "unsupported"},
+        ("rights_context", "legitimate_interests_prejudice"): {"none", "unjustified", "uncertain", "not_assessed"},
+        ("rights_context", "exploitation_opportunity_effect"): {"none", "adverse", "uncertain", "not_assessed"},
+        ("rights_context", "independent_elements_status"): {"none_identified", "assessed", "requires_review", "not_assessed"},
+        ("output_context", "inclusion_necessary"): {"yes", "no", "uncertain", "not_applicable"},
+        ("output_context", "permission_status"): {"granted", "not_granted", "uncertain", "not_applicable"},
+        ("output_context", "public_domain_status"): {"yes", "no", "uncertain"},
+    }
+    for path, allowed in enum_fields.items():
+        value = _get(record, *path)
+        if value not in allowed:
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid enum: {'.'.join(path)}"))
+
+    boolean_fields = (
+        ("use", "republication"),
+        ("use", "distribution"),
+        ("use", "direct_commercial_exploitation"),
+        ("use", "purely_commercial_context"),
+        ("output_context", "transformed"),
+        ("output_context", "republished"),
+        ("output_context", "made_public"),
+        ("output_context", "included_in_final_product"),
+    )
+    for path in boolean_fields:
+        if not isinstance(_get(record, *path), bool):
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid boolean: {'.'.join(path)}"))
+
+    for key in ("publication", "acquisition", "use_event"):
+        value = _get(record, "evidence", key)
+        if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid evidence list: evidence.{key}"))
+
+    return findings
+
+
+def evaluate(record: dict[str, Any]) -> GateResult:
+    findings: list[Finding] = _contract_findings(record)
 
     # Implementing Regulations Art. 30(3): retained record core.
     core = {
@@ -70,13 +129,13 @@ def evaluate(record: dict[str, Any]) -> GateResult:
 
     if acquisition == "false":
         findings.append(Finding("LAW-26(4)", "FAIL", "Record states that lawful acquisition is false."))
-    elif acquisition in (None, "unverified"):
+    elif acquisition != "verified":
         findings.append(Finding("LAW-26(4)", "REVIEW", "Lawful acquisition is not verified."))
 
     necessity = _get(record, "use", "necessity_status")
     if necessity == "unsupported":
         findings.append(Finding("LAW-26(4)/IR-30(1)", "FAIL", "Copying/analysis necessity is recorded as unsupported."))
-    elif necessity in (None, "uncertain"):
+    elif necessity != "supported":
         findings.append(Finding("LAW-26(4)/IR-30(1)", "REVIEW", "Necessity/proportionality requires review."))
 
     # IR 30(1): direct prohibited uses under the encoded exception pathway.
