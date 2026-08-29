@@ -1,87 +1,122 @@
-# Paper A — Bibliography Seed and Source Audit
+# Paper A — Verified Bibliography and Source Hierarchy
 
-This is a working source list, grouped by evidentiary authority. It is not yet formatted to the final journal style.
+## Status
+
+**BIBLIOGRAPHY CURATED FOR CONTROLLER REVIEW.**
+
+This file records the sources admitted to the current manuscript, the proposition for which each source may be used, and the authority boundary that must be preserved. The manuscript carries its own formatted reference list; this file is the audit companion.
 
 ## A. Primary Saudi legal sources
 
-1. **Saudi Arabia, Copyright Law (2026)**, Umm Al-Qura Official Gazette, including Article 26(4). 13 February 2026. https://www.uqn.gov.sa/details?p=28845
-2. **Royal Decree No. M/169**, 14/08/1447H, approving the Copyright Law. https://www.uqn.gov.sa/decisions-and-regulations/4000304
-3. **Implementing Regulations of the Copyright Law (2026)**, especially Article 30, dated 31 July 2026. https://www.uqn.gov.sa/decisions-and-regulations/4001498
+### Saudi Arabia (2026a) — Copyright Law
 
-### Legal-source handling rule
+- **Source:** *Nizam Huquq al-Mu’allif* [Copyright Law], official Arabic text, *Umm Al-Qura*, 13 February 2026.
+- **Relevant provision:** Article 26(4).
+- **Permitted proposition:** the provision addresses copying an original work for AI-product and algorithm development subject to lawful publication, lawful acquisition of ownership of the original copy, and purpose-limited copying.
+- **Boundary:** do not paraphrase this as a general authorization of every AI-training use.
+- **Official location:** https://www.uqn.gov.sa/details?p=28845
 
-The Arabic official text governs. Any English rendering in Paper A is an author translation/paraphrase for analytical purposes and must be labeled as such where wording matters.
+### Saudi Arabia (2026b) — Implementing Regulations
 
-## B. Normative / official technical specifications
+- **Source:** Implementing Regulations of the Copyright Law, official Arabic text, *Umm Al-Qura*, 31 July 2026.
+- **Relevant provision:** Article 30(1)–(6).
+- **Permitted proposition:** Article 30 establishes necessity, commercial-use, retained-record, author-interest, downstream-use, and independently protected-element controls for the Article 26(4) pathway.
+- **Core record proposition:** Article 30(3) requires retained records of work type, source, purpose of use, and date of use.
+- **Boundary:** the four fields are a minimum retained-record core, not a complete legal-compliance test.
+- **Official location:** https://www.uqn.gov.sa/decisions-and-regulations/4001498
 
-4. **C2PA Specifications 2.4**, Coalition for Content Provenance and Authenticity. https://spec.c2pa.org/specifications/
-5. **C2PA Technical Specification 2.4 — Ingredient v3 and hashed references**. https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html
-6. **C2PA Guidance for Artificial Intelligence and Machine Learning**. https://spec.c2pa.org/specifications/
-7. **Creator Assertions Working Group (CAWG), Training and Data Mining Assertion 1.1**, ratified 16 May 2025. https://cawg.io/training-and-data-mining/1.1/
-8. **TDM·AI Protocol**, machine-readable AI/TDM usage preferences. https://docs.tdmai.org/
-9. **TDM·AI, Opt-out, Opt-in and Content Licensing**, distinguishing public preference declarations from negotiated licences. https://docs.tdmai.org/opt-out-opt-in-and-content-licensing
-10. **WIPO, AI Infrastructure Interchange (AIII)**. https://www.wipo.int/en/web/ai-infrastructure-interchange
-11. **WIPO, AIII FAQs**. https://www.wipo.int/en/web/ai-infrastructure-interchange/faqs
+### Saudi Arabia (2026c) — Royal Decree No. M/169
 
-## C. Peer-reviewed / scholarly related work
+- **Source:** Royal Decree No. M/169 dated 14/08/1447H, *Umm Al-Qura*, 13 February 2026.
+- **Permitted proposition:** the Decree approved the new Copyright Law.
+- **Official location:** https://www.uqn.gov.sa/decisions-and-regulations/4000304
 
-### C1. Dataset provenance and computational law
+### Legal-source rule
 
-12. Longpre, S., Mahari, R., Chen, A., et al. (2024). **A large-scale audit of dataset licensing and attribution in AI.** *Nature Machine Intelligence*, 6, 975–987. https://www.nature.com/articles/s42256-024-00878-8
-13. Guitton, C., Tamò-Larrieux, A., & Mayer, S. (2023). **Mapping the Issues of Automated Legal Systems: Why Worry About Automatically Processable Regulation?** *Artificial Intelligence and Law*, 31, 571–599. https://link.springer.com/article/10.1007/s10506-022-09323-w
-14. Guitton, C., Gubelmann, R., Karray, G., Mayer, S., et al. (2025). **Identifying open-texture in regulations using LLMs.** *Artificial Intelligence and Law*. https://link.springer.com/article/10.1007/s10506-025-09450-0
-15. Bench-Capon, T. (2022). **Thirty years of Artificial Intelligence and Law: Editor’s Introduction.** *Artificial Intelligence and Law*, 30, 475–479. https://link.springer.com/article/10.1007/s10506-022-09325-8
-16. Di Porto, F. (2023). **Algorithmic disclosure rules.** *Artificial Intelligence and Law*, 31, 13–51. https://link.springer.com/article/10.1007/s10506-021-09302-7
-17. Bex, F. J. (2025). **AI, Law and beyond. A transdisciplinary ecosystem for the future of AI & Law.** *Artificial Intelligence and Law*, 33, 253–270. https://link.springer.com/article/10.1007/s10506-024-09404-y
+The Arabic official text governs. English wording in Paper A is an analytical paraphrase unless expressly identified otherwise. The IPEL mapping is not an authoritative SAIP or judicial interpretation.
 
-### C2. Comparative AI-training copyright doctrine
+## B. Official comparative and policy sources
 
-18. de la Durantaye, K. (2025). **Control and Compensation. A Comparative Analysis of Copyright Exceptions for Training Generative AI.** *IIC — International Review of Intellectual Property and Competition Law*, 56, 737–770. Comparative treatment of the US, Canada, UK, EU, Israel, China, Singapore, and Japan. https://link.springer.com/article/10.1007/s40319-025-01569-6
-19. Ginsburg, J. C. (2025). **AI inputs, fair use and the US Copyright Office Report.** *Journal of Intellectual Property Law & Practice*, 20(8), 521–522. https://academic.oup.com/jiplp/article/20/8/521/8221808
-20. Tyagi, K. (2024). **Copyright, text & data mining and the innovation dimension of generative AI.** *Journal of Intellectual Property Law & Practice*, 19(7), 557–570. https://academic.oup.com/jiplp/article/19/7/557/7624901
-21. Kretschmer, M., Meletti, B., Bently, L., Cifrodelli, G., Eben, M., Erickson, K., et al. (2025). **Copyright and AI in the UK: Opting-In or Opting-Out?** *GRUR International*, 74(11), 1055–1070. https://academic.oup.com/grurint/article/74/11/1055/8209765
-22. Bruni, B. (2026). **Training on Trial: Insights from Bartz and Kadrey.** *Journal of the Copyright Society*, 73, 261–298. https://copyrightsociety.org/journal-entries/training-on-trial-insights-from-bartz-and-kadrey/
-23. Guadamuz, A. (2025). **The EU’s Artificial Intelligence Act and copyright.** *The Journal of World Intellectual Property*. https://onlinelibrary.wiley.com/doi/full/10.1111/jwip.12330
-24. **Generative AI, copyright and the AI Act** (2025). *Computer Law & Security Review*, 56, 106107. https://doi.org/10.1016/j.clsr.2025.106107
-25. **Copyright protection during the training stage of generative AI: Industry-oriented U.S. law, rights-oriented EU law, and fair remuneration rights for generative AI training under the UN's international governance regime for AI** (2024). *Computer Law & Security Review*, 55, 106056. https://doi.org/10.1016/j.clsr.2024.106056
+1. **European Union (2019).** Directive (EU) 2019/790 on copyright and related rights in the Digital Single Market, especially Articles 3 and 4. *Official Journal of the European Union* L 130:92–125. https://eur-lex.europa.eu/eli/dir/2019/790/oj
+2. **Agency for Cultural Affairs (Japan) (2024).** *General Understanding on AI and Copyright in Japan—Overview*. The agency states that the document summarizes a non-binding interpretive view of current Japanese copyright law. https://www.bunka.go.jp/english/policy/copyright/
+3. **United States Copyright Office (2025).** *Copyright and Artificial Intelligence, Part 3: Generative AI Training*. https://www.copyright.gov/ai/
+4. **United Kingdom Government (2026).** *Report on Copyright and Artificial Intelligence*. Department for Science, Innovation and Technology; Department for Culture, Media and Sport; Intellectual Property Office, 18 March 2026. https://www.gov.uk/government/publications/report-and-impact-assessment-on-copyright-and-artificial-intelligence/report-on-copyright-and-artificial-intelligence
 
-### C3. Law/compliance by design and auditability
+**Use boundary:** these sources establish the existence and structure of different legal/policy approaches. They do not establish that the Saudi pathway has the same elements.
 
-26. Djeffal, C. (2025). **Law by design obligations: The future of regulating digital technologies in Europe?** *Computer Law & Security Review*, 59, 106232. https://doi.org/10.1016/j.clsr.2025.106232
-27. **Regulation by Design: Features, Practices, Limitations, and Governance Implications** (2024). *Minds and Machines*. https://link.springer.com/article/10.1007/s11023-024-09675-z
-28. Selvadurai, N. (2025). **Advancing lawful AI through 'compliance by design'.** *Computer and Telecommunications Law Review*, 31(2), 35–38. https://researchers.mq.edu.au/en/publications/advancing-lawful-ai-through-compliance-by-design/
-29. **Making algorithmic transparency enforceable: sufficient intelligibility, technical evidence, and auditability across the EU and the US** (2026). *International Journal of Law and Information Technology*, 34, eaag008. https://doi.org/10.1093/ijlit/eaag008
+## C. Normative and official technical specifications
 
-## D. Project-generated experimental evidence
+1. **C2PA (2026).** *C2PA Technical Specification*, version 2.4. https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html
+   - Supports claims about manifest structure, hard bindings, validation, trust, Ingredient v3, collection data hashes, and AI/ML input relationships.
+   - The specification’s own scope cautions against turning provenance validation into a “good/bad” value judgment.
+2. **CAWG (2025).** *Training and Data Mining Assertion*, version 1.1, ratified 16 May 2025. https://cawg.io/training-and-data-mining/1.1/
+   - Supports claims about `allowed`, `notAllowed`, and `constrained` usage signals for data mining, inference, generative training, and non-generative training.
+   - Does not support a claim that such a signal is the complete legal basis for a specific use.
+3. **TDM·AI (n.d.).** *TDM·AI Protocol and Documentation*. https://docs.tdmai.org/
+   - Supports claims about machine-readable AI/TDM preferences.
+   - Public declarations and negotiated licences must not be collapsed into one category.
+4. **WIPO (2026).** *AI Infrastructure Interchange (AIII)*. https://www.wipo.int/en/web/ai-infrastructure-interchange
+   - Supports infrastructure-level framing only.
+   - Do not imply WIPO endorsement of IPEL or of the project’s Saudi-law interpretation.
 
-These are not external authorities. They support only claims about what this project implemented or observed.
+## D. Dataset documentation and provenance literature
 
-30. `docs/LEGAL_REQUIREMENTS_MATRIX.md` — Saudi legal-to-evidence abstraction.
-31. `reports/STAGE_003_REPORT.md` and `reports/stage003_semantic_roundtrip.json` — semantic interoperability experiment.
-32. `reports/STAGE_004_REPORT.md` and `reports/stage004_conformant_c2pa.json` — real C2PA hard-binding experiment.
-33. `reports/STAGE_005_REPORT.md` and `reports/stage005_cross_validator.json` — cross-validator/cross-version and trust-boundary experiment.
-34. `reports/STAGE_006_REPORT.md` — blinded benchmark construction; **no human results**.
-35. `reports/STAGE_007_REPORT.md` and freeze manifest — independent-adjudication preparation; **no human adjudication collected**.
-36. `reports/STAGE_008_REPORT.md` — contamination-resistant distribution/intake infrastructure; **no human responses collected**.
+1. **Bender, E. M., & Friedman, B. (2018).** Data statements for natural language processing: Toward mitigating system bias and enabling better science. *Transactions of the Association for Computational Linguistics*, 6, 587–604. https://doi.org/10.1162/tacl_a_00041
+2. **Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., & Gebru, T. (2019).** Model cards for model reporting. In *Proceedings of the Conference on Fairness, Accountability, and Transparency*, 220–229. https://doi.org/10.1145/3287560.3287596
+3. **Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé, H. III, & Crawford, K. (2021).** Datasheets for datasets. *Communications of the ACM*, 64(12), 86–92. https://doi.org/10.1145/3458723
+4. **Pushkarna, M., Zaldivar, A., & Kjartansson, O. (2022).** Data cards: Purposeful and transparent dataset documentation for responsible AI. In *Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency*. https://doi.org/10.1145/3531146.3533231
+5. **Longpre, S., Mahari, R., Chen, A., Obeng-Marnu, N., Sileo, D., Brannon, W., Muennighoff, N., Khazam, N., Kabbara, J., Perisetla, K., Wu, X. A., Shippole, E., Bollacker, K., Wu, T., Villa, L., Pentland, A., & Hooker, S. (2024).** A large-scale audit of dataset licensing and attribution in AI. *Nature Machine Intelligence*, 6, 975–987. https://doi.org/10.1038/s42256-024-00878-8
 
-## E. Citation-source hierarchy for manuscript drafting
+**Positioning boundary:** these works establish documentation, lineage, and transparency foundations. Paper A must not claim that they are inadequate generally; it argues that jurisdiction-specific legal-evidence mapping is an additional layer.
 
-Use sources in this order where possible:
+## E. Reviewability, auditability, and computational-law literature
 
-1. official Saudi legal text for Saudi legal claims;
-2. normative standard/specification for C2PA/CAWG/TDM technical claims;
-3. peer-reviewed paper for literature claims;
-4. project reports/code/tests only for claims about IPEL experiments.
+1. **Raji, I. D., Smart, A., White, R. N., Mitchell, M., Gebru, T., Hutchinson, B., Smith-Loud, J., Theron, D., & Barnes, P. (2020).** Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. In *Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency*, 33–44. https://doi.org/10.1145/3351095.3372873
+2. **Cobbe, J., Lee, M. S. A., & Singh, J. (2021).** Reviewable automated decision-making: A framework for accountable algorithmic systems. In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*. https://doi.org/10.1145/3442188.3445921
+3. **Di Porto, F. (2023).** Algorithmic disclosure rules. *Artificial Intelligence and Law*, 31, 13–51. https://doi.org/10.1007/s10506-021-09302-7
+4. **Guitton, C., Tamò-Larrieux, A., & Mayer, S. (2023).** Mapping the issues of automated legal systems: Why worry about automatically processable regulation? *Artificial Intelligence and Law*, 31, 571–599. https://doi.org/10.1007/s10506-022-09323-w
+5. **Francesconi, E., & Governatori, G. (2023).** Patterns for legal compliance checking in a decidable framework of linked open data. *Artificial Intelligence and Law*, 31, 445–464. https://doi.org/10.1007/s10506-022-09317-8
+6. **Witt, A., Huggins, A., Governatori, G., et al. (2024).** Encoding legislation: A methodology for enhancing technical validation, legal alignment and interdisciplinarity. *Artificial Intelligence and Law*, 32, 293–324. https://doi.org/10.1007/s10506-023-09350-1
 
-Do not use the project README as authority for a legal or external-standard proposition when a primary source exists.
+**Positioning boundary:** IPEL adopts reviewability and open-texture cautions. It does not claim that formal legal reasoning or compliance checking is impossible; it limits its own automation to evidence observability and explicit contradictions.
 
-## F. Literature gaps still to fill before submission
+## F. AI-training copyright scholarship
 
-The initial comparative-law gap is now materially reduced through sources covering the United States, EU, UK, Japan and broader comparative regimes. Remaining work:
+1. **Samuelson, P. (2023).** Generative AI meets copyright. *Science*, 381(6654), 158–161. https://doi.org/10.1126/science.adi0656
+2. **Guadamuz, A. (2024).** A scanner darkly: Copyright liability and exceptions in artificial intelligence inputs and outputs. *GRUR International*, 73(2), 111–127. https://doi.org/10.1093/grurint/ikad140
+3. **de la Durantaye, K. (2025).** Control and compensation: A comparative analysis of copyright exceptions for training generative AI. *IIC—International Review of Intellectual Property and Competition Law*, 56, 737–770. https://doi.org/10.1007/s40319-025-01569-6
+4. **Sag, M., & Yu, P. K. (2025).** The globalization of copyright exceptions for AI training. *Emory Law Journal*, 74, 1163–1227.
 
-- add 2–4 foundational dataset-documentation sources beyond DPI (datasheets/data statements/data cards where directly relevant);
-- deepen legal evidence/auditability literature, especially evidence preservation for later enforcement rather than only ex-ante compliance-by-design;
-- search for credible Saudi-specific peer-reviewed analysis of the 2026 Copyright Law published after entry into force;
-- verify full bibliographic metadata and final journal formatting for all entries before submission.
+**Positioning boundary:** this literature supports the claim that substantive legality differs across jurisdictions and is heavily contested. Paper A’s novelty is not a new universal legality rule.
 
-These remaining gaps should be addressed before the manuscript is marked submission-ready.
+## G. Project-generated experimental evidence
+
+These materials support only claims about what the project implemented or observed:
+
+1. `docs/LEGAL_REQUIREMENTS_MATRIX.md` — legal-to-evidence research abstraction.
+2. `reports/STAGE_003_REPORT.md` and `reports/stage003_semantic_roundtrip.json` — five-case semantic round-trip.
+3. `reports/STAGE_004_REPORT.md` and `reports/stage004_conformant_c2pa.json` — real C2PA hard-binding experiment.
+4. `reports/STAGE_005_REPORT.md` and `reports/stage005_cross_validator.json` — cross-version/trust-boundary experiment.
+5. `reports/STAGE_006_REPORT.md` — future reviewer benchmark; no human results.
+6. `reports/STAGE_007_REPORT.md` and freeze manifest — independent-adjudication preparation; no real adjudication.
+7. `reports/STAGE_008_REPORT.md` — distribution/intake infrastructure; no human responses.
+
+Project reports are not external legal or technical authorities. They may support only bounded empirical statements about this implementation.
+
+## H. Citation hierarchy
+
+Use sources in this order:
+
+1. official Arabic legal text for Saudi-law propositions;
+2. official legislation/policy for comparative jurisdiction descriptions;
+3. normative specifications for C2PA/CAWG/TDM technical propositions;
+4. peer-reviewed literature for scholarly positioning;
+5. committed project reports and machine outputs for IPEL experimental results.
+
+## I. Remaining pre-submission bibliographic work
+
+- Verify every author list and page range against publisher metadata during journal-style conversion.
+- Replace raw web locations with the target journal’s preferred reference formatting.
+- Add access dates only if required by the journal.
+- Create a persistent archival identifier for the reproducibility package.
+- Recheck for credible Saudi-specific peer-reviewed analysis published after the law’s entry into force; use only if its quality and proposition are independently verified.
