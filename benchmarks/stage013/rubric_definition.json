@@ -1,0 +1,65 @@
+{
+  "candidate_kinds": [
+    "NORMATIVE_FIELD",
+    "NORMATIVE_ASSERTION",
+    "CUSTOM_ASSERTION",
+    "NO_CANDIDATE"
+  ],
+  "change_control": {
+    "post_outcome_change_prohibited_without_parallel_reporting": true,
+    "rubric_change_requires_version_bump": true
+  },
+  "decision_classes": [
+    "SAFE_DELEGATION",
+    "PARTIAL_SUPPORT",
+    "NOT_SAFE_TO_DELEGATE",
+    "NO_CANDIDATE"
+  ],
+  "dimension_statuses": [
+    "PASS",
+    "FAIL",
+    "NOT_APPLICABLE"
+  ],
+  "dimensions": [
+    {"critical": true, "description": "Source and target denote the same legally relevant object/work/event referent.", "id": "referent_identity"},
+    {"critical": true, "description": "Source and target assert the same proposition, not merely adjacent metadata.", "id": "predicate_semantics"},
+    {"critical": true, "description": "The subject/actor whose fact is asserted is preserved.", "id": "subject_actor_identity"},
+    {"critical": true, "description": "The fact is anchored to the same legally relevant use/acquisition/publication process or event.", "id": "event_process_anchor"},
+    {"critical": true, "description": "Any legally relevant time meaning and trust level are preserved.", "id": "temporal_semantics"},
+    {"critical": true, "description": "Legal qualifiers, scope, purpose, context, and conditions are preserved.", "id": "qualifier_scope_preservation"},
+    {"critical": false, "description": "Value domains/cardinality can represent the IPEL proposition without coercive loss.", "id": "value_domain_compatibility"},
+    {"critical": true, "description": "Descriptive evidence, permission/preference, trust, and legal/evaluative roles are not collapsed.", "id": "evidentiary_normative_role"},
+    {"critical": true, "description": "The IPEL proposition can be reconstructed without external inference or hidden state.", "id": "roundtrip_recoverability"},
+    {"critical": true, "description": "Equivalence does not depend on validation success, signer trust, rights preference, or legal inference.", "id": "inference_independence"},
+    {"critical": true, "description": "The candidate semantic is defined in a current maintained normative specification, not only a custom/private extension.", "id": "normative_maintained_spec_status"}
+  ],
+  "partial_support_rule": {
+    "ipel_field_must_be_retained": true,
+    "requires_support_relevance": true
+  },
+  "proposition_classes": {
+    "ENTITY_ATTRIBUTE": {
+      "not_applicable_allowed": [
+        "subject_actor_identity",
+        "event_process_anchor",
+        "temporal_semantics"
+      ]
+    },
+    "EVENT_ATTRIBUTE": {"not_applicable_allowed": []},
+    "LEGAL_EVALUATIVE_ASSERTION": {"not_applicable_allowed": []}
+  },
+  "rubric_version": "1.0.0",
+  "safe_delegation_rule": {
+    "all_applicable_dimensions_must_pass": true,
+    "all_critical_applicable_dimensions_must_pass": true,
+    "candidate_kind_must_be_normative": true,
+    "custom_assertion_never_counts_as_generic_delegation": true,
+    "prohibited_inference_dependencies": [
+      "VALIDATION_STATE",
+      "SIGNER_TRUST",
+      "RIGHTS_PREFERENCE",
+      "LEGAL_CONCLUSION"
+    ],
+    "roundtrip_must_be_tested_and_pass": true
+  }
+}
