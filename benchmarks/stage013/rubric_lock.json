@@ -1,0 +1,10 @@
+{
+  "benchmark_executed": false,
+  "candidate_outcomes_present": false,
+  "candidate_registry_canonical_sha256": "be02f758a85c7f99a62e4de1c42079a61661ccb39cfce78710a405dd421ced76",
+  "locked_before_candidate_assessment": true,
+  "rubric_definition_canonical_sha256": "81c70506e6702bc4ad5ffad337e817c6ab71b55c946c185743da1887f8344fc5",
+  "rubric_version": "1.0.0",
+  "source_commit_sha": "037070dae5a93a1ef58c806a537784f378226998",
+  "status": "PRE_OUTCOME_RUBRIC_LOCK"
+}
