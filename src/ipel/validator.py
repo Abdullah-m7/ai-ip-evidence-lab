@@ -1,7 +1,12 @@
-"""Deterministic Stage-001 evidence gate.
+"""Deterministic IPEL evidence gate.
 
-This module evaluates evidence readiness and encoded contradictions. It does not
+The gate evaluates evidence readiness and encoded contradictions. It does not
 produce legal advice or a legal conclusion of copyright compliance.
+
+Record profile 0.1.0 is retained as a historical/legacy profile so Stages
+001-005 remain reproducible. Record profile 0.2.0 adds the cross-cutting
+Copyright Law Article 37(1) conditions to the declared Saudi AI-development
+pathway and is the required profile for new legal-completeness experiments.
 """
 
 from __future__ import annotations
@@ -16,6 +21,13 @@ PASS = "PASS_EVIDENCE_GATE"
 REVIEW = "REVIEW_REQUIRED"
 FAIL = "FAIL_EVIDENCE_GATE"
 
+LEGACY_RECORD_VERSION = "0.1.0"
+CURRENT_RECORD_VERSION = "0.2.0"
+SUPPORTED_RECORD_VERSIONS = {LEGACY_RECORD_VERSION, CURRENT_RECORD_VERSION}
+
+LEGACY_PROFILE_ID = "sa-copyright-2026-art26-4-ir30-legacy-v0.1"
+CURRENT_PROFILE_ID = "sa-copyright-2026-art26-4-art37-1-ir30-v0.2"
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -28,12 +40,16 @@ class Finding:
 class GateResult:
     outcome: str
     findings: list[Finding]
+    legal_profile_id: str
+    declared_scope_complete: bool
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "outcome": self.outcome,
             "findings": [asdict(finding) for finding in self.findings],
             "legal_conclusion": False,
+            "legal_profile_id": self.legal_profile_id,
+            "declared_scope_complete": self.declared_scope_complete,
         }
 
 
@@ -46,8 +62,18 @@ def _get(record: dict[str, Any], *path: str) -> Any:
     return cur
 
 
+def _profile_metadata(record: dict[str, Any]) -> tuple[str, bool]:
+    version = _get(record, "record_version")
+    if version == CURRENT_RECORD_VERSION:
+        return CURRENT_PROFILE_ID, True
+    if version == LEGACY_RECORD_VERSION:
+        # Historical experiments intentionally preserve their original scope.
+        return LEGACY_PROFILE_ID, False
+    return "unsupported-record-profile", False
+
+
 def _contract_findings(record: dict[str, Any]) -> list[Finding]:
-    """Validate the safety-critical subset of the Stage-001 record contract.
+    """Validate the safety-critical subset of the evidence record contract.
 
     The JSON Schema remains the portable contract. This local check exists so the
     evidence gate fails closed even when callers do not run a JSON-Schema validator.
@@ -66,6 +92,10 @@ def _contract_findings(record: dict[str, Any]) -> list[Finding]:
         value = _get(record, *path)
         if not isinstance(value, str) or not value.strip():
             findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid required string: {'.'.join(path)}"))
+
+    record_version = _get(record, "record_version")
+    if record_version not in SUPPORTED_RECORD_VERSIONS:
+        findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Unsupported record_version: {record_version!r}"))
 
     enum_fields = {
         ("work", "publication_status"): {"verified", "unverified", "false"},
@@ -107,11 +137,59 @@ def _contract_findings(record: dict[str, Any]) -> list[Finding]:
         if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
             findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid assessment-basis list: rights_context.{key}"))
 
+    # Profile 0.2.0 explicitly models the two cross-cutting Article 37(1)
+    # propositions instead of re-labelling superficially similar IR-30 fields.
+    if record_version == CURRENT_RECORD_VERSION:
+        article37 = _get(record, "article37_context")
+        if not isinstance(article37, dict):
+            findings.append(Finding("IPEL-CONTRACT", "FAIL", "Missing/invalid object: article37_context"))
+        else:
+            art37_enums = {
+                "normal_exploitation_conflict": {"no_conflict", "conflict", "uncertain", "not_assessed"},
+                "rightsholder_legitimate_interests_prejudice": {"none", "unjustified", "uncertain", "not_assessed"},
+            }
+            for key, allowed in art37_enums.items():
+                if article37.get(key) not in allowed:
+                    findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid enum: article37_context.{key}"))
+            for key in ("normal_exploitation_basis", "rightsholder_interests_basis"):
+                value = article37.get(key)
+                if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+                    findings.append(Finding("IPEL-CONTRACT", "FAIL", f"Missing/invalid assessment-basis list: article37_context.{key}"))
+
     return findings
+
+
+def _evaluate_article37(record: dict[str, Any], findings: list[Finding]) -> None:
+    """Evaluate the bounded Article 37(1) evidence abstraction for profile 0.2.0.
+
+    Article 37(1) applies across uses in Articles 26-36. The project therefore
+    models it separately from IR 30(2)'s commercial-context normal-exploitation
+    field and IR 30(4)'s author-interest/opportunity fields.
+    """
+    article37 = _get(record, "article37_context") or {}
+
+    conflict = article37.get("normal_exploitation_conflict")
+    conflict_basis = article37.get("normal_exploitation_basis") or []
+    if conflict == "conflict":
+        findings.append(Finding("LAW-37(1)", "FAIL", "Record indicates conflict with normal exploitation of the work."))
+    elif conflict in (None, "uncertain", "not_assessed"):
+        findings.append(Finding("LAW-37(1)", "REVIEW", "Conflict with normal exploitation is unresolved or not assessed."))
+    elif conflict == "no_conflict" and not conflict_basis:
+        findings.append(Finding("LAW-37(1)", "REVIEW", "No-conflict assessment under Article 37(1) has no recorded basis."))
+
+    prejudice = article37.get("rightsholder_legitimate_interests_prejudice")
+    prejudice_basis = article37.get("rightsholder_interests_basis") or []
+    if prejudice == "unjustified":
+        findings.append(Finding("LAW-37(1)", "FAIL", "Record indicates unjustified prejudice to the legitimate interests of rightsholders."))
+    elif prejudice in (None, "uncertain", "not_assessed"):
+        findings.append(Finding("LAW-37(1)", "REVIEW", "Rightsholder legitimate-interests prejudice is unresolved or not assessed."))
+    elif prejudice == "none" and not prejudice_basis:
+        findings.append(Finding("LAW-37(1)", "REVIEW", "Favorable rightsholder-interests assessment under Article 37(1) has no recorded basis."))
 
 
 def evaluate(record: dict[str, Any]) -> GateResult:
     findings: list[Finding] = _contract_findings(record)
+    record_version = _get(record, "record_version")
 
     # Implementing Regulations Art. 30(3): retained record core.
     core = {
@@ -142,6 +220,12 @@ def evaluate(record: dict[str, Any]) -> GateResult:
         findings.append(Finding("LAW-26(4)/IR-30(1)", "FAIL", "Copying/analysis necessity is recorded as unsupported."))
     elif necessity != "supported":
         findings.append(Finding("LAW-26(4)/IR-30(1)", "REVIEW", "Necessity/proportionality requires review."))
+
+    # Profile 0.2.0 adds the cross-cutting statutory safeguard. Legacy 0.1.0
+    # results are left unchanged for reproducibility and are machine-labelled as
+    # incomplete in GateResult metadata.
+    if record_version == CURRENT_RECORD_VERSION:
+        _evaluate_article37(record, findings)
 
     # IR 30(1): direct prohibited uses under the encoded exception pathway.
     for field, label in (
@@ -208,7 +292,13 @@ def evaluate(record: dict[str, Any]) -> GateResult:
     else:
         outcome = PASS
 
-    return GateResult(outcome=outcome, findings=findings)
+    profile_id, scope_complete = _profile_metadata(record)
+    return GateResult(
+        outcome=outcome,
+        findings=findings,
+        legal_profile_id=profile_id,
+        declared_scope_complete=scope_complete,
+    )
 
 
 def main(argv: list[str] | None = None) -> int:
