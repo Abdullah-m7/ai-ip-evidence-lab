@@ -2,9 +2,9 @@
 
 ## Audit status
 
-**FIRST-DRAFT AUDIT — PASS WITH LITERATURE EXPANSION REQUIRED BEFORE SUBMISSION**
+**FIRST-DRAFT AUDIT — PASS WITH CITATION INSERTION / SECONDARY LITERATURE COMPLETION REQUIRED**
 
-The current draft is suitable for internal scientific review. It is not yet submission-ready because comparative copyright scholarship and non-AI evidentiary/auditability literature still need expansion.
+The current draft is suitable for internal scientific review. The original comparative-copyright gap has been materially reduced; remaining work is mainly inline citation insertion, broader dataset-documentation/evidence literature, and final bibliographic verification.
 
 ## 1. Saudi legal claims
 
@@ -32,24 +32,30 @@ The current draft is suitable for internal scientific review. It is not yet subm
 
 ## 3. Peer-reviewed related-work claims
 
-| Proposition | Source | Audit |
+| Proposition | Source set | Audit |
 |---|---|---|
 | Dataset provenance/licensing documentation is widely incomplete/inconsistent | Longpre et al., Nature Machine Intelligence 2024 | PASS |
 | Automatically processable regulation faces open-texture/interpretive limitations | Guitton et al., Artificial Intelligence and Law | PASS |
-| AI & Law journal scope includes computational models of law/legal reasoning and AI legal applications | Bench-Capon 2022 editor introduction | PASS |
+| AI & Law journal scope includes computational models of law/legal reasoning and AI legal applications | Bench-Capon 2022 | PASS |
+| AI-training copyright rules differ materially across major jurisdictions | de la Durantaye 2025 + US/EU/UK/Japan sources | PASS |
+| US AI-input fair use remains doctrinally contested and is developing through recent decisions/reports | Ginsburg 2025; Bruni 2026 | PASS |
+| EU AI-training analysis centers on DSM TDM exceptions, reservations, transparency and AI Act interaction | Tyagi 2024; Guadamuz 2025; CLSR 2025 | PASS |
+| UK policy remains contested between opt-in/opt-out, transparency and remuneration models | Kretschmer et al. 2025 | PASS |
+| Law-by-design scholarship distinguishes technical/organisational implementation, documentation and enforcement dimensions | Djeffal 2025; Regulation by Design 2024 | PASS |
+| Technical evidence/auditability can be framed as an enforceability condition rather than merely a transparency value | IJLIT 2026 source | PASS — final metadata check pending |
 
-### Literature expansion still required
+### Remaining literature work
 
-Before submission add at minimum:
+Before submission:
 
-- 5–10 strong comparative sources on copyright and generative-AI training/TDM exceptions;
-- evidence/auditability or compliance-by-design literature outside copyright;
-- dataset documentation lineage beyond DPI (datasheets/data statements/model/data cards where relevant);
-- Saudi-specific peer-reviewed commentary on the 2026 law if credible work has appeared by submission time.
+- add 2–4 foundational dataset-documentation sources beyond DPI where directly relevant;
+- deepen evidence-preservation/auditability literature that focuses on later enforcement/contestability, not only ex-ante compliance-by-design;
+- search for credible Saudi-specific peer-reviewed commentary on the 2026 Copyright Law published after entry into force;
+- verify full metadata for every reference and convert to final journal citation style.
 
 ## 4. Project-generated Results claims
 
-All Results claims are currently tied to committed project artifacts rather than memory or narrative summaries.
+All Results claims are tied to committed project artifacts rather than memory or narrative summaries.
 
 | Result | Repository evidence | Audit |
 |---|---|---|
@@ -105,14 +111,14 @@ Audit: **PASS**.
 - “expert-validated ground truth”;
 - “human performance improvement”.
 
-## 7. Draft weakness detected
+## 7. Current draft weakness
 
-The current related-work section is **conceptually strong but bibliographically thin** relative to a journal submission. It establishes the five-layer distinction (doctrine / dataset lineage / rights signals / cryptographic provenance / legal evidence) but needs broader comparative legal scholarship before submission.
+The novelty position is now supported by comparative copyright and law-by-design literature, but **the manuscript body still lacks full inline citations**. The next Stage-009 action is citation insertion and paragraph-level source mapping, not new feature engineering.
 
-This is the main Stage-009 scholarly HOLD, not an engineering HOLD.
+A secondary weakness remains the evidence/auditability literature: Paper A should connect its “evidentiary observability” concept to enforcement/contestability scholarship strongly enough that it does not look like an isolated new label.
 
 ## 8. Controller decision
 
-**GO to internal manuscript refinement and literature expansion.**
+**GO — continue manuscript refinement. HOLD submission.**
 
 Do not resume feature-building merely to make the repository larger. New engineering should be admitted only if manuscript review identifies a specific evidentiary gap that materially threatens Paper A’s claims.
