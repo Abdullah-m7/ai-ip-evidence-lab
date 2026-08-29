@@ -175,3 +175,15 @@ jobs:
           assert 'POST_ADJUDICATION_LOCK' not in json.dumps(ledger)
           PY
           git diff --exit-code
+
+  stage009-manuscript-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Paper A claim/citation audit
+        run: PYTHONPATH=. python scripts/audit_paper_a.py
+      - name: Run Paper A audit fail-closed regression tests
+        run: python -m unittest tests.test_paper_a_audit -v
