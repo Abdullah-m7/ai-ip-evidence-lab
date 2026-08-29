@@ -43,14 +43,23 @@ class GateResult:
     legal_profile_id: str
     declared_scope_complete: bool
 
-    def to_dict(self) -> dict[str, Any]:
-        return {
+    def to_dict(self, *, include_profile_metadata: bool = False) -> dict[str, Any]:
+        """Serialize a gate result.
+
+        Historical experiments used the three-field payload below. Profile
+        metadata is therefore opt-in so committed Stage-003/004/005 reports
+        remain byte-reproducible. New CLI output and new experiments can request
+        the metadata explicitly without rewriting historical artifacts.
+        """
+        payload: dict[str, Any] = {
             "outcome": self.outcome,
             "findings": [asdict(finding) for finding in self.findings],
             "legal_conclusion": False,
-            "legal_profile_id": self.legal_profile_id,
-            "declared_scope_complete": self.declared_scope_complete,
         }
+        if include_profile_metadata:
+            payload["legal_profile_id"] = self.legal_profile_id
+            payload["declared_scope_complete"] = self.declared_scope_complete
+        return payload
 
 
 def _get(record: dict[str, Any], *path: str) -> Any:
@@ -308,7 +317,9 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     record = json.loads(Path(argv[0]).read_text(encoding="utf-8"))
     result = evaluate(record)
-    print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+    # Interactive/new CLI output exposes the legal profile. Historical experiment
+    # serializers retain their old byte shape unless they explicitly opt in.
+    print(json.dumps(result.to_dict(include_profile_metadata=True), ensure_ascii=False, indent=2))
     return 1 if result.outcome == FAIL else 0
 
 
