@@ -1,0 +1,127 @@
+{
+  "benchmark_executed": false,
+  "candidates": [
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "work-title__c2pa-dc-title",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dc:title",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "work.title",
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "work-type__c2pa-dc-format",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dc:format",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "work.type",
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "work-type__c2pa-dataTypes",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dataTypes",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "work.type",
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "work-source__c2pa-informationalURI",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 informationalURI",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "work.source",
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "work-source__c2pa-data-reference",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 data hashed reference",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "work.source",
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "use-purpose__c2pa-inputTo",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient relationship=inputTo",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "use.purpose",
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "use-purpose__cawg-training-mining",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "candidate_semantic": "Training and Data Mining Assertion",
+      "candidate_standard": "CAWG",
+      "candidate_version": "1.1",
+      "ipel_path": "use.purpose",
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "source": "https://cawg.io/training-and-data-mining/1.1/"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "use-date__c2pa-action-when",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Actions assertion when",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "use.date",
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "use-date__c2pa-trusted-timestamp",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "candidate_semantic": "RFC3161-backed C2PA timestamp",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "ipel_path": "use.date",
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "art37-normal-exploitation__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "candidate_semantic": null,
+      "candidate_standard": null,
+      "candidate_version": null,
+      "ipel_path": "article37_context.normal_exploitation_conflict",
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "source": null
+    },
+    {
+      "assessment_status": "NOT_RUN",
+      "candidate_id": "art37-rightsholder-interests__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "candidate_semantic": null,
+      "candidate_standard": null,
+      "candidate_version": null,
+      "ipel_path": "article37_context.rightsholder_legitimate_interests_prejudice",
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "source": null
+    }
+  ],
+  "registry_version": "1.0.0"
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Abdullah-m7/ai-ip-evidence-lab/schemas/semantic-equivalence-assessment.schema.json",
+  "title": "IPEL Semantic Equivalence Assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rubric_version",
+    "candidate_id",
+    "proposition_class",
+    "candidate_kind",
+    "dimension_assessments",
+    "roundtrip_tested",
+    "roundtrip_pass",
+    "support_relevance",
+    "inference_dependencies",
+    "assessment_notes"
+  ],
+  "properties": {
+    "rubric_version": {"const": "1.0.0"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "proposition_class": {
+      "enum": ["ENTITY_ATTRIBUTE", "EVENT_ATTRIBUTE", "LEGAL_EVALUATIVE_ASSERTION"]
+    },
+    "candidate_kind": {
+      "enum": ["NORMATIVE_FIELD", "NORMATIVE_ASSERTION", "CUSTOM_ASSERTION", "NO_CANDIDATE"]
+    },
+    "dimension_assessments": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referent_identity": {"$ref": "#/$defs/dimension"},
+        "predicate_semantics": {"$ref": "#/$defs/dimension"},
+        "subject_actor_identity": {"$ref": "#/$defs/dimension"},
+        "event_process_anchor": {"$ref": "#/$defs/dimension"},
+        "temporal_semantics": {"$ref": "#/$defs/dimension"},
+        "qualifier_scope_preservation": {"$ref": "#/$defs/dimension"},
+        "value_domain_compatibility": {"$ref": "#/$defs/dimension"},
+        "evidentiary_normative_role": {"$ref": "#/$defs/dimension"},
+        "roundtrip_recoverability": {"$ref": "#/$defs/dimension"},
+        "inference_independence": {"$ref": "#/$defs/dimension"},
+        "normative_maintained_spec_status": {"$ref": "#/$defs/dimension"}
+      }
+    },
+    "roundtrip_tested": {"type": "boolean"},
+    "roundtrip_pass": {"type": ["boolean", "null"]},
+    "support_relevance": {"type": "boolean"},
+    "inference_dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["VALIDATION_STATE", "SIGNER_TRUST", "RIGHTS_PREFERENCE", "LEGAL_CONCLUSION", "OTHER_EXTERNAL_INFERENCE"]
+      }
+    },
+    "assessment_notes": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "rationale", "evidence_refs"],
+      "properties": {
+        "status": {"enum": ["PASS", "FAIL", "NOT_APPLICABLE"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
