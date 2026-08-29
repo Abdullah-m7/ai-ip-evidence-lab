@@ -11,7 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
 
@@ -39,7 +39,7 @@ REQUIRED_HEADINGS = (
     "## References",
 )
 
-# Each in-text token must have a corresponding bibliography token.  This is a
+# Each in-text token must have a corresponding bibliography token. This is a
 # deterministic coverage gate for the current draft, not a general citation
 # parser.
 CITATION_PAIRS = (
@@ -68,6 +68,34 @@ CITATION_PAIRS = (
     ("Saudi Arabia 2026a", "Saudi Arabia (2026a)"),
     ("Saudi Arabia 2026b", "Saudi Arabia (2026b)"),
     ("Saudi Arabia 2026c", "Saudi Arabia (2026c)"),
+)
+
+AUDIT_SOURCE_TOKENS = (
+    "Samuelson",
+    "Guadamuz",
+    "de la Durantaye",
+    "Sag, M.",
+    "European Union",
+    "Agency for Cultural Affairs",
+    "United States Copyright Office",
+    "United Kingdom Government",
+    "Bender, E. M.",
+    "Mitchell, M.",
+    "Gebru, T.",
+    "Pushkarna, M.",
+    "Longpre, S.",
+    "CAWG",
+    "TDM·AI",
+    "C2PA",
+    "Cobbe, J.",
+    "Raji, I. D.",
+    "Di Porto",
+    "Guitton, C.",
+    "Francesconi, E.",
+    "Witt, A.",
+    "Saudi Arabia (2026a)",
+    "Saudi Arabia (2026b)",
+    "Saudi Arabia (2026c)",
 )
 
 REQUIRED_BOUNDARIES = (
@@ -131,8 +159,7 @@ def audit_texts(draft: str, reference_audit: str, claim_matrix: str) -> dict[str
     checks.append(Check("in_text_citation_coverage", not missing_citations, "missing=" + repr(missing_citations)))
     checks.append(Check("manuscript_bibliography_coverage", not missing_bibliography, "missing=" + repr(missing_bibliography)))
 
-    # The separate audit bibliography must contain every normalized in-text key.
-    missing_audit_sources = [key for key, _ in CITATION_PAIRS if key.split(" 20")[0] not in reference_audit]
+    missing_audit_sources = [token for token in AUDIT_SOURCE_TOKENS if token not in reference_audit]
     checks.append(Check("reference_audit_coverage", not missing_audit_sources, "missing=" + repr(missing_audit_sources)))
 
     ok, missing = _contains_all(draft, REQUIRED_BOUNDARIES)
@@ -148,7 +175,6 @@ def audit_texts(draft: str, reference_audit: str, claim_matrix: str) -> dict[str
             overclaims.append(match.group(0))
     checks.append(Check("forbidden_overclaims_absent", not overclaims, "matches=" + repr(overclaims)))
 
-    # Prevent accidental reintroduction of placeholder bibliography language.
     placeholder_terms = ("References — working list", "citation needed", "TODO CITATION", "TBD SOURCE")
     placeholders = [term for term in placeholder_terms if term.lower() in draft.lower()]
     checks.append(Check("citation_placeholders_absent", not placeholders, "matches=" + repr(placeholders)))
