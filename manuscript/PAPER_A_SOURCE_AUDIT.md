@@ -1,124 +1,162 @@
-# Paper A — Source Audit and Red-Team Claim Review
+# Paper A — Source, Claim, and Submission Audit
 
 ## Audit status
 
-**FIRST-DRAFT AUDIT — PASS WITH CITATION INSERTION / SECONDARY LITERATURE COMPLETION REQUIRED**
+**CITATION INSERTION COMPLETE — CONTROLLER REVIEW READY — NOT YET JOURNAL-SUBMISSION READY**
 
-The current draft is suitable for internal scientific review. The original comparative-copyright gap has been materially reduced; remaining work is mainly inline citation insertion, broader dataset-documentation/evidence literature, and final bibliographic verification.
+The manuscript is now a standalone scholarly draft with in-text citations, a formatted working bibliography, explicit source hierarchy, result tables, threats to validity, declarations, and a fail-closed structural claim/citation audit.
 
-## 1. Saudi legal claims
+The previous bibliographic-thinness HOLD is closed. The remaining HOLD concerns submission packaging and independent scholarly review, not missing core manuscript architecture.
 
-| Draft proposition | Primary source | Audit |
+## 1. Source hierarchy
+
+Paper A uses the following authority order:
+
+1. official Arabic Saudi legal text for Saudi-law propositions;
+2. official legislation and government reports for comparative-jurisdiction descriptions;
+3. normative specifications for C2PA, CAWG, and TDM·AI propositions;
+4. peer-reviewed or authoritative scholarly literature for related-work positioning;
+5. committed project reports and machine outputs only for claims about IPEL experiments.
+
+Project documentation is never treated as external authority for a legal proposition or standard specification.
+
+## 2. Saudi legal-claim audit
+
+| Manuscript proposition | Primary source | Audit |
 |---|---|---|
-| New Saudi Copyright Law adopted in 2026 under Royal Decree M/169 | Umm Al-Qura Royal Decree and Copyright Law | PASS |
-| Art. 26(4) addresses copying original works for AI product/algorithm development | Official Copyright Law | PASS |
-| Art. 26(4) conditions include lawful publication, lawful acquisition and purpose-limited copying | Official Copyright Law | PASS |
-| Implementing Regulation Art. 30 applies to the Art. 26(4) use pathway | Official Implementing Regulations | PASS |
-| Art. 30(3) requires records of type, source, purpose, date | Official Implementing Regulations | PASS |
-| Art. 30 contains necessity/downstream use/commercial/author-interest/independent-elements conditions | Official Implementing Regulations | PASS |
+| Royal Decree M/169 approved the 2026 Copyright Law | official Royal Decree | PASS |
+| Article 26(4) addresses copying an original work for AI products/algorithms subject to stated conditions | official Copyright Law | PASS |
+| Article 30 applies to the Article 26(4) pathway and contains six groups of controls | official Implementing Regulations | PASS |
+| Article 30(3) requires retained records of work type, source, purpose, and date | official Implementing Regulations | PASS |
+| The four fields are a minimum record core rather than a complete compliance test | clearly identified project interpretation | PASS — bounded |
 
-**Boundary:** The manuscript states that the Arabic official text governs and labels the project mapping as a research abstraction rather than an authoritative SAIP/court interpretation.
+Mandatory boundary retained: the Arabic official text governs, and the IPEL mapping is neither a SAIP interpretation nor a judicial conclusion.
 
-## 2. External technical-standard claims
+## 3. Comparative-law audit
 
-| Proposition | Normative / official source | Audit |
+The revised manuscript now cites official or scholarly sources for:
+
+- the EU Digital Single Market Directive TDM framework;
+- the United States Copyright Office generative-AI training report;
+- Japan’s official non-binding AI-and-copyright overview;
+- the United Kingdom’s 2026 copyright-and-AI report;
+- comparative scholarship covering materially different jurisdictional approaches.
+
+Audit: **PASS for contextual positioning**.
+
+Boundary: Paper A does not infer that any comparative jurisdiction uses the Saudi elements or that one system supplies a universally correct model.
+
+## 4. Technical-standard audit
+
+| Proposition | Normative source | Audit |
 |---|---|---|
-| C2PA is content-provenance/authenticity infrastructure | C2PA 2.4 | PASS |
-| C2PA Ingredient v3 can represent assets/data used as AI/ML inputs | C2PA 2.4 Ingredient section | PASS |
-| CAWG 1.1 communicates training/data-mining usage information | CAWG 1.1 | PASS |
-| TDM·AI communicates machine-readable AI/TDM preferences | TDM·AI official docs | PASS |
-| TDM·AI distinguishes public declarations from negotiated licensing | TDM·AI opt-out/licensing documentation | PASS |
-| WIPO AIII focuses on technical/operational IP infrastructure rather than setting law/policy | WIPO AIII official pages | PASS |
+| C2PA binds assertions and supplies validation/trust infrastructure | C2PA 2.4 | PASS |
+| C2PA supports collection hashes and AI/ML Ingredient relationships | C2PA 2.4 | PASS |
+| C2PA validation is not a normative “good/bad” legal judgment | C2PA scope text | PASS |
+| CAWG 1.1 communicates machine-readable training/data-mining usage signals | CAWG 1.1 | PASS |
+| TDM·AI communicates AI/TDM preferences | official TDM·AI documentation | PASS |
+| Preference signals are not silently substituted for every fact in the Saudi pathway | project design/experiment claim, not attributed to the standards | PASS — correctly separated |
 
-## 3. Peer-reviewed related-work claims
+## 5. Scholarly-literature audit
 
-| Proposition | Source set | Audit |
-|---|---|---|
-| Dataset provenance/licensing documentation is widely incomplete/inconsistent | Longpre et al., Nature Machine Intelligence 2024 | PASS |
-| Automatically processable regulation faces open-texture/interpretive limitations | Guitton et al., Artificial Intelligence and Law | PASS |
-| AI & Law journal scope includes computational models of law/legal reasoning and AI legal applications | Bench-Capon 2022 | PASS |
-| AI-training copyright rules differ materially across major jurisdictions | de la Durantaye 2025 + US/EU/UK/Japan sources | PASS |
-| US AI-input fair use remains doctrinally contested and is developing through recent decisions/reports | Ginsburg 2025; Bruni 2026 | PASS |
-| EU AI-training analysis centers on DSM TDM exceptions, reservations, transparency and AI Act interaction | Tyagi 2024; Guadamuz 2025; CLSR 2025 | PASS |
-| UK policy remains contested between opt-in/opt-out, transparency and remuneration models | Kretschmer et al. 2025 | PASS |
-| Law-by-design scholarship distinguishes technical/organisational implementation, documentation and enforcement dimensions | Djeffal 2025; Regulation by Design 2024 | PASS |
-| Technical evidence/auditability can be framed as an enforceability condition rather than merely a transparency value | IJLIT 2026 source | PASS — final metadata check pending |
+The manuscript now contains literature in four adjacent fields:
 
-### Remaining literature work
+1. substantive AI-training copyright doctrine and comparison;
+2. dataset statements, datasheets, model cards, data cards, and provenance audits;
+3. reviewability and internal algorithmic auditing;
+4. computational law, formal compliance checking, open texture, and legislation encoding.
 
-Before submission:
+This substantially strengthens the novelty argument. IPEL is no longer positioned against a single provenance paper; it is positioned as a bounded legal-evidence layer among established documentation, rights-signaling, provenance, auditability, and computational-law traditions.
 
-- add 2–4 foundational dataset-documentation sources beyond DPI where directly relevant;
-- deepen evidence-preservation/auditability literature that focuses on later enforcement/contestability, not only ex-ante compliance-by-design;
-- search for credible Saudi-specific peer-reviewed commentary on the 2026 Copyright Law published after entry into force;
-- verify full metadata for every reference and convert to final journal citation style.
+Audit: **PASS for internal controller review**.
 
-## 4. Project-generated Results claims
+## 6. Project-result audit
 
-All Results claims are tied to committed project artifacts rather than memory or narrative summaries.
+Every numerical or categorical result admitted to the Results section maps to a committed repository artifact:
 
 | Result | Repository evidence | Audit |
 |---|---|---|
-| Stage 003: 0 semantic-loss cases / 5 outcome-preserving cases | `reports/STAGE_003_REPORT.md`; machine report | PASS |
-| Stage 003: 0/4 core fields delegated in tested mapping | Stage-003 report/profile | PASS — wording explicitly scoped to tested mapping |
-| Stage 004: three corruption classes detected | Stage-004 report/machine output | PASS |
-| Stage 004: cryptographic validity vs untrusted signer | Stage-004 report | PASS |
-| Stage 004: exit-code ≠ validation-state finding | Stage-004 report | PASS |
-| Stage 005: same normalized corruption categories on two surfaces | Stage-005 report | PASS |
-| Stage 005: different observed c2pa-rs versions but shared lineage | Stage-005 report | PASS |
-| Stage 005: malformed signed TDM semantic rejection | Stage-005 report/tests | PASS |
+| Stage 003: 0/5 cases with semantic loss; 5/5 gate outcome preservation; 2/2 false-equivalence attacks resisted | Stage-003 narrative and machine reports | PASS |
+| Stage 003: 0/4 Article 30(3) core fields delegated in the tested mapping | Stage-003 profile/report | PASS — explicitly not an impossibility theorem |
+| Stage 004: clean validation and three distinct corruption codes | Stage-004 report/machine output | PASS |
+| Stage 004: valid claim signature with untrusted development signer | Stage-004 report | PASS |
+| Stage 004: process exit success did not substitute for report validation state | Stage-004 report | PASS |
+| Stage 005: same normalized categories on two different observed c2pa-rs versions | Stage-005 report | PASS |
+| Stage 005: shared implementation lineage | Stage-005 report | PASS |
+| Stage 005: signed unsupported TDM value rejected semantically | Stage-005 report/tests | PASS |
 
-## 5. Human-data firewall
+Stages 006–008 are discussed only as future-study infrastructure. Their implementation is not counted as evidence that humans benefit from IPEL.
 
-Current draft contains **no claimed human result**.
+## 7. Human-data firewall
 
-Allowed statements:
+The manuscript contains no claimed human result.
 
-- benchmark constructed;
-- preregistration/adjudication infrastructure implemented;
-- human study remains future validation;
-- no human effect result exists.
+Blocked until a separately governed study exists:
 
-Blocked statements until Paper B data exist:
-
-- improved reviewer accuracy;
-- reduced disagreement;
+- improved reviewer accuracy or missing-information recall;
+- lower false-ready rates;
 - reduced assessment time;
-- validated by independent legal experts;
-- human-ground-truth confirmed.
+- increased inter-reviewer agreement;
+- expert-validated ground truth;
+- successful real recruitment, consent, or adjudication.
+
+The manuscript states that Stage-006 labels are project-authored and that Stages 007–008 contain no real adjudication or human responses.
 
 Audit: **PASS**.
 
-## 6. Overclaim search
+## 8. Mandatory limitations
 
-### Explicitly preserved limitations
+The following limitations are present in the manuscript and machine-audited:
 
-- `IMPLEMENTATION_DIVERSITY_NOT_ESTABLISHED` — present.
-- 0/4 C2PA delegation finding limited to the tested mapping — present.
-- hash/integrity does not prove lawful acquisition or truth — present.
-- trusted signer does not imply legal compliance — present.
-- machine-readable preference is not substituted for complete legal basis — present.
-- Saudi legal mapping is non-authoritative research abstraction — present.
-- no human results — repeated explicitly.
-- public repository prevents cryptographic blinding — present.
+- the contribution is not automated copyright compliance;
+- `legal_conclusion=false` remains visible;
+- integrity does not prove truth, lawful acquisition, ownership, permission, or legal compliance;
+- `0/4` is scoped to the tested mapping;
+- `IMPLEMENTATION_DIVERSITY_NOT_ESTABLISHED` is stated verbatim;
+- completed cases are synthetic and technically bounded;
+- public-repository blinding is procedural rather than cryptographic;
+- Stage 008 does not authenticate a human response before intake;
+- the legal mapping is non-authoritative and version-sensitive.
 
-### Wording to keep out of final title/abstract/results
+Audit: **PASS**.
 
-- “automated compliance” except in a denial/non-goal sentence;
-- “proves legality”;
-- “ensures lawful training”;
-- “independent implementation validation”;
-- “expert-validated ground truth”;
-- “human performance improvement”.
+## 9. Machine audit
 
-## 7. Current draft weakness
+`scripts/audit_paper_a.py` now checks, fail-closed:
 
-The novelty position is now supported by comparative copyright and law-by-design literature, but **the manuscript body still lacks full inline citations**. The next Stage-009 action is citation insertion and paragraph-level source mapping, not new feature engineering.
+- required manuscript sections;
+- minimum manuscript length;
+- admitted in-text citation keys and corresponding bibliography entries;
+- separate source-audit coverage;
+- mandatory evidence boundaries;
+- committed numerical result values;
+- prohibited affirmative overclaims;
+- citation placeholders;
+- claim-matrix boundaries; and
+- a minimum floor of persistent scholarly identifiers.
 
-A secondary weakness remains the evidence/auditability literature: Paper A should connect its “evidentiary observability” concept to enforcement/contestability scholarship strongly enough that it does not look like an isolated new label.
+`tests/test_paper_a_audit.py` verifies both the current passing manuscript and failure after injecting an affirmative legal overclaim or removing the implementation-diversity limitation.
 
-## 8. Controller decision
+This is a structural audit only. It does not replace legal review, source-truth verification, peer review, plagiarism screening, or copy-editing.
 
-**GO — continue manuscript refinement. HOLD submission.**
+## 10. Remaining submission gates
 
-Do not resume feature-building merely to make the repository larger. New engineering should be admitted only if manuscript review identifies a specific evidentiary gap that materially threatens Paper A’s claims.
+Before submission to *Artificial Intelligence and Law*, complete:
+
+1. journal-style conversion and final word-count/category check;
+2. publisher-metadata verification for every reference and full author list;
+3. line-level legal translation review against the official Arabic text;
+4. independent scholarly red-team review of novelty and methods;
+5. English-language copy-editing;
+6. anonymized review package if required;
+7. persistent archival snapshot/identifier for code and artifacts;
+8. cover letter, declarations, author affiliation, and corresponding-author details;
+9. final journal-policy checks for code, data, generative-AI disclosure, and supplementary materials.
+
+None of these gates requires adding speculative engineering features.
+
+## 11. Controller decision
+
+**GO for CI-backed controller review and merge of Stage 009 once all checks pass.**
+
+After merge, the next work package should be a submission package and independent manuscript review—not Stage 010 feature expansion. Paper B remains blocked until real adjudication and human-study governance exist.
