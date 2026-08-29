@@ -1,8 +1,16 @@
+import copy
 import json
 import unittest
 from pathlib import Path
 
-from src.ipel.validator import FAIL, PASS, REVIEW, evaluate
+from src.ipel.validator import (
+    CURRENT_PROFILE_ID,
+    FAIL,
+    LEGACY_PROFILE_ID,
+    PASS,
+    REVIEW,
+    evaluate,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -12,8 +20,84 @@ def load_example(name: str):
 
 
 class EvidenceGateTests(unittest.TestCase):
-    def test_complete_synthetic_record_passes_evidence_gate(self):
-        self.assertEqual(evaluate(load_example("valid.json")).outcome, PASS)
+    # Historical 0.1 behavior remains reproducible, but is now machine-labelled
+    # as a legacy/incomplete legal profile rather than silently described as the
+    # complete Saudi AI-development pathway.
+    def test_complete_synthetic_legacy_record_preserves_historical_gate(self):
+        result = evaluate(load_example("valid.json"))
+        self.assertEqual(result.outcome, PASS)
+        self.assertEqual(result.legal_profile_id, LEGACY_PROFILE_ID)
+        self.assertFalse(result.declared_scope_complete)
+
+    def test_current_art37_profile_passes_with_supported_assessments(self):
+        result = evaluate(load_example("valid_v020_art37.json"))
+        self.assertEqual(result.outcome, PASS)
+        self.assertEqual(result.legal_profile_id, CURRENT_PROFILE_ID)
+        self.assertTrue(result.declared_scope_complete)
+        self.assertFalse(result.to_dict()["legal_conclusion"])
+
+    def test_current_profile_missing_article37_context_fails_contract(self):
+        record = load_example("valid_v020_art37.json")
+        del record["article37_context"]
+        result = evaluate(record)
+        self.assertEqual(result.outcome, FAIL)
+        self.assertTrue(any(f.rule == "IPEL-CONTRACT" and "article37_context" in f.message for f in result.findings))
+
+    def test_art37_normal_exploitation_conflict_fails(self):
+        record = load_example("valid_v020_art37.json")
+        record["article37_context"]["normal_exploitation_conflict"] = "conflict"
+        result = evaluate(record)
+        self.assertEqual(result.outcome, FAIL)
+        self.assertTrue(any(f.rule == "LAW-37(1)" and f.severity == "FAIL" for f in result.findings))
+
+    def test_art37_unjustified_rightsholder_prejudice_fails(self):
+        record = load_example("valid_v020_art37.json")
+        record["article37_context"]["rightsholder_legitimate_interests_prejudice"] = "unjustified"
+        result = evaluate(record)
+        self.assertEqual(result.outcome, FAIL)
+        self.assertTrue(any(f.rule == "LAW-37(1)" and f.severity == "FAIL" for f in result.findings))
+
+    def test_art37_unresolved_assessment_requires_review(self):
+        record = load_example("valid_v020_art37.json")
+        record["article37_context"]["normal_exploitation_conflict"] = "uncertain"
+        result = evaluate(record)
+        self.assertEqual(result.outcome, REVIEW)
+        self.assertTrue(any(f.rule == "LAW-37(1)" and f.severity == "REVIEW" for f in result.findings))
+
+    def test_art37_favorable_assertion_without_basis_requires_review(self):
+        record = load_example("valid_v020_art37.json")
+        record["article37_context"]["normal_exploitation_basis"] = []
+        result = evaluate(record)
+        self.assertEqual(result.outcome, REVIEW)
+        self.assertTrue(any(f.rule == "LAW-37(1)" and "no recorded basis" in f.message for f in result.findings))
+
+    def test_art37_rightsholder_favorable_assertion_without_basis_requires_review(self):
+        record = load_example("valid_v020_art37.json")
+        record["article37_context"]["rightsholder_interests_basis"] = []
+        result = evaluate(record)
+        self.assertEqual(result.outcome, REVIEW)
+        self.assertTrue(any(f.rule == "LAW-37(1)" and "no recorded basis" in f.message for f in result.findings))
+
+    def test_art37_is_not_inferred_from_ir30_commercial_impact_field(self):
+        record = load_example("valid_v020_art37.json")
+        # A favorable IR-30(2) field must not cure an explicit Art. 37 conflict.
+        record["use"]["normal_exploitation_impact"] = "none"
+        record["article37_context"]["normal_exploitation_conflict"] = "conflict"
+        self.assertEqual(evaluate(record).outcome, FAIL)
+
+    def test_art37_rightsholder_interest_is_not_inferred_from_author_interest_field(self):
+        record = load_example("valid_v020_art37.json")
+        record["rights_context"]["legitimate_interests_prejudice"] = "none"
+        record["article37_context"]["rightsholder_legitimate_interests_prejudice"] = "unjustified"
+        self.assertEqual(evaluate(record).outcome, FAIL)
+
+    def test_unknown_record_version_fails_contract(self):
+        record = load_example("valid_v020_art37.json")
+        record["record_version"] = "9.9.9"
+        result = evaluate(record)
+        self.assertEqual(result.outcome, FAIL)
+        self.assertEqual(result.legal_profile_id, "unsupported-record-profile")
+        self.assertFalse(result.declared_scope_complete)
 
     def test_missing_article_30_3_source_fails(self):
         self.assertEqual(evaluate(load_example("invalid_missing_source.json")).outcome, FAIL)
