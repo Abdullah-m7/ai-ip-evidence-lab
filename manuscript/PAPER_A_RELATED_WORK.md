@@ -2,11 +2,15 @@
 
 ## 1. Doctrinal AI-training copyright scholarship
 
-A large and rapidly growing literature asks whether copying copyrighted works for model development is permitted, under which exceptions, and how licensing, fair use/fair dealing, text-and-data-mining exceptions, and rightsholder reservations should apply. That literature is necessary to identify substantive legal conditions, but Paper A asks a different systems question:
+A large and rapidly growing literature asks whether copying copyrighted works for model development is permitted, under which exceptions, and how licensing, fair use/fair dealing, text-and-data-mining exceptions, rightsholder reservations, remuneration and transparency should apply. That literature is necessary to identify substantive legal conditions, but Paper A asks a different systems question:
 
-> Once a legal regime makes an AI-development use depend on facts such as lawful acquisition, source, purpose, timing, proportionality, or downstream use, what evidence must a development pipeline preserve so those facts remain reconstructable later?
+> Once a legal regime makes an AI-development use depend on facts such as lawful acquisition, source, purpose, timing, proportionality, rights reservation, or downstream use, what evidence must a development pipeline preserve so those facts remain reconstructable later?
 
 This is an **observability/evidence** problem rather than a new universal theory of AI-training legality.
+
+Recent comparative scholarship makes the jurisdictional variation explicit. De la Durantaye (2025) compares AI-training exceptions and policy debates across the United States, Canada, the United Kingdom, European Union, Israel, China, Singapore and Japan, showing that control, compensation, transparency and legal certainty are calibrated differently. Ginsburg (2025) discusses the still-contested US fair-use treatment of AI inputs; Tyagi (2024) examines EU text-and-data-mining and generative AI; Kretschmer et al. (2025) analyse UK opt-in/opt-out policy; and Bruni (2026) examines the first US federal AI-training fair-use decisions.
+
+These studies reinforce rather than displace Paper A's premise: the substantive rule changes across jurisdictions, so a technical system should not hard-code one jurisdiction's legality conclusion as if it were universal. What may generalize is a **method for turning the applicable rule into an evidence-preservation problem**.
 
 Saudi Arabia's 2026 Copyright Law makes the distinction unusually concrete. Article 26(4) conditions AI-development copying on lawful publication, lawful acquisition of the original copy, and purpose-limited copying. Implementing Regulation Article 30 adds further constraints and expressly requires the developer to retain records of work type, source, purpose and date of use.
 
@@ -16,6 +20,13 @@ Official sources:
 - Saudi Copyright Law: https://www.uqn.gov.sa/details?p=28845
 - Royal Decree M/169: https://www.uqn.gov.sa/decisions-and-regulations/4000304
 - Implementing Regulations: https://www.uqn.gov.sa/decisions-and-regulations/4001498
+
+Comparative anchors:
+- de la Durantaye (2025), *Control and Compensation*: https://link.springer.com/article/10.1007/s40319-025-01569-6
+- Ginsburg (2025), *AI inputs, fair use and the US Copyright Office Report*: https://academic.oup.com/jiplp/article/20/8/521/8221808
+- Tyagi (2024), *Copyright, text & data mining and the innovation dimension of generative AI*: https://academic.oup.com/jiplp/article/19/7/557/7624901
+- Kretschmer et al. (2025), *Copyright and AI in the UK: Opting-In or Opting-Out?*: https://academic.oup.com/grurint/article/74/11/1055/8209765
+- Bruni (2026), *Training on Trial*: https://copyrightsociety.org/journal-entries/training-on-trial-insights-from-bartz-and-kadrey/
 
 ## 2. Dataset provenance and licensing audits
 
@@ -50,7 +61,7 @@ IPEL asks:
 
 > What evidence exists that this developer's particular use satisfied the facts required by the governing legal pathway?
 
-A preference signal can be relevant evidence, but it is not automatically equivalent to lawful acquisition, publication status, license scope, necessity, market effect, or downstream permission. The Stage-003 to Stage-005 tests therefore deliberately prevent `allowed` or `trusted` metadata from overwriting jurisdiction-specific legal-evidence fields.
+A preference signal can be relevant evidence, but it is not automatically equivalent to lawful acquisition, publication status, license scope, necessity, market effect, or downstream permission. This distinction is especially important in legal systems where a rights reservation is only one element of the applicable rule. The Stage-003 to Stage-005 tests therefore deliberately prevent `allowed` or `trusted` metadata from overwriting jurisdiction-specific legal-evidence fields.
 
 Official sources:
 - CAWG Training and Data Mining Assertion 1.1: https://cawg.io/training-and-data-mining/1.1/
@@ -94,26 +105,37 @@ This framing supports Paper A's central distinction: substantive IP rules and te
 Source:
 - WIPO AIII: https://www.wipo.int/en/web/ai-infrastructure-interchange
 
-## 6. Computational law and automatically processable regulation
+## 6. Computational law, law by design, and open texture
 
 Artificial Intelligence and Law has a long tradition of studying computational models of legal rules, legal reasoning, and the consequences of making regulation machine-processable. More recent research emphasizes open-texture: legal terms can be vague, evaluative, or under-specified and therefore resist naïve automation.
 
-IPEL adopts that caution as an architectural principle. Instead of trying to compile Article 26(4) and Regulation Article 30 into a binary legality oracle, it divides requirements into:
+A parallel “law by design” / “compliance by design” literature asks how legal goals should shape technical systems across their lifecycle. Djeffal (2025) identifies documentation, compliance roles, enforcement and technical/organisational measures as recurring features of law-by-design obligations. Regulation-by-design scholarship also warns that embedding law in technology creates contextual and methodological limits. Recent work on enforceable algorithmic transparency similarly frames technical evidence and auditability as prerequisites for later legal scrutiny.
+
+IPEL sits adjacent to this literature but adopts a deliberately narrower posture. It does **not** try to hardwire the full legal outcome into the system. Instead, it treats evidence preservation itself as the design objective. The architecture therefore distinguishes:
 
 - facts that can be structurally required or contradicted by a record;
 - facts requiring referenced evidence;
 - open-textured assessments that remain `REVIEW` rather than being fabricated by code.
 
+This distinction is important because “compliance by design” can otherwise be read as if successful technical translation eliminates the need for legal interpretation. IPEL's contribution is closer to **reviewability by design** or **evidentiary observability by design**: preserve what a later reviewer needs, bind what can be bound, and leave normative questions visible rather than silently resolving them.
+
 Relevant literature:
 - Guitton, Tamò-Larrieux & Mayer, *Mapping the Issues of Automated Legal Systems: Why Worry About Automatically Processable Regulation?* https://link.springer.com/article/10.1007/s10506-022-09323-w
 - Guitton et al., *Identifying open-texture in regulations using LLMs*. https://link.springer.com/article/10.1007/s10506-025-09450-0
 - Bench-Capon, *Thirty years of Artificial Intelligence and Law: Editor's Introduction*. https://link.springer.com/article/10.1007/s10506-022-09325-8
+- Djeffal, *Law by design obligations: The future of regulating digital technologies in Europe?* https://doi.org/10.1016/j.clsr.2025.106232
+- *Regulation by Design: Features, Practices, Limitations, and Governance Implications*. https://link.springer.com/article/10.1007/s11023-024-09675-z
+- *Making algorithmic transparency enforceable: sufficient intelligibility, technical evidence, and auditability across the EU and the US*. https://doi.org/10.1093/ijlit/eaag008
 
-## 7. Novelty claim after related-work review
+## 7. Novelty claim after expanded related-work review
 
 The defensible novelty claim is deliberately narrow:
 
-> Existing work separately addresses substantive AI-training copyright doctrine, dataset lineage and license documentation, machine-readable rightsholder preferences, and cryptographic content provenance. Paper A contributes a tested **jurisdiction-specific legal-evidence layer** that maps fact-conditioned copyright rules into observable evidence requirements and enforces semantic barriers so provenance, trust, and preference signals cannot silently become legal conclusions.
+> Existing work separately addresses substantive AI-training copyright doctrine, dataset lineage and license documentation, machine-readable rightsholder preferences, cryptographic content provenance, and compliance/law-by-design. Paper A contributes a tested **jurisdiction-specific legal-evidence layer** that maps fact-conditioned copyright rules into observable evidence requirements and enforces semantic barriers so provenance, trust, and preference signals cannot silently become legal conclusions.
+
+A second way to express the contribution is:
+
+> The architecture shifts the technical objective from “automate the legal answer” to “make the legally relevant facts reconstructable and contestable.”
 
 The paper does **not** claim:
 
@@ -121,7 +143,8 @@ The paper does **not** claim:
 - the first machine-readable copyright protocol;
 - the first C2PA use in AI;
 - automated copyright compliance;
-- universal cross-jurisdiction copyright semantics.
+- universal cross-jurisdiction copyright semantics;
+- that evidence preservation eliminates legal interpretation.
 
 ## 8. Generalization hypothesis
 
