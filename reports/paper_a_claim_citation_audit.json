@@ -1,0 +1,65 @@
+{
+  "audit_version": "paper-a-claim-citation-audit-v1",
+  "check_count": 11,
+  "checks": [
+    {
+      "detail": "missing=[]",
+      "name": "required_sections",
+      "passed": true
+    },
+    {
+      "detail": "word_count=6674",
+      "name": "minimum_manuscript_length",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "in_text_citation_coverage",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "manuscript_bibliography_coverage",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "reference_audit_coverage",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "mandatory_boundaries",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "committed_result_values",
+      "passed": true
+    },
+    {
+      "detail": "matches=[]",
+      "name": "forbidden_overclaims_absent",
+      "passed": true
+    },
+    {
+      "detail": "matches=[]",
+      "name": "citation_placeholders_absent",
+      "passed": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "claim_matrix_boundaries",
+      "passed": true
+    },
+    {
+      "detail": "doi_count=14",
+      "name": "bibliographic_identifier_floor",
+      "passed": true
+    }
+  ],
+  "failed_checks": [],
+  "passed": true,
+  "scope_limit": "Structural claim/citation audit only; not legal validation, source-truth verification, peer review, plagiarism detection, or prose-quality assessment.",
+  "word_count": 6674
+}
