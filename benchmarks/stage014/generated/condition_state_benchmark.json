@@ -1,0 +1,2053 @@
+{
+  "all_expected_findings_present": true,
+  "all_outcomes_match_expectation": true,
+  "benchmark_version": "stage014-corrected-profile-benchmark-v1",
+  "case_count": 59,
+  "cases": [
+    {
+      "case_id": "law26_4_publication_favorable",
+      "condition_id": "LAW-26(4)-publication",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "verified_with_evidence"
+    },
+    {
+      "case_id": "law26_4_publication_unresolved",
+      "condition_id": "LAW-26(4)-publication",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Lawful publication is not verified",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-26(4)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Lawful publication is not verified.",
+          "rule": "LAW-26(4)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.publication_status",
+          "value": "unverified"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)"
+      ],
+      "variant": "unverified"
+    },
+    {
+      "case_id": "law26_4_publication_adverse",
+      "condition_id": "LAW-26(4)-publication",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "lawful publication is false",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-26(4)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record states that lawful publication is false.",
+          "rule": "LAW-26(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.publication_status",
+          "value": "false"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)"
+      ],
+      "variant": "explicitly_false"
+    },
+    {
+      "case_id": "law26_4_publication_favorable_without_evidence",
+      "condition_id": "LAW-26(4)-publication",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Publication is marked verified but has no evidence reference",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "EVIDENCE",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Publication is marked verified but has no evidence reference.",
+          "rule": "EVIDENCE",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.publication",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "EVIDENCE"
+      ],
+      "variant": "verified_without_evidence_reference"
+    },
+    {
+      "case_id": "law26_4_acquisition_favorable",
+      "condition_id": "LAW-26(4)-acquisition",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "verified_with_evidence"
+    },
+    {
+      "case_id": "law26_4_acquisition_unresolved",
+      "condition_id": "LAW-26(4)-acquisition",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Lawful acquisition is not verified",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-26(4)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Lawful acquisition is not verified.",
+          "rule": "LAW-26(4)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.acquisition_status",
+          "value": "unverified"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)"
+      ],
+      "variant": "unverified"
+    },
+    {
+      "case_id": "law26_4_acquisition_adverse",
+      "condition_id": "LAW-26(4)-acquisition",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "lawful acquisition is false",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-26(4)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record states that lawful acquisition is false.",
+          "rule": "LAW-26(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "work.acquisition_status",
+          "value": "false"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)"
+      ],
+      "variant": "explicitly_false"
+    },
+    {
+      "case_id": "law26_4_acquisition_favorable_without_evidence",
+      "condition_id": "LAW-26(4)-acquisition",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Acquisition is marked verified but has no evidence reference",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "EVIDENCE",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Acquisition is marked verified but has no evidence reference.",
+          "rule": "EVIDENCE",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.acquisition",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "EVIDENCE"
+      ],
+      "variant": "verified_without_evidence_reference"
+    },
+    {
+      "case_id": "necessity_favorable",
+      "condition_id": "LAW-26(4)/IR-30(1)-necessity",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "supported"
+    },
+    {
+      "case_id": "necessity_unresolved",
+      "condition_id": "LAW-26(4)/IR-30(1)-necessity",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Necessity/proportionality requires review",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-26(4)/IR-30(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Necessity/proportionality requires review.",
+          "rule": "LAW-26(4)/IR-30(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.necessity_status",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)/IR-30(1)"
+      ],
+      "variant": "uncertain"
+    },
+    {
+      "case_id": "necessity_adverse",
+      "condition_id": "LAW-26(4)/IR-30(1)-necessity",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "necessity is recorded as unsupported",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-26(4)/IR-30(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Copying/analysis necessity is recorded as unsupported.",
+          "rule": "LAW-26(4)/IR-30(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.necessity_status",
+          "value": "unsupported"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-26(4)/IR-30(1)"
+      ],
+      "variant": "unsupported"
+    },
+    {
+      "case_id": "art37_normal_exploitation_favorable",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "no_conflict_with_basis"
+    },
+    {
+      "case_id": "art37_normal_exploitation_unresolved_uncertain",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Conflict with normal exploitation is unresolved",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Conflict with normal exploitation is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_conflict",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "uncertain"
+    },
+    {
+      "case_id": "art37_normal_exploitation_unresolved_not_assessed",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Conflict with normal exploitation is unresolved",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Conflict with normal exploitation is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_conflict",
+          "value": "not_assessed"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "not_assessed"
+    },
+    {
+      "case_id": "art37_normal_exploitation_favorable_without_basis",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "No-conflict assessment under Article 37(1) has no recorded basis",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "No-conflict assessment under Article 37(1) has no recorded basis.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_basis",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "no_conflict_without_basis"
+    },
+    {
+      "case_id": "art37_normal_exploitation_adverse",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "conflict with normal exploitation",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates conflict with normal exploitation of the work.",
+          "rule": "LAW-37(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_conflict",
+          "value": "conflict"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "explicit_conflict"
+    },
+    {
+      "case_id": "art37_normal_exploitation_adverse_with_favorable_ir30",
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "conflict with normal exploitation",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates conflict with normal exploitation of the work.",
+          "rule": "LAW-37(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_conflict",
+          "value": "conflict"
+        },
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "non_substantial"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "none"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "explicit_conflict_with_favorable_regulation_fields"
+    },
+    {
+      "case_id": "art37_rightsholder_favorable",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "none_with_basis"
+    },
+    {
+      "case_id": "art37_rightsholder_unresolved_uncertain",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Rightsholder legitimate-interests prejudice is unresolved",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Rightsholder legitimate-interests prejudice is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_legitimate_interests_prejudice",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "uncertain"
+    },
+    {
+      "case_id": "art37_rightsholder_unresolved_not_assessed",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Rightsholder legitimate-interests prejudice is unresolved",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Rightsholder legitimate-interests prejudice is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_legitimate_interests_prejudice",
+          "value": "not_assessed"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "not_assessed"
+    },
+    {
+      "case_id": "art37_rightsholder_favorable_without_basis",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Favorable rightsholder-interests assessment under Article 37(1) has no recorded basis",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Favorable rightsholder-interests assessment under Article 37(1) has no recorded basis.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_interests_basis",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "none_without_basis"
+    },
+    {
+      "case_id": "art37_rightsholder_adverse",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "legitimate interests of rightsholders",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates unjustified prejudice to the legitimate interests of rightsholders.",
+          "rule": "LAW-37(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_legitimate_interests_prejudice",
+          "value": "unjustified"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "explicit_unjustified_prejudice"
+    },
+    {
+      "case_id": "art37_rightsholder_adverse_with_favorable_ir30_4",
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "legitimate interests of rightsholders",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "LAW-37(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates unjustified prejudice to the legitimate interests of rightsholders.",
+          "rule": "LAW-37(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_legitimate_interests_prejudice",
+          "value": "unjustified"
+        },
+        {
+          "op": "set",
+          "path": "rights_context.legitimate_interests_prejudice",
+          "value": "none"
+        },
+        {
+          "op": "set",
+          "path": "rights_context.exploitation_opportunity_effect",
+          "value": "none"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "LAW-37(1)"
+      ],
+      "variant": "explicit_unjustified_prejudice_with_favorable_author_interest_fields"
+    },
+    {
+      "case_id": "ir30_1_favorable",
+      "condition_id": "IR-30(1)-prohibited-uses",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "no_prohibited_use"
+    },
+    {
+      "case_id": "ir30_1_adverse_republication",
+      "condition_id": "IR-30(1)-prohibited-uses",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates republication",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates republication.",
+          "rule": "IR-30(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.republication",
+          "value": true
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(1)"
+      ],
+      "variant": "republication"
+    },
+    {
+      "case_id": "ir30_1_adverse_distribution",
+      "condition_id": "IR-30(1)-prohibited-uses",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates distribution",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates distribution.",
+          "rule": "IR-30(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.distribution",
+          "value": true
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(1)"
+      ],
+      "variant": "distribution"
+    },
+    {
+      "case_id": "ir30_1_adverse_direct_commercial",
+      "condition_id": "IR-30(1)-prohibited-uses",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates direct commercial exploitation",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(1)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates direct commercial exploitation.",
+          "rule": "IR-30(1)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.direct_commercial_exploitation",
+          "value": true
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(1)"
+      ],
+      "variant": "direct_commercial_exploitation"
+    },
+    {
+      "case_id": "ir30_2_favorable_non_substantial",
+      "condition_id": "IR-30(2)-commercial-context",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "non_substantial"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "commercial_but_non_substantial"
+    },
+    {
+      "case_id": "ir30_2_favorable_no_impact",
+      "condition_id": "IR-30(2)-commercial-context",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "uncertain"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "none"
+        }
+      ],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "commercial_but_no_recorded_impact"
+    },
+    {
+      "case_id": "ir30_2_unresolved",
+      "condition_id": "IR-30(2)-commercial-context",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Purely commercial context lacks a clearly recorded qualifying condition",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(2)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Purely commercial context lacks a clearly recorded qualifying condition.",
+          "rule": "IR-30(2)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "uncertain"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(2)"
+      ],
+      "variant": "commercial_without_qualifying_condition"
+    },
+    {
+      "case_id": "ir30_2_adverse",
+      "condition_id": "IR-30(2)-commercial-context",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Purely commercial use is substantial and recorded as adversely affecting normal exploitation",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(2)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Purely commercial use is substantial and recorded as adversely affecting normal exploitation.",
+          "rule": "IR-30(2)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "substantial"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "adverse"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(2)"
+      ],
+      "variant": "substantial_and_adverse_impact"
+    },
+    {
+      "case_id": "ir30_2_adverse_with_favorable_art37",
+      "condition_id": "IR-30(2)-commercial-context",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Purely commercial use is substantial and recorded as adversely affecting normal exploitation",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(2)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Purely commercial use is substantial and recorded as adversely affecting normal exploitation.",
+          "rule": "IR-30(2)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "use.purely_commercial_context",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "use.materiality_to_work",
+          "value": "substantial"
+        },
+        {
+          "op": "set",
+          "path": "use.normal_exploitation_impact",
+          "value": "adverse"
+        },
+        {
+          "op": "set",
+          "path": "article37_context.normal_exploitation_conflict",
+          "value": "no_conflict"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(2)"
+      ],
+      "variant": "regulation_adverse_with_favorable_article37_fields"
+    },
+    {
+      "case_id": "ir30_3_favorable",
+      "condition_id": "IR-30(3)-retained-record",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "full_core_tuple"
+    },
+    {
+      "case_id": "ir30_3_adverse_missing_work_type",
+      "condition_id": "IR-30(3)-retained-record",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Missing core retained-record field: work.type",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(3)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Missing/invalid required string: work.type",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        },
+        {
+          "message": "Missing core retained-record field: work.type",
+          "rule": "IR-30(3)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "work.type"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT",
+        "IR-30(3)"
+      ],
+      "variant": "missing_work_type"
+    },
+    {
+      "case_id": "ir30_3_adverse_missing_work_source",
+      "condition_id": "IR-30(3)-retained-record",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Missing core retained-record field: work.source",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(3)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Missing/invalid required string: work.source",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        },
+        {
+          "message": "Missing core retained-record field: work.source",
+          "rule": "IR-30(3)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "work.source"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT",
+        "IR-30(3)"
+      ],
+      "variant": "missing_work_source"
+    },
+    {
+      "case_id": "ir30_3_adverse_missing_use_purpose",
+      "condition_id": "IR-30(3)-retained-record",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Missing core retained-record field: use.purpose",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(3)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Missing/invalid required string: use.purpose",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        },
+        {
+          "message": "Missing core retained-record field: use.purpose",
+          "rule": "IR-30(3)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "use.purpose"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT",
+        "IR-30(3)"
+      ],
+      "variant": "missing_use_purpose"
+    },
+    {
+      "case_id": "ir30_3_adverse_missing_use_date",
+      "condition_id": "IR-30(3)-retained-record",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Missing core retained-record field: use.date",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(3)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Missing/invalid required string: use.date",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        },
+        {
+          "message": "Missing core retained-record field: use.date",
+          "rule": "IR-30(3)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "use.date"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT",
+        "IR-30(3)"
+      ],
+      "variant": "missing_use_date"
+    },
+    {
+      "case_id": "ir30_4_favorable",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "no_prejudice_with_basis"
+    },
+    {
+      "case_id": "ir30_4_unresolved",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Author-interest/market-effect assessment is incomplete or uncertain",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(4)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Author-interest/market-effect assessment is incomplete or uncertain.",
+          "rule": "IR-30(4)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.legitimate_interests_prejudice",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(4)"
+      ],
+      "variant": "uncertain_assessment"
+    },
+    {
+      "case_id": "ir30_4_favorable_without_basis",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Favorable author-interest/market-effect assessment has no recorded basis",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(4)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Favorable author-interest/market-effect assessment has no recorded basis.",
+          "rule": "IR-30(4)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.impact_assessment_basis",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(4)"
+      ],
+      "variant": "favorable_without_basis"
+    },
+    {
+      "case_id": "ir30_4_adverse_prejudice",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates prejudice or adverse exploitation-opportunity effect",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(4)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates prejudice or adverse exploitation-opportunity effect.",
+          "rule": "IR-30(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.legitimate_interests_prejudice",
+          "value": "unjustified"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(4)"
+      ],
+      "variant": "unjustified_author_prejudice"
+    },
+    {
+      "case_id": "ir30_4_adverse_opportunity",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates prejudice or adverse exploitation-opportunity effect",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(4)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates prejudice or adverse exploitation-opportunity effect.",
+          "rule": "IR-30(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.exploitation_opportunity_effect",
+          "value": "adverse"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(4)"
+      ],
+      "variant": "adverse_exploitation_opportunity"
+    },
+    {
+      "case_id": "ir30_4_adverse_with_favorable_art37",
+      "condition_id": "IR-30(4)-author-interests",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Record indicates prejudice or adverse exploitation-opportunity effect",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(4)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Record indicates prejudice or adverse exploitation-opportunity effect.",
+          "rule": "IR-30(4)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.legitimate_interests_prejudice",
+          "value": "unjustified"
+        },
+        {
+          "op": "set",
+          "path": "article37_context.rightsholder_legitimate_interests_prejudice",
+          "value": "none"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(4)"
+      ],
+      "variant": "regulation_adverse_with_favorable_article37_fields"
+    },
+    {
+      "case_id": "ir30_5_favorable",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "no_protected_output_action"
+    },
+    {
+      "case_id": "ir30_5_favorable_transformed_with_permission",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.transformed",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "output_context.permission_status",
+          "value": "granted"
+        }
+      ],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "transformed_with_recorded_permission"
+    },
+    {
+      "case_id": "ir30_5_unresolved_inclusion",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Final-product inclusion necessity is uncertain",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(5)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Final-product inclusion necessity is uncertain.",
+          "rule": "IR-30(5)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.included_in_final_product",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "output_context.inclusion_necessary",
+          "value": "uncertain"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(5)"
+      ],
+      "variant": "inclusion_necessity_uncertain"
+    },
+    {
+      "case_id": "ir30_5_adverse_transformed",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Output transformation/republication/public availability is recorded without permission",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(5)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Output transformation/republication/public availability is recorded without permission or public-domain status.",
+          "rule": "IR-30(5)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.transformed",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "output_context.permission_status",
+          "value": "not_granted"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(5)"
+      ],
+      "variant": "transformed_without_permission"
+    },
+    {
+      "case_id": "ir30_5_adverse_made_public",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Output transformation/republication/public availability is recorded without permission",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(5)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Output transformation/republication/public availability is recorded without permission or public-domain status.",
+          "rule": "IR-30(5)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.made_public",
+          "value": true
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(5)"
+      ],
+      "variant": "made_public_without_permission"
+    },
+    {
+      "case_id": "ir30_5_adverse_unnecessary_inclusion",
+      "condition_id": "IR-30(5)-output-configuration",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Work is unnecessarily included in the final product",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IR-30(5)",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Work is unnecessarily included in the final product without recorded permission/public-domain status.",
+          "rule": "IR-30(5)",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "output_context.included_in_final_product",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "output_context.inclusion_necessary",
+          "value": "no"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(5)"
+      ],
+      "variant": "unnecessary_final_product_inclusion"
+    },
+    {
+      "case_id": "ir30_6_favorable_none_identified",
+      "condition_id": "IR-30(6)-independent-elements",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "none_identified_with_basis"
+    },
+    {
+      "case_id": "ir30_6_favorable_assessed",
+      "condition_id": "IR-30(6)-independent-elements",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "assessed"
+        }
+      ],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "assessed_with_basis"
+    },
+    {
+      "case_id": "ir30_6_unresolved_requires_review",
+      "condition_id": "IR-30(6)-independent-elements",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Independently protected elements are not fully assessed",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(6)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Independently protected elements are not fully assessed.",
+          "rule": "IR-30(6)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "requires_review"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(6)"
+      ],
+      "variant": "requires_review"
+    },
+    {
+      "case_id": "ir30_6_unresolved_not_assessed",
+      "condition_id": "IR-30(6)-independent-elements",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Independently protected elements are not fully assessed",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(6)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Independently protected elements are not fully assessed.",
+          "rule": "IR-30(6)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "not_assessed"
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(6)"
+      ],
+      "variant": "not_assessed"
+    },
+    {
+      "case_id": "ir30_6_favorable_without_basis",
+      "condition_id": "IR-30(6)-independent-elements",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Independent-elements assessment has no recorded basis",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "IR-30(6)",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "Independent-elements assessment has no recorded basis.",
+          "rule": "IR-30(6)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_status",
+          "value": "assessed"
+        },
+        {
+          "op": "set",
+          "path": "rights_context.independent_elements_basis",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IR-30(6)"
+      ],
+      "variant": "assessed_without_basis"
+    },
+    {
+      "case_id": "evidence_favorable",
+      "condition_id": "EVIDENCE-references",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "all_evidence_present"
+    },
+    {
+      "case_id": "evidence_unresolved_missing_use_event",
+      "condition_id": "EVIDENCE-references",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "No use-event evidence reference is recorded",
+      "expected_outcome": "REVIEW_REQUIRED",
+      "expected_rule_id": "EVIDENCE",
+      "expected_state": "UNRESOLVED_REVIEW",
+      "findings": [
+        {
+          "message": "No use-event evidence reference is recorded.",
+          "rule": "EVIDENCE",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "evidence.use_event",
+          "value": []
+        }
+      ],
+      "observed_outcome": "REVIEW_REQUIRED",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "EVIDENCE"
+      ],
+      "variant": "missing_use_event_reference"
+    },
+    {
+      "case_id": "profile_favorable",
+      "condition_id": "PROFILE-0.2.0-integrity",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": null,
+      "expected_outcome": "PASS_EVIDENCE_GATE",
+      "expected_rule_id": null,
+      "expected_state": "FAVORABLE_EVIDENCE_READY",
+      "findings": [],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [],
+      "observed_outcome": "PASS_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [],
+      "variant": "supported_version_with_article37_context"
+    },
+    {
+      "case_id": "profile_adverse_missing_article37_context",
+      "condition_id": "PROFILE-0.2.0-integrity",
+      "declared_scope_complete": true,
+      "expected_finding_present": true,
+      "expected_message_marker": "Missing/invalid object: article37_context",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IPEL-CONTRACT",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Missing/invalid object: article37_context",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        },
+        {
+          "message": "Conflict with normal exploitation is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        },
+        {
+          "message": "Rightsholder legitimate-interests prejudice is unresolved or not assessed.",
+          "rule": "LAW-37(1)",
+          "severity": "REVIEW"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "article37_context"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT",
+        "LAW-37(1)"
+      ],
+      "variant": "article37_context_omitted"
+    },
+    {
+      "case_id": "profile_adverse_unsupported_version",
+      "condition_id": "PROFILE-0.2.0-integrity",
+      "declared_scope_complete": false,
+      "expected_finding_present": true,
+      "expected_message_marker": "Unsupported record_version",
+      "expected_outcome": "FAIL_EVIDENCE_GATE",
+      "expected_rule_id": "IPEL-CONTRACT",
+      "expected_state": "ADVERSE_FAIL",
+      "findings": [
+        {
+          "message": "Unsupported record_version: '0.3.0'",
+          "rule": "IPEL-CONTRACT",
+          "severity": "FAIL"
+        }
+      ],
+      "legal_conclusion": false,
+      "legal_profile_id": "unsupported-record-profile",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "record_version",
+          "value": "0.3.0"
+        }
+      ],
+      "observed_outcome": "FAIL_EVIDENCE_GATE",
+      "outcome_matches_expectation": true,
+      "rule_ids": [
+        "IPEL-CONTRACT"
+      ],
+      "variant": "unsupported_record_version"
+    }
+  ],
+  "condition_coverage": [
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 4,
+      "condition_id": "LAW-26(4)-publication",
+      "description": "Work was lawfully published.",
+      "favorable_state_covered": true,
+      "legal_source": "Copyright Law Article 26(4)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 4,
+      "condition_id": "LAW-26(4)-acquisition",
+      "description": "Original copy was lawfully acquired.",
+      "favorable_state_covered": true,
+      "legal_source": "Copyright Law Article 26(4)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 3,
+      "condition_id": "LAW-26(4)/IR-30(1)-necessity",
+      "description": "Copying/analysis is limited to what AI development requires.",
+      "favorable_state_covered": true,
+      "legal_source": "Copyright Law Article 26(4) with Implementing Regulations Article 30(1)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 6,
+      "condition_id": "LAW-37(1)-normal-exploitation",
+      "description": "Use must not conflict with normal exploitation of the work.",
+      "favorable_state_covered": true,
+      "legal_source": "Copyright Law Article 37(1)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 6,
+      "condition_id": "LAW-37(1)-rightsholder-interests",
+      "description": "Use must not cause unjustified prejudice to legitimate interests of rightsholders.",
+      "favorable_state_covered": true,
+      "legal_source": "Copyright Law Article 37(1)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 4,
+      "condition_id": "IR-30(1)-prohibited-uses",
+      "description": "No republication, distribution, or direct commercial exploitation.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(1)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY"
+      ],
+      "state_absence_note": "The encoded predicates are booleans, so the profile admits no unresolved state.",
+      "unresolved_state_available_in_profile": false,
+      "unresolved_state_covered": false
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 5,
+      "condition_id": "IR-30(2)-commercial-context",
+      "description": "Purely commercial use has a narrow qualifying condition.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(2)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 5,
+      "condition_id": "IR-30(3)-retained-record",
+      "description": "Developer retains work type, source, purpose of use, and date of use.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(3)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY"
+      ],
+      "state_absence_note": "Retention is modelled as presence/absence, so the profile admits no unresolved state.",
+      "unresolved_state_available_in_profile": false,
+      "unresolved_state_covered": false
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 6,
+      "condition_id": "IR-30(4)-author-interests",
+      "description": "No unjustified prejudice to author interests or exploitation opportunity.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(4)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 6,
+      "condition_id": "IR-30(5)-output-configuration",
+      "description": "No prohibited transformation/republication/public availability or unnecessary inclusion.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(5)",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": false,
+      "adverse_state_covered": false,
+      "case_count": 5,
+      "condition_id": "IR-30(6)-independent-elements",
+      "description": "Independently protected elements must be respected.",
+      "favorable_state_covered": true,
+      "legal_source": "Implementing Regulations Article 30(6)",
+      "observed_states": [
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "state_absence_note": "Profile 0.2.0 encodes no mechanically detectable adverse state for this condition; it can only escalate to review. Reported as an observed coverage limit, not as compliance.",
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": false,
+      "adverse_state_covered": false,
+      "case_count": 2,
+      "condition_id": "EVIDENCE-references",
+      "description": "Assertions marked verified and the use event carry evidence references.",
+      "favorable_state_covered": true,
+      "legal_source": "Evidence-quality check (project abstraction, not a distinct legal provision)",
+      "observed_states": [
+        "FAVORABLE_EVIDENCE_READY",
+        "UNRESOLVED_REVIEW"
+      ],
+      "state_absence_note": "Missing evidence references escalate to review only; they never fail closed on their own.",
+      "unresolved_state_available_in_profile": true,
+      "unresolved_state_covered": true
+    },
+    {
+      "adverse_state_available_in_profile": true,
+      "adverse_state_covered": true,
+      "case_count": 3,
+      "condition_id": "PROFILE-0.2.0-integrity",
+      "description": "Profile 0.2.0 records must carry Article 37 context and a supported record version.",
+      "favorable_state_covered": true,
+      "legal_source": "IPEL legal-profile versioning policy",
+      "observed_states": [
+        "ADVERSE_FAIL",
+        "FAVORABLE_EVIDENCE_READY"
+      ],
+      "state_absence_note": "Profile integrity is modelled as fail-closed; there is no intermediate state.",
+      "unresolved_state_available_in_profile": false,
+      "unresolved_state_covered": false
+    }
+  ],
+  "expected_legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+  "record_profile_version": "0.2.0",
+  "state_counts": {
+    "ADVERSE_FAIL": 24,
+    "FAVORABLE_EVIDENCE_READY": 16,
+    "UNRESOLVED_REVIEW": 19
+  }
+}

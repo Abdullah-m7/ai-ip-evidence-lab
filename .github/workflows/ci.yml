@@ -176,6 +176,24 @@ jobs:
           PY
           git diff --exit-code
 
+  stage014-corrected-profile-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rerun the Stage 014 corrected-profile benchmark
+        run: PYTHONPATH=. python experiments/stage014_corrected_profile_benchmark.py > /tmp/stage014-result.json
+      - name: Confirm Stage 014 artifacts are byte-reproducible
+        run: git diff --exit-code -- benchmarks/stage014/generated
+      - name: Confirm the frozen Stage 013 rubric lock was not mutated
+        run: git diff --exit-code -- benchmarks/stage013
+      - name: Confirm legacy 0.1.0 evidence was not rewritten
+        run: git diff --exit-code -- reports/stage003_semantic_roundtrip.json examples/profiles
+      - name: Run Stage 013 lock and Stage 014 benchmark tests
+        run: python -m unittest tests.test_stage013_rubric_lock tests.test_stage014_benchmark -v
+
   stage009-manuscript-audit:
     runs-on: ubuntu-latest
     steps:

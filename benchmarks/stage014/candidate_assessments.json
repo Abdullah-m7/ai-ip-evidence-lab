@@ -1,0 +1,645 @@
+{
+  "assessments": [
+    {
+      "assessment_notes": "work.title is a human-readable name for the same ingredient asset and is not read by the evidence gate; it is not one of the four Implementing Regulations Article 30(3) retained-record fields. Delegating it removes no legally operative proposition. The controlled round-trip recovered the value byte-identically, preserved the gate outcome, and required no bridging assumption.",
+      "candidate_id": "work-title__c2pa-dc-title",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive naming facts; no permission, trust, or legal-evaluative role is collapsed into the title.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE: a title is not anchored to a use, acquisition, or publication event.",
+          "status": "NOT_APPLICABLE"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-title__c2pa-dc-title"],
+          "rationale": "Recovery reads only the ingredient field; it does not consult manifest validation state, signer trust, the CAWG usage declaration, or any legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "dc:title on Ingredient v3 is defined by the maintained C2PA 2.4 specification, not by a private extension.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Both assert the same proposition: a human-readable name for the asset.",
+          "status": "PASS"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "work.title carries no legal qualifier, purpose, condition, or scope in profile 0.2.0, so no qualifier can be lost.",
+          "status": "PASS"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "In the declared experiment the ingredient is the copy of the work under assessment, so both fields denote the same object.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-title__c2pa-dc-title"],
+          "rationale": "Measured: the IPEL value was recovered byte-identically with no hidden state and no bridging assumption.",
+          "status": "PASS"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE: a title asserts no actor or subject whose conduct is at issue.",
+          "status": "NOT_APPLICABLE"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE: a title carries no time proposition.",
+          "status": "NOT_APPLICABLE"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "Free-text string to free-text string with no cardinality or enumeration coercion.",
+          "status": "PASS"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "roundtrip_pass": true,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "dc:format states the IANA media type of the byte stream. work.type is the category of protected work that Implementing Regulations Article 30(3) requires the developer to retain. The media type is useful for identifying the material, so the IPEL field is retained rather than replaced.",
+      "candidate_id": "work-type__c2pa-dc-format",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive; neither collapses permission, trust, or legal evaluation into the other.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-type__c2pa-dc-format"],
+          "rationale": "The failure is semantic rather than inference-dependent: recovery does not consult validation state, signer trust, rights preference, or a legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "dc:format is defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "A media type asserts how the bytes are encoded, not which category of protected work is being recorded under Article 30(3).",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The record-retention qualifier that makes the value legally relevant is not carried by a transport-level media type.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Both attach to the same ingredient asset.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-type__c2pa-dc-format"],
+          "rationale": "Measured: substitution returned the media type and the IPEL value was not recovered; the evidence gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "The IPEL value domain is a legal work category; the IANA media-type registry cannot encode it without coercion.",
+          "status": "FAIL"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "dataTypes classifies the kind of data an ingredient carries for provenance processing. It helps characterise the material but does not state the legal category of the work, so the IPEL field is retained.",
+      "candidate_id": "work-type__c2pa-dataTypes",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive classifications; no evaluative or permission role is collapsed.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-type__c2pa-dataTypes"],
+          "rationale": "Recovery does not consult validation state, signer trust, rights preference, or a legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Ingredient dataTypes is defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "A provenance data-type classification is not an assertion about the category of protected work retained under Article 30(3).",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The Article 30(3) record-retention qualifier is not carried.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Both attach to the same ingredient asset.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-type__c2pa-dataTypes"],
+          "rationale": "Measured: the IPEL value was not recovered, and the evidence gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A closed provenance data-type vocabulary cannot encode the open IPEL work-category value without coercion.",
+          "status": "FAIL"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "informationalURI points to a page carrying information about the ingredient. work.source records where the copy came from for Article 30(3) retention. An informational page can help locate supporting material, so the candidate is evidentially useful while the IPEL field is retained.",
+      "candidate_id": "work-source__c2pa-informationalURI",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive references; neither is a permission, trust, or legal-evaluative construct.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-source__c2pa-informationalURI"],
+          "rationale": "Recovery does not consult validation state, signer trust, rights preference, or a legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "informationalURI is defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "Pointing to an informational page is not an assertion about the source from which the copy was obtained.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The Article 30(3) retention qualifier attached to work.source is not carried by an informational pointer.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The URI denotes an information resource about the ingredient, not the origin location of the copy that IPEL records.",
+          "status": "FAIL"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-source__c2pa-informationalURI"],
+          "rationale": "Measured: substitution returned the informational URI and the recorded source was not recovered; the gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "Both value domains are URI strings, so the domain itself imposes no coercive loss.",
+          "status": "PASS"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "A hashed data reference binds which bytes are being referred to inside the manifest store. That is genuinely useful evidence about identity of the material, and the project's own requirements matrix already records that a source URI plus digest cannot establish acquisition lawfulness. The IPEL field is retained.",
+      "candidate_id": "work-source__c2pa-data-reference",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive references rather than permission, trust, or legal-evaluative constructs.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-source__c2pa-data-reference"],
+          "rationale": "Reading the reference does not require validation state, signer trust, rights preference, or a legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Hashed references are defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "A digest-bound pointer asserts which bytes are referenced, not where the copy was obtained from.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The Article 30(3) retention qualifier is not carried by an integrity reference.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The reference denotes a data box within the manifest store rather than the external origin the IPEL field records.",
+          "status": "FAIL"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#work-source__c2pa-data-reference"],
+          "rationale": "Measured: substitution returned the internal reference URL and the recorded source was not recovered; the gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["benchmarks/stage013/rubric_definition.json"],
+          "rationale": "Preregistered NOT_APPLICABLE for ENTITY_ATTRIBUTE.",
+          "status": "NOT_APPLICABLE"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A manifest-internal reference cannot encode an arbitrary external acquisition source without coercive loss.",
+          "status": "FAIL"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "relationship=inputTo establishes that an ingredient was an input to a computational process. The rubric explicitly lists that as an example of support rather than substitution. It carries no declared purpose, no extent, and no exception-pathway qualifier, so the IPEL field is retained.",
+      "candidate_id": "use-purpose__c2pa-inputTo",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive facts about the pipeline; neither is a permission, trust, or legal-evaluative construct.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The relationship does anchor the ingredient to the process that consumed it, which is the same process the IPEL use record describes.",
+          "status": "PASS"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-purpose__c2pa-inputTo"],
+          "rationale": "Reading the relationship does not require validation state, signer trust, rights preference, or a legal conclusion.",
+          "status": "PASS"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Ingredient relationship values are defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "\"Was an input to a process\" is not the declared purpose of the use that Article 30(3) requires to be retained.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "Non-commercial scope, extent, and the declared exception pathway are all absent from a relationship value.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Both concern the same ingredient asset and the same processing pipeline.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-purpose__c2pa-inputTo"],
+          "rationale": "Measured: substitution returned the relationship token and the declared purpose was not recovered; the gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The relationship identifies no acting party, so the developer whose purpose IPEL records is not preserved.",
+          "status": "FAIL"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "use.purpose carries no time proposition, so no legally relevant time meaning or trust level is lost.",
+          "status": "PASS"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A fixed relationship enumeration cannot encode an open-text declared purpose.",
+          "status": "FAIL"
+        }
+      },
+      "inference_dependencies": [],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "The CAWG assertion communicates allowed, notAllowed, or constrained information about mining and training uses. It is a rights/usage declaration about what is permitted, not a statement of what the developer actually did or why. Treating it as use.purpose would read a rights preference as a factual purpose, which the rubric prohibits for safe delegation. The rubric does list a rightsholder usage declaration as a legitimate support signal, so the IPEL field is retained alongside it.",
+      "candidate_id": "use-purpose__cawg-training-mining",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/", "docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Substitution would collapse a permission/preference signal into a descriptive fact about the developer's conduct.",
+          "status": "FAIL"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/"],
+          "rationale": "The assertion is attached to the asset's usage declaration, not to a specific AI-development use event.",
+          "status": "FAIL"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-purpose__cawg-training-mining"],
+          "rationale": "Equivalence would depend on reading a rights preference as the developer's purpose, which is a prohibited inference dependency.",
+          "status": "FAIL"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/"],
+          "rationale": "The Training and Data Mining Assertion 1.1 is a maintained normative assertion.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/"],
+          "rationale": "The assertion states which mining/training uses are permitted, not the purpose for which the work was actually used.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "Declared purpose, extent, and exception-pathway context are not carried by a usage-permission enumeration.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/"],
+          "rationale": "Both concern the same asset.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-purpose__cawg-training-mining"],
+          "rationale": "Measured: substitution returned the usage token and the declared purpose was not recovered; the gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["https://cawg.io/training-and-data-mining/1.1/"],
+          "rationale": "The declaring party is the rightsholder or asset owner; the IPEL purpose is the developer's own statement.",
+          "status": "FAIL"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "use.purpose carries no time proposition, so no time meaning is lost.",
+          "status": "PASS"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A three-valued permission enumeration cannot encode an open-text declared purpose.",
+          "status": "FAIL"
+        }
+      },
+      "inference_dependencies": ["RIGHTS_PREFERENCE"],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "This is the candidate the frozen rubric warned about explicitly: field-name similarity is not equivalence. The controlled round-trip did recover the same date string, but only because the harness was permitted to assume that the timestamped C2PA action is the declared legal use event. The measured round-trip therefore records inference_required=true and does not pass. This case is the clearest demonstration that string-level round-trip success is not semantic equivalence.",
+      "candidate_id": "use-date__c2pa-action-when",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are descriptive time facts rather than permission, trust, or legal-evaluative constructs.",
+          "status": "PASS"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "A C2PA action is not preregistered to be the legally relevant use event under the declared exception pathway.",
+          "status": "FAIL"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-date__c2pa-action-when"],
+          "rationale": "Recovering use.date requires the external bridging assumption that the timestamped action is the declared use; the harness records that dependency.",
+          "status": "FAIL"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The actions assertion and its when field are defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html", "docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "The field asserts when a recorded action occurred, not the date on which the work was used under the declared exception.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The qualifier identifying which use the date belongs to is not carried by the action timestamp.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Both concern the same asset and the same processing pipeline.",
+          "status": "PASS"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-date__c2pa-action-when"],
+          "rationale": "Measured: the date string was recovered, but only under a declared bridging assumption, so reconstruction is not free of hidden inference.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "In the declared single-actor pipeline the acting party and the using developer coincide, so this dimension does not fail on its own.",
+          "status": "PASS"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Both are claimed times, but the proposition being timed differs: an action occurrence versus the declared date of use.",
+          "status": "FAIL"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A calendar date can be represented within a date-time domain.",
+          "status": "PASS"
+        }
+      },
+      "inference_dependencies": ["OTHER_EXTERNAL_INFERENCE"],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "An RFC3161-backed timestamp attests that a claim existed before a point in time. It is strong temporal corroboration and is retained as support, but it times the claim signature rather than the use of the work, and its evidential force depends on signer trust and validation state.",
+      "candidate_id": "use-date__c2pa-trusted-timestamp",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "dimension_assessments": {
+        "evidentiary_normative_role": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "Substitution would collapse a trust/attestation construct into a descriptive fact about the use.",
+          "status": "FAIL"
+        },
+        "event_process_anchor": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The timestamp is anchored to claim signing, not to the declared use event.",
+          "status": "FAIL"
+        },
+        "inference_independence": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-date__c2pa-trusted-timestamp"],
+          "rationale": "Any equivalence claim depends on signer trust and validation state, both prohibited dependencies.",
+          "status": "FAIL"
+        },
+        "normative_maintained_spec_status": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "Trusted timestamping is defined by the maintained C2PA 2.4 specification.",
+          "status": "PASS"
+        },
+        "predicate_semantics": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The assertion is that the claim existed before a time, not that the work was used on a date.",
+          "status": "FAIL"
+        },
+        "qualifier_scope_preservation": {
+          "evidence_refs": ["docs/LEGAL_REQUIREMENTS_MATRIX.md"],
+          "rationale": "The qualifier identifying which use is dated is not carried.",
+          "status": "FAIL"
+        },
+        "referent_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The timestamp's referent is the claim signature rather than the use of the work.",
+          "status": "FAIL"
+        },
+        "roundtrip_recoverability": {
+          "evidence_refs": ["benchmarks/stage014/generated/delegation_roundtrip.json#use-date__c2pa-trusted-timestamp"],
+          "rationale": "Measured: substitution returned the countersigning date and the recorded use date was not recovered; the gate did not detect the substitution.",
+          "status": "FAIL"
+        },
+        "subject_actor_identity": {
+          "evidence_refs": ["https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html"],
+          "rationale": "The attesting party is the timestamp authority and the signer, not the developer performing the use.",
+          "status": "FAIL"
+        },
+        "temporal_semantics": {
+          "evidence_refs": ["docs/SEMANTIC_EQUIVALENCE_RUBRIC.md"],
+          "rationale": "The time proposition and its trust level both differ: an externally attested signing bound versus a self-declared use date.",
+          "status": "FAIL"
+        },
+        "value_domain_compatibility": {
+          "evidence_refs": ["schemas/ipel-record.schema.json"],
+          "rationale": "A calendar date can be represented within a date-time domain.",
+          "status": "PASS"
+        }
+      },
+      "inference_dependencies": ["SIGNER_TRUST", "VALIDATION_STATE"],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "roundtrip_pass": false,
+      "roundtrip_tested": true,
+      "rubric_version": "1.0.0",
+      "support_relevance": true
+    },
+    {
+      "assessment_notes": "No maintained normative generic semantic asserting whether a use conflicts with normal exploitation of the work was registered at Stage 013 lock time, and Stage 014 introduced no new candidate. The proposition is a legal-evaluative assertion and is retained in IPEL. This is a reported absence of a candidate, not a finding that no such semantic could ever exist.",
+      "candidate_id": "art37-normal-exploitation__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "dimension_assessments": {},
+      "inference_dependencies": [],
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "roundtrip_pass": null,
+      "roundtrip_tested": false,
+      "rubric_version": "1.0.0",
+      "support_relevance": false
+    },
+    {
+      "assessment_notes": "No maintained normative generic semantic asserting whether a use causes unjustified prejudice to the legitimate interests of rightsholders was registered at Stage 013 lock time, and Stage 014 introduced no new candidate. The proposition is a legal-evaluative assertion and is retained in IPEL.",
+      "candidate_id": "art37-rightsholder-interests__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "dimension_assessments": {},
+      "inference_dependencies": [],
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "roundtrip_pass": null,
+      "roundtrip_tested": false,
+      "rubric_version": "1.0.0",
+      "support_relevance": false
+    }
+  ],
+  "assessment_set_version": "stage014-candidate-assessments-v1",
+  "candidate_registry_version": "1.0.0",
+  "declared_round_trip_state_is_cross_checked_against_measurement": true,
+  "rubric_lock_source_commit_sha": "037070dae5a93a1ef58c806a537784f378226998",
+  "rubric_version": "1.0.0"
+}

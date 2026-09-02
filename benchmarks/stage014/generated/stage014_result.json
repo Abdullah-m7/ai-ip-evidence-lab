@@ -1,0 +1,102 @@
+{
+  "artifacts": [
+    "benchmarks/stage014/generated/condition_state_benchmark.json",
+    "benchmarks/stage014/generated/corrected_profile_roundtrip.json",
+    "benchmarks/stage014/generated/delegation_assessment_results.json",
+    "benchmarks/stage014/generated/delegation_roundtrip.json",
+    "benchmarks/stage014/generated/naive_baseline_comparison.json"
+  ],
+  "benchmark_version": "stage014-corrected-profile-benchmark-v1",
+  "candidate_selection_unchanged_after_lock": true,
+  "condition_benchmark": {
+    "all_expected_findings_present": true,
+    "all_outcomes_match_expectation": true,
+    "case_count": 59,
+    "condition_count": 13,
+    "conditions_without_adverse_state_in_profile": [
+      "EVIDENCE-references",
+      "IR-30(6)-independent-elements"
+    ],
+    "conditions_without_unresolved_state_in_profile": [
+      "IR-30(1)-prohibited-uses",
+      "IR-30(3)-retained-record",
+      "PROFILE-0.2.0-integrity"
+    ],
+    "state_counts": {
+      "ADVERSE_FAIL": 24,
+      "FAVORABLE_EVIDENCE_READY": 16,
+      "UNRESOLVED_REVIEW": 19
+    }
+  },
+  "controller_decision": "NOT_MADE_BY_THIS_STAGE",
+  "corrected_profile_roundtrip": {
+    "all_constructed_article_30_3_tuples_preserved": true,
+    "all_constructed_article_37_tuples_preserved": true,
+    "all_constructed_gate_outcomes_preserved": true,
+    "all_constructed_roundtrips_zero_semantic_loss": true,
+    "case_count": 59,
+    "legacy_stage003_artifacts_preserved": true,
+    "profile_constructed_count": 55,
+    "profile_failed_closed_count": 4,
+    "supersedes_legacy_stage003_evidence_for": "record profile 0.2.0 only"
+  },
+  "delegation_assessment": {
+    "article_30_3_safe_delegation_ratio": "0/4",
+    "article_37_safe_delegation_ratio": "0/2",
+    "candidate_count": 11,
+    "decision_counts": {
+      "NOT_SAFE_TO_DELEGATE": 0,
+      "NO_CANDIDATE": 2,
+      "PARTIAL_SUPPORT": 8,
+      "SAFE_DELEGATION": 1
+    },
+    "ipel_fields_retained_count": 10,
+    "safe_delegation_ipel_paths": [
+      "work.title"
+    ]
+  },
+  "delegation_roundtrip": {
+    "executed_candidate_count": 9,
+    "gate_silent_semantic_corruption_count": 7,
+    "inference_required_count": 8,
+    "roundtrip_pass_count": 1
+  },
+  "frozen_input_verification": {
+    "candidate_registry_canonical_sha256": "be02f758a85c7f99a62e4de1c42079a61661ccb39cfce78710a405dd421ced76",
+    "lock_source_commit_sha": "037070dae5a93a1ef58c806a537784f378226998",
+    "lock_status": "PRE_OUTCOME_RUBRIC_LOCK",
+    "registry_benchmark_executed_flag_unchanged": true,
+    "registry_candidates_still_marked_not_run": true,
+    "registry_matches_lock": true,
+    "rubric_definition_canonical_sha256": "81c70506e6702bc4ad5ffad337e817c6ab71b55c946c185743da1887f8344fc5",
+    "rubric_matches_lock": true,
+    "rubric_version": "1.0.0"
+  },
+  "legal_conclusion": false,
+  "legal_profile_id": "sa-copyright-2026-art26-4-art37-1-ir30-v0.2",
+  "naive_baseline_comparison": {
+    "delegation_difference": 4,
+    "favorable_provenance": {
+      "case_count": 59,
+      "naive_false_equivalence_count": 28,
+      "naive_outcome_preserved_count": 31,
+      "naive_spurious_escalation_count": 0,
+      "rubric_governed_outcome_preserved_count": 59
+    },
+    "naive_delegated_path_count": 5,
+    "naive_inferred_path_count": 13,
+    "naive_outcome_unstable_across_provenance_signal_count": 44,
+    "rubric_governed_delegated_path_count": 1,
+    "unknown_provenance": {
+      "case_count": 59,
+      "naive_false_equivalence_count": 14,
+      "naive_outcome_preserved_count": 29,
+      "naive_spurious_escalation_count": 16,
+      "rubric_governed_outcome_preserved_count": 59
+    }
+  },
+  "record_profile_version": "0.2.0",
+  "rubric_reused_without_modification": true,
+  "rubric_version": "1.0.0",
+  "stage": "014"
+}

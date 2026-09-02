@@ -1,0 +1,366 @@
+{
+  "article_30_3_core_fields": [
+    "work.type",
+    "work.source",
+    "use.purpose",
+    "use.date"
+  ],
+  "article_30_3_fields_safely_delegable": [],
+  "article_30_3_safe_delegation_ratio": "0/4",
+  "article_37_fields_safely_delegable": [],
+  "article_37_propositions": [
+    "article37_context.normal_exploitation_conflict",
+    "article37_context.rightsholder_legitimate_interests_prejudice"
+  ],
+  "article_37_safe_delegation_ratio": "0/2",
+  "assessments": [
+    {
+      "assessment_notes": "work.title is a human-readable name for the same ingredient asset and is not read by the evidence gate; it is not one of the four Implementing Regulations Article 30(3) retained-record fields. Delegating it removes no legally operative proposition. The controlled round-trip recovered the value byte-identically, preserved the gate outcome, and required no bridging assumption.",
+      "candidate_id": "work-title__c2pa-dc-title",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dc:title",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "SAFE_DELEGATION",
+      "failed_dimensions": [],
+      "inference_dependencies": [],
+      "ipel_field_retained": false,
+      "ipel_path": "work.title",
+      "not_applicable_dimensions": [
+        "event_process_anchor",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "reasons": [
+        "all preregistered applicable dimensions passed and controlled roundtrip passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": true,
+      "roundtrip_pass_measured": true,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "dc:format states the IANA media type of the byte stream. work.type is the category of protected work that Implementing Regulations Article 30(3) requires the developer to retain. The media type is useful for identifying the material, so the IPEL field is retained rather than replaced.",
+      "candidate_id": "work-type__c2pa-dc-format",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dc:format",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "roundtrip_recoverability",
+        "value_domain_compatibility"
+      ],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "work.type",
+      "not_applicable_dimensions": [
+        "event_process_anchor",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=predicate_semantics,qualifier_scope_preservation,roundtrip_recoverability",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "dataTypes classifies the kind of data an ingredient carries for provenance processing. It helps characterise the material but does not state the legal category of the work, so the IPEL field is retained.",
+      "candidate_id": "work-type__c2pa-dataTypes",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 dataTypes",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "roundtrip_recoverability",
+        "value_domain_compatibility"
+      ],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "work.type",
+      "not_applicable_dimensions": [
+        "event_process_anchor",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=predicate_semantics,qualifier_scope_preservation,roundtrip_recoverability",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "informationalURI points to a page carrying information about the ingredient. work.source records where the copy came from for Article 30(3) retention. An informational page can help locate supporting material, so the candidate is evidentially useful while the IPEL field is retained.",
+      "candidate_id": "work-source__c2pa-informationalURI",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 informationalURI",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "referent_identity",
+        "roundtrip_recoverability"
+      ],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "work.source",
+      "not_applicable_dimensions": [
+        "event_process_anchor",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=predicate_semantics,qualifier_scope_preservation,referent_identity,roundtrip_recoverability",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "A hashed data reference binds which bytes are being referred to inside the manifest store. That is genuinely useful evidence about identity of the material, and the project's own requirements matrix already records that a source URI plus digest cannot establish acquisition lawfulness. The IPEL field is retained.",
+      "candidate_id": "work-source__c2pa-data-reference",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient v3 data hashed reference",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "referent_identity",
+        "roundtrip_recoverability",
+        "value_domain_compatibility"
+      ],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "work.source",
+      "not_applicable_dimensions": [
+        "event_process_anchor",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "proposition_class": "ENTITY_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=predicate_semantics,qualifier_scope_preservation,referent_identity,roundtrip_recoverability",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "relationship=inputTo establishes that an ingredient was an input to a computational process. The rubric explicitly lists that as an example of support rather than substitution. It carries no declared purpose, no extent, and no exception-pathway qualifier, so the IPEL field is retained.",
+      "candidate_id": "use-purpose__c2pa-inputTo",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Ingredient relationship=inputTo",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "roundtrip_recoverability",
+        "subject_actor_identity",
+        "value_domain_compatibility"
+      ],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "use.purpose",
+      "not_applicable_dimensions": [],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=predicate_semantics,qualifier_scope_preservation,roundtrip_recoverability,subject_actor_identity",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "The CAWG assertion communicates allowed, notAllowed, or constrained information about mining and training uses. It is a rights/usage declaration about what is permitted, not a statement of what the developer actually did or why. Treating it as use.purpose would read a rights preference as a factual purpose, which the rubric prohibits for safe delegation. The rubric does list a rightsholder usage declaration as a legitimate support signal, so the IPEL field is retained alongside it.",
+      "candidate_id": "use-purpose__cawg-training-mining",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "candidate_semantic": "Training and Data Mining Assertion",
+      "candidate_standard": "CAWG",
+      "candidate_version": "1.1",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "event_process_anchor",
+        "evidentiary_normative_role",
+        "inference_independence",
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "roundtrip_recoverability",
+        "subject_actor_identity",
+        "value_domain_compatibility"
+      ],
+      "inference_dependencies": [
+        "RIGHTS_PREFERENCE"
+      ],
+      "ipel_field_retained": true,
+      "ipel_path": "use.purpose",
+      "not_applicable_dimensions": [],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=event_process_anchor,evidentiary_normative_role,inference_independence,predicate_semantics,qualifier_scope_preservation,roundtrip_recoverability,subject_actor_identity",
+        "prohibited_inference_dependencies=RIGHTS_PREFERENCE",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "This is the candidate the frozen rubric warned about explicitly: field-name similarity is not equivalence. The controlled round-trip did recover the same date string, but only because the harness was permitted to assume that the timestamped C2PA action is the declared legal use event. The measured round-trip therefore records inference_required=true and does not pass. This case is the clearest demonstration that string-level round-trip success is not semantic equivalence.",
+      "candidate_id": "use-date__c2pa-action-when",
+      "candidate_kind": "NORMATIVE_FIELD",
+      "candidate_semantic": "Actions assertion when",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "event_process_anchor",
+        "inference_independence",
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "roundtrip_recoverability",
+        "temporal_semantics"
+      ],
+      "inference_dependencies": [
+        "OTHER_EXTERNAL_INFERENCE"
+      ],
+      "ipel_field_retained": true,
+      "ipel_path": "use.date",
+      "not_applicable_dimensions": [],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=event_process_anchor,inference_independence,predicate_semantics,qualifier_scope_preservation,roundtrip_recoverability,temporal_semantics",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "An RFC3161-backed timestamp attests that a claim existed before a point in time. It is strong temporal corroboration and is retained as support, but it times the claim signature rather than the use of the work, and its evidential force depends on signer trust and validation state.",
+      "candidate_id": "use-date__c2pa-trusted-timestamp",
+      "candidate_kind": "NORMATIVE_ASSERTION",
+      "candidate_semantic": "RFC3161-backed C2PA timestamp",
+      "candidate_standard": "C2PA",
+      "candidate_version": "2.4",
+      "decision": "PARTIAL_SUPPORT",
+      "failed_dimensions": [
+        "event_process_anchor",
+        "evidentiary_normative_role",
+        "inference_independence",
+        "predicate_semantics",
+        "qualifier_scope_preservation",
+        "referent_identity",
+        "roundtrip_recoverability",
+        "subject_actor_identity",
+        "temporal_semantics"
+      ],
+      "inference_dependencies": [
+        "SIGNER_TRUST",
+        "VALIDATION_STATE"
+      ],
+      "ipel_field_retained": true,
+      "ipel_path": "use.date",
+      "not_applicable_dimensions": [],
+      "proposition_class": "EVENT_ATTRIBUTE",
+      "reasons": [
+        "critical_failures=event_process_anchor,evidentiary_normative_role,inference_independence,predicate_semantics,qualifier_scope_preservation,referent_identity,roundtrip_recoverability,subject_actor_identity,temporal_semantics",
+        "prohibited_inference_dependencies=SIGNER_TRUST,VALIDATION_STATE",
+        "controlled roundtrip not passed"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": false,
+      "roundtrip_pass_measured": false,
+      "roundtrip_tested": true
+    },
+    {
+      "assessment_notes": "No maintained normative generic semantic asserting whether a use conflicts with normal exploitation of the work was registered at Stage 013 lock time, and Stage 014 introduced no new candidate. The proposition is a legal-evaluative assertion and is retained in IPEL. This is a reported absence of a candidate, not a finding that no such semantic could ever exist.",
+      "candidate_id": "art37-normal-exploitation__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "candidate_semantic": null,
+      "candidate_standard": null,
+      "candidate_version": null,
+      "decision": "NO_CANDIDATE",
+      "failed_dimensions": [],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "article37_context.normal_exploitation_conflict",
+      "not_applicable_dimensions": [],
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "reasons": [
+        "no normative generic candidate registered"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": null,
+      "roundtrip_pass_measured": null,
+      "roundtrip_tested": false
+    },
+    {
+      "assessment_notes": "No maintained normative generic semantic asserting whether a use causes unjustified prejudice to the legitimate interests of rightsholders was registered at Stage 013 lock time, and Stage 014 introduced no new candidate. The proposition is a legal-evaluative assertion and is retained in IPEL.",
+      "candidate_id": "art37-rightsholder-interests__none",
+      "candidate_kind": "NO_CANDIDATE",
+      "candidate_semantic": null,
+      "candidate_standard": null,
+      "candidate_version": null,
+      "decision": "NO_CANDIDATE",
+      "failed_dimensions": [],
+      "inference_dependencies": [],
+      "ipel_field_retained": true,
+      "ipel_path": "article37_context.rightsholder_legitimate_interests_prejudice",
+      "not_applicable_dimensions": [],
+      "proposition_class": "LEGAL_EVALUATIVE_ASSERTION",
+      "reasons": [
+        "no normative generic candidate registered"
+      ],
+      "roundtrip_declaration_matches_measurement": true,
+      "roundtrip_pass_declared": null,
+      "roundtrip_pass_measured": null,
+      "roundtrip_tested": false
+    }
+  ],
+  "candidate_count": 11,
+  "decision_counts": {
+    "NOT_SAFE_TO_DELEGATE": 0,
+    "NO_CANDIDATE": 2,
+    "PARTIAL_SUPPORT": 8,
+    "SAFE_DELEGATION": 1
+  },
+  "ipel_fields_retained_count": 10,
+  "registry_version": "1.0.0",
+  "rubric_version": "1.0.0",
+  "safe_delegation_candidate_ids": [
+    "work-title__c2pa-dc-title"
+  ],
+  "safe_delegation_ipel_paths": [
+    "work.title"
+  ]
+}
