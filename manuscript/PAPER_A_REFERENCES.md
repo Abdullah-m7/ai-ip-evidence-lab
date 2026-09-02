@@ -11,9 +11,10 @@ This file records the sources admitted to the current manuscript, the propositio
 ### Saudi Arabia (2026a) — Copyright Law
 
 - **Source:** *Nizam Huquq al-Mu’allif* [Copyright Law], official Arabic text, *Umm Al-Qura*, 13 February 2026.
-- **Relevant provision:** Article 26(4).
-- **Permitted proposition:** the provision addresses copying an original work for AI-product and algorithm development subject to lawful publication, lawful acquisition of ownership of the original copy, and purpose-limited copying.
-- **Boundary:** do not paraphrase this as a general authorization of every AI-training use.
+- **Relevant provisions:** Article 26(4) and Article 37(1).
+- **Permitted proposition (Art. 26(4)):** the provision addresses copying an original work for AI-product and algorithm development subject to lawful publication, lawful acquisition of ownership of the original copy, and purpose-limited copying.
+- **Permitted proposition (Art. 37(1)):** uses permitted under Articles 26–36 must not conflict with normal exploitation of the work and must not cause unjustified prejudice to the legitimate interests of rightsholders.
+- **Boundary:** do not paraphrase this as a general authorization of every AI-training use. The English labels for Article 37(1) are analytical modelling terms, not an official translation.
 - **Official location:** https://www.uqn.gov.sa/details?p=28845
 
 ### Saudi Arabia (2026b) — Implementing Regulations
@@ -89,21 +90,50 @@ The Arabic official text governs. English wording in Paper A is an analytical pa
 
 **Positioning boundary:** this literature supports the claim that substantive legality differs across jurisdictions and is heavily contested. Paper A’s novelty is not a new universal legality rule.
 
-## G. Project-generated experimental evidence
+## G. Closest prior work and rights-expression lineage — admitted after Controller source verification
+
+1. **Li, G. (2026).** Auditable accountability without an AI act: Australia’s public-sector AI assurance stack and the minimum reviewable trace. *Law, Ethics & Technology*, 3(3), 0010. https://doi.org/10.55092/let20260010
+   - Direct conceptual prior art for reviewable evidence duties; different domain (public-sector accountability) and no IPEL-style copyright/C2PA semantic-substitution benchmark.
+2. **Lucchi, N. (2026).** The Invisible Author: Generative AI and the Auditability Gap. SSRN preprint, posted 21 July 2026, revised 28 July 2026. https://doi.org/10.2139/ssrn.7024098
+   - Copyright/auditability prior art focused on authorship and human creative contribution, not training-use legal-basis reconstruction.
+3. **Park, Y. (2025).** Study on Copyright Management of AI Training Data Using NFTs and C2PA. *Journal of Industrial Property*, 80, 331–368. https://doi.org/10.36669/ip.2025.80.8
+   - Direct C2PA + AI-training copyright-management prior art; Paper A must not claim priority for that combination.
+4. **Krishna, R. A. A., Shree, S. M., & Raguram, S. A. (2026).** Training Data Disclosure in AI Copyright Litigation: The Post-Report Provenance Procedure. SSRN preprint, posted 20 April 2026. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6570339
+   - Copyright-litigation provenance/disclosure prior art; different lifecycle point from development-time use-event capture.
+5. **Xie, Y., Song, J., Wang, H., & Song, M. (2025).** Training Data Provenance Verification: Did Your Model Use Synthetic Data from My Generative Model for Training? In *Proceedings of CVPR 2025*, 23817–23827.
+   - Model-side post-hoc provenance verification, not legal-basis evidence preservation.
+6. **Qi, T., Yin, J., Cai, D., et al. (2026).** Auditing unauthorized training data from AI generated content using information isotopes. *Nature Communications*, 17, 3007. https://doi.org/10.1038/s41467-026-68862-x
+   - Black-box post-hoc training-data auditing; distinguishes evidence of utilization from contemporaneous legal/operational provenance.
+7. **W3C (2018).** ODRL Information Model 2.2 and ODRL Vocabulary & Expression 2.2, W3C Recommendations. https://www.w3.org/TR/odrl-model/ and https://www.w3.org/TR/odrl-vocab/
+8. **IPTC (2018).** RightsML 2.0.2, an ODRL 2.2 profile for media-industry rights expression. https://iptc.org/std/RightsML/2.0/RightsML_2.0-specification.html
+9. **Abelson, H., Adida, B., Linksvayer, M., & Yergler, N. (2008).** ccREL: The Creative Commons Rights Expression Language, version 1.0. https://opensource.creativecommons.org/ccrel/
+10. **W3C ODRL Community Group (2026).** ODRL Profile: AI Vocabulary. Draft Community Group Report, 17 August 2026. https://w3c.github.io/odrl/ai-vocab/
+   - Draft status must be stated; it is not a W3C Recommendation.
+
+**Positioning boundary:** these sources close the prior-art gate by conceding reviewable traces, auditability, rights expression, C2PA-based copyright management, and post-hoc provenance detection as prior work. The remaining claim is only the narrower conjunction defined in C30.
+
+## H. Project-generated experimental evidence
 
 These materials support only claims about what the project implemented or observed:
 
 1. `docs/LEGAL_REQUIREMENTS_MATRIX.md` — legal-to-evidence research abstraction.
-2. `reports/STAGE_003_REPORT.md` and `reports/stage003_semantic_roundtrip.json` — five-case semantic round-trip.
-3. `reports/STAGE_004_REPORT.md` and `reports/stage004_conformant_c2pa.json` — real C2PA hard-binding experiment.
-4. `reports/STAGE_005_REPORT.md` and `reports/stage005_cross_validator.json` — cross-version/trust-boundary experiment.
-5. `reports/STAGE_006_REPORT.md` — future reviewer benchmark; no human results.
-6. `reports/STAGE_007_REPORT.md` and freeze manifest — independent-adjudication preparation; no real adjudication.
-7. `reports/STAGE_008_REPORT.md` — distribution/intake infrastructure; no human responses.
+2. `reports/STAGE_002_REPORT.md` and `reports/stage002_attack_matrix.json` — bounded hash-chain integrity experiment; design-selection negative result on six committed fixtures.
+3. `reports/STAGE_003_REPORT.md` and `reports/stage003_semantic_roundtrip.json` — **legacy** five-case semantic round-trip under record profile `0.1.0`; may support only legacy proof-of-concept statements.
+4. `reports/STAGE_004_REPORT.md` and `reports/stage004_conformant_c2pa.json` — real C2PA hard-binding experiment.
+5. `reports/STAGE_005_REPORT.md` and `reports/stage005_cross_validator.json` — cross-version/trust-boundary experiment.
+6. `reports/STAGE_006_REPORT.md` — future reviewer benchmark; no human results.
+7. `reports/STAGE_007_REPORT.md` and freeze manifest — independent-adjudication preparation; no real adjudication.
+8. `reports/STAGE_008_REPORT.md` — distribution/intake infrastructure; no human responses.
+9. `reports/STAGE_012_ART37_REMEDIATION.md` — Article 37(1) legal-scope correction; profiles `0.1.0` (legacy) and `0.2.0` (current declared scope).
+10. `reports/STAGE_013_RUBRIC_REPORT.md` — semantic-equivalence/delegation rubric `1.0.0` and candidate registry, hash-locked before any outcome was observed.
+11. `reports/STAGE_014_REPORT.md` and `benchmarks/stage014/generated/*.json` — corrected-profile condition benchmark (59 cases / 13 conditions), rubric-governed delegation assessment (0/4 Article 30(3); 0/2 Article 37(1)), controlled delegation round-trips, corrected-profile mapping round-trips (55/55), and the declared naïve-baseline comparison. These supersede the Stage 003 artifacts **for record profile `0.2.0` only**.
+12. `review/STAGE_011_*` and `review/STAGE_014_CONTROLLER_DECISION.md` — prior-work and novelty-scope review artifacts; they bound what may be claimed as a contribution but are not external authorities.
 
 Project reports are not external legal or technical authorities. They may support only bounded empirical statements about this implementation.
 
-## H. Citation hierarchy
+**Profile-version rule.** Any result generated under record profile `0.1.0` must be labelled legacy wherever it appears and must never be presented as evidence about profile `0.2.0`.
+
+## I. Citation hierarchy
 
 Use sources in this order:
 
@@ -113,7 +143,7 @@ Use sources in this order:
 4. peer-reviewed literature for scholarly positioning;
 5. committed project reports and machine outputs for IPEL experimental results.
 
-## I. Remaining pre-submission bibliographic work
+## J. Remaining pre-submission bibliographic work
 
 - Verify every author list and page range against publisher metadata during journal-style conversion.
 - Replace raw web locations with the target journal’s preferred reference formatting.

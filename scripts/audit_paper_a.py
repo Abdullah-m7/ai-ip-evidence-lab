@@ -27,7 +27,7 @@ REQUIRED_HEADINGS = (
     "## Abstract",
     "## 1. Introduction",
     "## 2. Legal testbed: Saudi Arabia’s 2026 Copyright Law",
-    "## 3. Related work and the missing evidence layer",
+    "## 3. Related work and adjacent evidence layers",
     "## 4. IPEL architecture",
     "## 5. Methods",
     "## 6. Results",

@@ -42,7 +42,7 @@ IPEL is complementary rather than substitutive:
 | improves documentation and attribution | separates evidence sufficiency from legal judgment |
 | does not purport to prove legal compliance | explicitly refuses to do so as well |
 
-The key novelty is not “more provenance metadata”; it is the legal-to-evidence mapping and the machine-enforced boundary preventing metadata from silently becoming a legal conclusion.
+The contribution is not “more provenance metadata”, and not the observation that provenance documentation is incomplete, which this literature already established. It is the statutory legal-to-evidence mapping and the executable, pre-locked test of which of its propositions the generic layers can and cannot carry.
 
 Reference:
 - Longpre et al. (2024), *A large-scale audit of dataset licensing and attribution in AI*, Nature Machine Intelligence. https://www.nature.com/articles/s42256-024-00878-8
@@ -53,6 +53,8 @@ CAWG's Training and Data Mining Assertion and the TDM·AI protocol address a dif
 
 CAWG 1.1 enables a human actor to place a signed assertion in C2PA metadata indicating whether an asset may be used in a training or data-mining workflow. TDM·AI similarly focuses on machine-readable usage preferences and explicitly distinguishes public opt-out/permission declarations from negotiated licensing.
 
+The broader rights-expression tradition predates these AI-specific protocols: W3C ODRL 2.2 represents permissions, prohibitions, duties and constraints; IPTC RightsML specializes ODRL for media-industry rights; and Creative Commons ccREL represents machine-readable licence terms. The 2026 ODRL AI Vocabulary extends that lineage with AI-specific actions but is currently a Community Group draft, not a W3C Recommendation. Paper A therefore does not claim novelty for machine-readable rights expression.
+
 These protocols answer questions like:
 
 > What preference or restriction has been expressed for this asset?
@@ -61,7 +63,7 @@ IPEL asks:
 
 > What evidence exists that this developer's particular use satisfied the facts required by the governing legal pathway?
 
-A preference signal can be relevant evidence, but it is not automatically equivalent to lawful acquisition, publication status, license scope, necessity, market effect, or downstream permission. This distinction is especially important in legal systems where a rights reservation is only one element of the applicable rule. The Stage-003 to Stage-005 tests therefore deliberately prevent `allowed` or `trusted` metadata from overwriting jurisdiction-specific legal-evidence fields.
+A preference signal can be relevant evidence, but it is not automatically equivalent to lawful acquisition, publication status, license scope, necessity, market effect, or downstream permission. This distinction is especially important in legal systems where a rights reservation is only one element of the applicable rule. The Stage-003 to Stage-005 tests therefore deliberately prevent `allowed` or `trusted` metadata from overwriting jurisdiction-specific legal-evidence fields, and the Stage-014 baseline comparison quantifies what happens when a mapping does infer those fields from such a signal.
 
 Official sources:
 - CAWG Training and Data Mining Assertion 1.1: https://cawg.io/training-and-data-mining/1.1/
@@ -74,11 +76,12 @@ C2PA provides a mature technical standard for content provenance and authenticit
 
 Paper A does not propose a rival cryptographic provenance standard. Stages 003–005 instead ask which IPEL facts can safely be delegated to C2PA and whether cryptographic integrity/trust can be kept separate from legal meaning.
 
-The experiments produce three relevant findings:
+The experiments produce four relevant findings:
 
-1. the tested Article 30(3) core fields were not safely delegated in the Stage-003 mapping (0/4);
-2. actual C2PA hard binding detected the tested asset/assertion/signature corruptions in Stage 004;
-3. cryptographic validity, signer trust, and metadata-semantic validity remained distinct in Stage 005.
+1. under the pre-locked rubric `1.0.0` on corrected record profile `0.2.0`, 0/4 Article 30(3) core fields and 0/2 Article 37(1) propositions were safely delegable to the tested C2PA/CAWG candidates; the only `SAFE_DELEGATION` was `work.title → dc:title`, a field the evidence gate never reads (Stage 014). The superficially similar legacy `0/4` from Stage 003 was produced under profile `0.1.0` and a pre-rubric criterion and is retained only as legacy evidence;
+2. a naïve name-similarity mapping that inferred legal propositions from provenance signals masked adverse or unresolved legal facts in 28 of 59 cases and changed its legal-facing outcome in 44 of 59 cases when only the provenance signals changed (Stage 014);
+3. actual C2PA hard binding detected the tested asset/assertion/signature corruptions in Stage 004;
+4. cryptographic validity, signer trust, and metadata-semantic validity remained distinct in Stage 005.
 
 This yields a layered model:
 
@@ -100,7 +103,7 @@ C2PA source:
 
 WIPO's 2026 AI Infrastructure Interchange (AIII) treats metadata, digital identifiers, authentication tools, watermarking, rights-management systems, content recognition and distribution frameworks as an infrastructure layer that must adapt to AI. WIPO explicitly frames AIII as technical/operational dialogue rather than lawmaking.
 
-This framing supports Paper A's central distinction: substantive IP rules and technical infrastructure are related but different layers. IPEL is positioned as a research prototype for one missing infrastructure problem—**post-hoc legal-evidence observability**—not as a policy standard endorsed by WIPO.
+This framing supports Paper A's central distinction: substantive IP rules and technical infrastructure are related but different layers. IPEL is positioned as a research prototype addressing one bounded problem within that layer—preserving the legally operative facts of a specific statutory use pathway—not as a claim that the layer was previously unidentified, and not as a policy standard endorsed by WIPO.
 
 Source:
 - WIPO AIII: https://www.wipo.int/en/web/ai-infrastructure-interchange
@@ -127,26 +130,39 @@ Relevant literature:
 - *Regulation by Design: Features, Practices, Limitations, and Governance Implications*. https://link.springer.com/article/10.1007/s11023-024-09675-z
 - *Making algorithmic transparency enforceable: sufficient intelligibility, technical evidence, and auditability across the EU and the US*. https://doi.org/10.1093/ijlit/eaag008
 
-## 7. Novelty claim after expanded related-work review
+## 7. Closest novelty threats
 
-The defensible novelty claim is deliberately narrow:
+The closest identified works narrow Paper A in six different directions. Li (2026) provides direct conceptual prior art for a minimum reviewable trace; Lucchi (2026) frames copyright authorship as an auditability gap; Park (2025) already combines C2PA with AI-training copyright management; Krishna, Shree, and Raguram (2026) place cryptographic provenance into copyright-litigation disclosure; Xie et al. (2025) verify training-data provenance from model behaviour; and Qi et al. (2026) audit unauthorized training data through information-isotope tracing. None is treated as a straw comparator. Together they remove any defensible claim to generic auditability, generic evidentiary infrastructure, C2PA-for-copyright, or provenance-verification novelty.
 
-> Existing work separately addresses substantive AI-training copyright doctrine, dataset lineage and license documentation, machine-readable rightsholder preferences, cryptographic content provenance, and compliance/law-by-design. Paper A contributes a tested **jurisdiction-specific legal-evidence layer** that maps fact-conditioned copyright rules into observable evidence requirements and enforces semantic barriers so provenance, trust, and preference signals cannot silently become legal conclusions.
+Their distinction from Paper A is narrower: none of the six reports the same combination of an enacted Saudi AI-development pathway with an express record core, a versioned use-event evidence contract, a semantic-equivalence rubric frozen before candidate outcomes, and an executable baseline demonstrating false equivalence when provenance/trust/rights signals are substituted for separate statutory evidence propositions. That conjunction—not any component by itself—is the claimed contribution.
 
-A second way to express the contribution is:
+## 8. Novelty claim after expanded related-work review
 
-> The architecture shifts the technical objective from “automate the legal answer” to “make the legally relevant facts reconstructable and contestable.”
+Following the Stage 011 novelty threat register and the Stage 014 controller decision, the claim is narrowed to a conjunction:
 
-The paper does **not** claim:
+> A jurisdiction-specific, use-event-level evidence profile derived from Saudi Arabia's Article 26(4) + Article 37(1) + Implementing Regulation Article 30 pathway, coupled to executable tests showing when mature provenance and rights-signaling semantics are **not** safely substitutable for the legally relevant evidence propositions, while preserving a hard boundary between technical evidence state and legal conclusion.
+
+The contribution is the specific statutory decomposition, the executable semantic-boundary experiment, and the corrected-profile benchmark that measures both — not generic provenance, auditability, reviewability, or rights expression.
+
+The paper explicitly **concedes as prior work** and claims no priority for:
+
+- the argument that AI governance or copyright needs an evidence layer;
+- auditability or reviewability by design;
+- the insufficiency of training-data transparency alone;
+- the use of C2PA for AI-training copyright or rights management;
+- training-data provenance verification or auditing generally;
+- the terminology of evidentiary observability, which is used as project vocabulary only.
+
+The paper further does **not** claim:
 
 - the first provenance system for AI;
 - the first machine-readable copyright protocol;
-- the first C2PA use in AI;
 - automated copyright compliance;
-- universal cross-jurisdiction copyright semantics;
-- that evidence preservation eliminates legal interpretation.
+- universal cross-jurisdiction copyright semantics or field portability;
+- that evidence preservation eliminates legal interpretation;
+- independent adjudication of the delegation assessments, or any human-effect result.
 
-## 8. Generalization hypothesis
+## 9. Generalization hypothesis
 
 The cross-jurisdiction hypothesis should be framed methodologically:
 
